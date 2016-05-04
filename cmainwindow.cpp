@@ -44,7 +44,15 @@ void CMainWindow::on_pBOperazioni_clicked()
 {
     COperations *f =new COperations();
 
-    f->setDatabase(db);
+    f->init(db);
 
     f->show();
+}
+
+void CMainWindow::on_pushButton_clicked()
+{
+    if(QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere?",QMessageBox::Ok|QMessageBox::Cancel))
+    {
+    QApplication::quit();
+    }
 }

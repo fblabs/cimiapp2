@@ -27,7 +27,6 @@ QT_BEGIN_NAMESPACE
 class Ui_COperations
 {
 public:
-    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
@@ -35,16 +34,16 @@ public:
     QLabel *label_2;
     QDateEdit *deAl;
     QTableView *tvMain;
+    QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
+    QPushButton *pushButton_2;
 
     void setupUi(QWidget *COperations)
     {
         if (COperations->objectName().isEmpty())
             COperations->setObjectName(QStringLiteral("COperations"));
         COperations->resize(1088, 511);
-        verticalLayout_2 = new QVBoxLayout(COperations);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout = new QVBoxLayout();
+        verticalLayout = new QVBoxLayout(COperations);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -83,6 +82,8 @@ public:
 
         verticalLayout->addWidget(tvMain);
 
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         pushButton = new QPushButton(COperations);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         QIcon icon;
@@ -90,10 +91,19 @@ public:
         pushButton->setIcon(icon);
         pushButton->setIconSize(QSize(32, 32));
 
-        verticalLayout->addWidget(pushButton);
+        horizontalLayout_2->addWidget(pushButton);
+
+        pushButton_2 = new QPushButton(COperations);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
+        pushButton_2->setIconSize(QSize(32, 32));
+
+        horizontalLayout_2->addWidget(pushButton_2);
 
 
-        verticalLayout_2->addLayout(verticalLayout);
+        verticalLayout->addLayout(horizontalLayout_2);
 
 
         retranslateUi(COperations);
@@ -110,6 +120,7 @@ public:
         pushButton->setToolTip(QApplication::translate("COperations", "modifica registrazione selezionata", 0));
 #endif // QT_NO_TOOLTIP
         pushButton->setText(QApplication::translate("COperations", "Modifica", 0));
+        pushButton_2->setText(QApplication::translate("COperations", "Chiudi", 0));
     } // retranslateUi
 
 };

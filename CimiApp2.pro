@@ -15,14 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         cmainwindow.cpp \
     coperations.cpp \
-    ctablemodel.cpp
+    cregistrazione.cpp \
+    crelationaltablemodel.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
-    ctablemodel.h
+    cregistrazione.h \
+    crelationaltablemodel.h
 
 FORMS    += cmainwindow.ui \
-    coperations.ui
+    coperations.ui \
+    cregistrazione.ui
 
 RESOURCES += \
     graphics.qrc

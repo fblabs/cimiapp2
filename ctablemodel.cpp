@@ -1,7 +1,9 @@
 #include "ctablemodel.h"
 
+
 CTableModel::CTableModel(QObject *parent) :
-    QSqlRelationalTableModel(parent)
+    QSqlRelationalTableModel(parent,db)
 {
+
 }
 

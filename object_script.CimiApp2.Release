@@ -1,0 +1,12 @@
+INPUT(
+./release/main.o
+./release/cmainwindow.o
+./release/coperations.o
+./release/cregistrazione.o
+./release/crelationaltablemodel.o
+./release/qrc_graphics.o
+./release/moc_cmainwindow.o
+./release/moc_coperations.o
+./release/moc_cregistrazione.o
+./release/moc_crelationaltablemodel.o
+);

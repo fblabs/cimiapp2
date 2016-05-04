@@ -13,6 +13,8 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -25,11 +27,19 @@ class Ui_CMainWindow
 {
 public:
     QWidget *centralWidget;
-    QLabel *label;
-    QLabel *label_2;
-    QPushButton *pBOperazioni;
+    QGridLayout *gridLayout;
+    QGridLayout *gridLayout_2;
     QPushButton *pushButton_2;
+    QPushButton *pBOperazioni;
+    QPushButton *pushButton;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
+    QLabel *label_4;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_2;
+    QLabel *label;
+    QLabel *label_3;
+    QLabel *label_5;
 
     void setupUi(QMainWindow *CMainWindow)
     {
@@ -99,9 +109,83 @@ public:
         CMainWindow->setPalette(palette);
         centralWidget = new QWidget(CMainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon);
+        pushButton_2->setIconSize(QSize(32, 32));
+        pushButton_2->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_2, 1, 0, 1, 1);
+
+        pBOperazioni = new QPushButton(centralWidget);
+        pBOperazioni->setObjectName(QStringLiteral("pBOperazioni"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Folder.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pBOperazioni->setIcon(icon1);
+        pBOperazioni->setIconSize(QSize(32, 32));
+        pBOperazioni->setFlat(true);
+
+        gridLayout_2->addWidget(pBOperazioni, 1, 2, 1, 1);
+
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon2);
+        pushButton->setIconSize(QSize(32, 32));
+        pushButton->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton, 1, 4, 1, 1);
+
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Book.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon3);
+        pushButton_3->setIconSize(QSize(32, 32));
+        pushButton_3->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_3, 1, 3, 1, 1);
+
+        pushButton_4 = new QPushButton(centralWidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon4);
+        pushButton_4->setIconSize(QSize(32, 32));
+        pushButton_4->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_4, 0, 2, 1, 1);
+
+
+        gridLayout->addLayout(gridLayout_2, 3, 0, 1, 1);
+
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout->addWidget(label_4, 2, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setMaximumSize(QSize(300, 16777215));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/Resources/Stardock DesktopX.png")));
+
+        horizontalLayout->addWidget(label_2);
+
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(730, 480, 371, 121));
         QFont font;
         font.setFamily(QStringLiteral("Arial Black"));
         font.setPointSize(48);
@@ -110,26 +194,23 @@ public:
         label->setFont(font);
         label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 255)"));
         label->setTextFormat(Qt::AutoText);
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(650, 500, 91, 91));
-        label_2->setPixmap(QPixmap(QString::fromUtf8(":/Resources/Chart.PNG")));
-        pBOperazioni = new QPushButton(centralWidget);
-        pBOperazioni->setObjectName(QStringLiteral("pBOperazioni"));
-        pBOperazioni->setGeometry(QRect(124, 420, 101, 41));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/money.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pBOperazioni->setIcon(icon);
-        pBOperazioni->setIconSize(QSize(32, 32));
-        pBOperazioni->setFlat(true);
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(250, 430, 75, 23));
-        pushButton_2->setFlat(true);
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(360, 430, 75, 23));
-        pushButton_3->setFlat(true);
+
+        horizontalLayout->addWidget(label);
+
+
+        gridLayout->addLayout(horizontalLayout, 1, 0, 1, 1);
+
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout->addWidget(label_3, 0, 0, 1, 1);
+
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setMaximumSize(QSize(16777215, 30));
+
+        gridLayout->addWidget(label_5, 4, 0, 1, 1);
+
         CMainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(CMainWindow);
@@ -140,10 +221,15 @@ public:
     void retranslateUi(QMainWindow *CMainWindow)
     {
         CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2", 0));
-        label->setText(QApplication::translate("CMainWindow", "CimiApp2", 0));
+        pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Operazioni", 0));
-        pushButton_2->setText(QApplication::translate("CMainWindow", "PushButton", 0));
-        pushButton_3->setText(QApplication::translate("CMainWindow", "PushButton", 0));
+        pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
+        pushButton_3->setText(QApplication::translate("CMainWindow", "Mandati", 0));
+        pushButton_4->setText(QApplication::translate("CMainWindow", "Inserisci nuova", 0));
+        label_4->setText(QString());
+        label->setText(QApplication::translate("CMainWindow", "CimiApp2", 0));
+        label_3->setText(QString());
+        label_5->setText(QApplication::translate("CMainWindow", "TextLabel", 0));
     } // retranslateUi
 
 };
