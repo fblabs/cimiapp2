@@ -36,6 +36,7 @@ public:
     QTableView *tvMain;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
+    QPushButton *pushButton_3;
     QPushButton *pushButton_2;
 
     void setupUi(QWidget *COperations)
@@ -93,11 +94,20 @@ public:
 
         horizontalLayout_2->addWidget(pushButton);
 
+        pushButton_3 = new QPushButton(COperations);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon1);
+        pushButton_3->setIconSize(QSize(32, 32));
+
+        horizontalLayout_2->addWidget(pushButton_3);
+
         pushButton_2 = new QPushButton(COperations);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon2);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_2);
@@ -120,6 +130,7 @@ public:
         pushButton->setToolTip(QApplication::translate("COperations", "modifica registrazione selezionata", 0));
 #endif // QT_NO_TOOLTIP
         pushButton->setText(QApplication::translate("COperations", "Modifica", 0));
+        pushButton_3->setText(QApplication::translate("COperations", "Nuova Registrazione", 0));
         pushButton_2->setText(QApplication::translate("COperations", "Chiudi", 0));
     } // retranslateUi
 

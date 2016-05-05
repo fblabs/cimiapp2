@@ -27,6 +27,8 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
     ID=pid;
     db=pdb;
 
+
+
 /*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
     tipimod->setTable("tipi_mov");

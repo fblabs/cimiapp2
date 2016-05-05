@@ -107,6 +107,9 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         CMainWindow->setPalette(palette);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Resources/Stardock DesktopX.png"), QSize(), QIcon::Normal, QIcon::Off);
+        CMainWindow->setWindowIcon(icon);
         centralWidget = new QWidget(CMainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -118,9 +121,9 @@ public:
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
         pushButton_2->setIconSize(QSize(32, 32));
         pushButton_2->setFlat(true);
 
@@ -128,9 +131,9 @@ public:
 
         pBOperazioni = new QPushButton(centralWidget);
         pBOperazioni->setObjectName(QStringLiteral("pBOperazioni"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Folder.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pBOperazioni->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Folder.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pBOperazioni->setIcon(icon2);
         pBOperazioni->setIconSize(QSize(32, 32));
         pBOperazioni->setFlat(true);
 
@@ -138,9 +141,9 @@ public:
 
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon3);
         pushButton->setIconSize(QSize(32, 32));
         pushButton->setFlat(true);
 
@@ -148,9 +151,9 @@ public:
 
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/Book.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Book.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon4);
         pushButton_3->setIconSize(QSize(32, 32));
         pushButton_3->setFlat(true);
 
@@ -158,9 +161,9 @@ public:
 
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon5);
         pushButton_4->setIconSize(QSize(32, 32));
         pushButton_4->setFlat(true);
 
@@ -229,7 +232,7 @@ public:
         label_4->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp2", 0));
         label_3->setText(QString());
-        label_5->setText(QApplication::translate("CMainWindow", "TextLabel", 0));
+        label_5->setText(QString());
     } // retranslateUi
 
 };

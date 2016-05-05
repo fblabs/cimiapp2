@@ -428,6 +428,10 @@
   <property name="windowTitle">
    <string>CimiApp2</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="graphics.qrc">
+    <normaloff>:/Resources/Stardock DesktopX.png</normaloff>:/Resources/Stardock DesktopX.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="3" column="0">
@@ -595,7 +599,7 @@
        </size>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
     </item>

@@ -10,7 +10,9 @@
 #include <QSqlRelation>
 #include <QHeaderView>
 #include "cregistrazione.h"
+#include "cnuovaregistrazione.h"
 #include <QMessageBox>
+
 
 COperations::COperations(QWidget *parent) :
     QWidget(parent),
@@ -121,4 +123,11 @@ void COperations::on_pushButton_2_clicked()
   {
       close();
   }
+}
+
+void COperations::on_pushButton_3_clicked()
+{
+  CNuovaRegistrazione *f=new CNuovaRegistrazione();
+  f->init(db);
+  f->show();
 }

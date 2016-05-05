@@ -5,12 +5,14 @@
 #include <QSqlError>
 
 #include "coperations.h"
+#include "cnuovaregistrazione.h"
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::CMainWindow)
 {
     ui->setupUi(this);
+    showMaximized();
 
    db = QSqlDatabase::addDatabase("QMYSQL");
 
@@ -55,4 +57,11 @@ void CMainWindow::on_pushButton_clicked()
     {
     QApplication::quit();
     }
+}
+
+void CMainWindow::on_pushButton_4_clicked()
+{
+    CNuovaRegistrazione *f = new CNuovaRegistrazione();
+    f->init(db);
+    f->show();
 }
