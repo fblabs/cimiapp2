@@ -59,7 +59,17 @@
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
+       <item row="1" column="3">
+        <widget class="QComboBox" name="cbConto">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::NoInsert</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
         <widget class="QLabel" name="label_4">
          <property name="maximumSize">
           <size>
@@ -72,7 +82,7 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
+       <item row="1" column="2">
         <widget class="QComboBox" name="cbSottogruppo">
          <property name="maximumSize">
           <size>
@@ -82,8 +92,15 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QComboBox" name="cbConto"/>
+       <item row="0" column="0">
+        <widget class="QCheckBox" name="cbxRimborso">
+         <property name="text">
+          <string>Rimborso Spese Dipendenti</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -113,7 +130,14 @@
         </widget>
        </item>
        <item row="0" column="2">
-        <widget class="QComboBox" name="cbContropartita"/>
+        <widget class="QComboBox" name="cbContropartita">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::NoInsert</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -136,12 +160,35 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableView" name="tableView"/>
+      <widget class="QTableView" name="tvDetails"/>
      </item>
      <item>
       <widget class="QCheckBox" name="checkBox">
        <property name="text">
         <string>Liquidato</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Note:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="ptNote">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
        </property>
       </widget>
      </item>

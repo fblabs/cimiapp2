@@ -39,6 +39,8 @@ public:
     QLabel *label_2;
     QDateEdit *dateEdit;
     QTableView *tvDetails;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -94,22 +96,38 @@ public:
 
         verticalLayout_2->addWidget(tvDetails);
 
+        pushButton_3 = new QPushButton(CRegistrazione);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon);
+
+        verticalLayout_2->addWidget(pushButton_3);
+
+        pushButton_4 = new QPushButton(CRegistrazione);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon1);
+
+        verticalLayout_2->addWidget(pushButton_4);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         pushButton = new QPushButton(CRegistrazione);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon2);
         pushButton->setIconSize(QSize(32, 32));
 
         horizontalLayout->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(CRegistrazione);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon1);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon3);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout->addWidget(pushButton_2);
@@ -131,6 +149,8 @@ public:
         CRegistrazione->setWindowTitle(QApplication::translate("CRegistrazione", "Modifica Registrazione", 0));
         label->setText(QApplication::translate("CRegistrazione", "Tipo:", 0));
         label_2->setText(QApplication::translate("CRegistrazione", "Data Registrazione:", 0));
+        pushButton_3->setText(QApplication::translate("CRegistrazione", "Nuova riga", 0));
+        pushButton_4->setText(QApplication::translate("CRegistrazione", "Rimuovi riga", 0));
         pushButton->setText(QApplication::translate("CRegistrazione", "Salva", 0));
         pushButton_2->setText(QApplication::translate("CRegistrazione", "Chiudi", 0));
     } // retranslateUi

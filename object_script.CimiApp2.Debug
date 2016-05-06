@@ -5,12 +5,12 @@ INPUT(
 ./debug/cregistrazione.o
 ./debug/crelationaltablemodel.o
 ./debug/cnuovaregistrazione.o
-./debug/cnuovarigaregistrrazione.o
+./debug/cnuovarigaregistrazione.o
 ./debug/qrc_graphics.o
 ./debug/moc_cmainwindow.o
 ./debug/moc_coperations.o
 ./debug/moc_cregistrazione.o
 ./debug/moc_crelationaltablemodel.o
 ./debug/moc_cnuovaregistrazione.o
-./debug/moc_cnuovarigaregistrrazione.o
+./debug/moc_cnuovarigaregistrazione.o
 );

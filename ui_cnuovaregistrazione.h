@@ -22,6 +22,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -42,9 +43,10 @@ public:
     QFrame *line;
     QVBoxLayout *verticalLayout_2;
     QGridLayout *gridLayout_2;
+    QComboBox *cbConto;
     QLabel *label_4;
     QComboBox *cbSottogruppo;
-    QComboBox *cbConto;
+    QCheckBox *cbxRimborso;
     QGridLayout *gridLayout;
     QLabel *label_5;
     QComboBox *cbCpSottogruppo;
@@ -52,8 +54,10 @@ public:
     QFrame *line_2;
     QVBoxLayout *verticalLayout;
     QLabel *label_3;
-    QTableView *tableView;
+    QTableView *tvDetails;
     QCheckBox *checkBox;
+    QLabel *label_6;
+    QPlainTextEdit *ptNote;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -112,22 +116,30 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        cbConto = new QComboBox(CNuovaRegistrazione);
+        cbConto->setObjectName(QStringLiteral("cbConto"));
+        cbConto->setEditable(true);
+        cbConto->setInsertPolicy(QComboBox::NoInsert);
+
+        gridLayout_2->addWidget(cbConto, 1, 3, 1, 1);
+
         label_4 = new QLabel(CNuovaRegistrazione);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setMaximumSize(QSize(160, 16777215));
 
-        gridLayout_2->addWidget(label_4, 0, 0, 1, 1);
+        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
 
         cbSottogruppo = new QComboBox(CNuovaRegistrazione);
         cbSottogruppo->setObjectName(QStringLiteral("cbSottogruppo"));
         cbSottogruppo->setMaximumSize(QSize(50, 16777215));
 
-        gridLayout_2->addWidget(cbSottogruppo, 0, 1, 1, 1);
+        gridLayout_2->addWidget(cbSottogruppo, 1, 2, 1, 1);
 
-        cbConto = new QComboBox(CNuovaRegistrazione);
-        cbConto->setObjectName(QStringLiteral("cbConto"));
+        cbxRimborso = new QCheckBox(CNuovaRegistrazione);
+        cbxRimborso->setObjectName(QStringLiteral("cbxRimborso"));
+        cbxRimborso->setChecked(true);
 
-        gridLayout_2->addWidget(cbConto, 0, 2, 1, 1);
+        gridLayout_2->addWidget(cbxRimborso, 0, 0, 1, 1);
 
 
         verticalLayout_2->addLayout(gridLayout_2);
@@ -148,6 +160,8 @@ public:
 
         cbContropartita = new QComboBox(CNuovaRegistrazione);
         cbContropartita->setObjectName(QStringLiteral("cbContropartita"));
+        cbContropartita->setEditable(true);
+        cbContropartita->setInsertPolicy(QComboBox::NoInsert);
 
         gridLayout->addWidget(cbContropartita, 0, 2, 1, 1);
 
@@ -171,15 +185,27 @@ public:
 
         verticalLayout->addWidget(label_3);
 
-        tableView = new QTableView(CNuovaRegistrazione);
-        tableView->setObjectName(QStringLiteral("tableView"));
+        tvDetails = new QTableView(CNuovaRegistrazione);
+        tvDetails->setObjectName(QStringLiteral("tvDetails"));
 
-        verticalLayout->addWidget(tableView);
+        verticalLayout->addWidget(tvDetails);
 
         checkBox = new QCheckBox(CNuovaRegistrazione);
         checkBox->setObjectName(QStringLiteral("checkBox"));
 
         verticalLayout->addWidget(checkBox);
+
+        label_6 = new QLabel(CNuovaRegistrazione);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        verticalLayout->addWidget(label_6);
+
+        ptNote = new QPlainTextEdit(CNuovaRegistrazione);
+        ptNote->setObjectName(QStringLiteral("ptNote"));
+        ptNote->setMaximumSize(QSize(16777215, 80));
+        ptNote->setBaseSize(QSize(0, 0));
+
+        verticalLayout->addWidget(ptNote);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -247,9 +273,11 @@ public:
         label_2->setText(QApplication::translate("CNuovaRegistrazione", "Data Registrazione:", 0));
         label->setText(QApplication::translate("CNuovaRegistrazione", "Tipo:", 0));
         label_4->setText(QApplication::translate("CNuovaRegistrazione", "Conto:", 0));
+        cbxRimborso->setText(QApplication::translate("CNuovaRegistrazione", "Rimborso Spese Dipendenti", 0));
         label_5->setText(QApplication::translate("CNuovaRegistrazione", "Contropartita:", 0));
         label_3->setText(QApplication::translate("CNuovaRegistrazione", "Dettagli:", 0));
         checkBox->setText(QApplication::translate("CNuovaRegistrazione", "Liquidato", 0));
+        label_6->setText(QApplication::translate("CNuovaRegistrazione", "Note:", 0));
         pushButton->setText(QApplication::translate("CNuovaRegistrazione", "Nuova Riga", 0));
         pushButton_2->setText(QApplication::translate("CNuovaRegistrazione", "Elimina Riga", 0));
         pushButton_3->setText(QApplication::translate("CNuovaRegistrazione", "Salva", 0));

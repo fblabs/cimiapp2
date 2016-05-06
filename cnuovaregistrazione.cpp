@@ -1,6 +1,7 @@
 #include "cnuovaregistrazione.h"
 #include "ui_cnuovaregistrazione.h"
-#include "cnuovarigaregistrrazione.h"
+#include "cnuovarigaregistrazione.h"
+#include <QDate>
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -10,6 +11,10 @@
 #include <QSqlRelation>
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QCompleter>
+
 
 #include <QMessageBox>
 
@@ -45,6 +50,7 @@ void CNuovaRegistrazione::init(QSqlDatabase pdb)
     ui->cbTipoRegistrazione->setModel(tipimod);
     ui->cbTipoRegistrazione->setModelColumn(1);
 
+
     QSqlTableModel *modconti=new QSqlTableModel(0,db);
 
     modconti->setTable("anagrafica");
@@ -69,6 +75,76 @@ void CNuovaRegistrazione::init(QSqlDatabase pdb)
     ui->cbCpSottogruppo->addItem("C");
     ui->cbCpSottogruppo->addItem("D");
     ui->cbCpSottogruppo->addItem("F");
+    ui->cbCpSottogruppo->setCurrentIndex(1);
+
+    ui->cbTipoRegistrazione->setCurrentIndex(ui->cbTipoRegistrazione->findText("RIMB.SPESE DIPENDENTI"));
+
+    QCompleter *compConti = new QCompleter(modconti);
+    compConti->setCaseSensitivity(Qt::CaseInsensitive);
+    compConti->setCompletionMode(QCompleter::PopupCompletion);
+    compConti->setCompletionColumn(2);
+    ui->cbConto->setCompleter(compConti);
+
+    QCompleter *compContro = new QCompleter(modContropartite);
+    compContro->setCaseSensitivity(Qt::CaseInsensitive);
+    compContro->setCompletionMode(QCompleter::PopupCompletion);
+    compContro->setCompletionColumn(2);
+    ui->cbContropartita->setCompleter(compContro);
+
+
+
+    ui->cbContropartita->setCurrentIndex(ui->cbContropartita->findText("BANCA CA.RI.GE"));
+
+    registrazionimod=new QSqlTableModel(0,db);
+    registrazionimod->setTable("righe_reg");
+    registrazionimod->select();
+    registrazionimod->setFilter("ID="+QString::number(-1));
+
+    ui->tvDetails->setModel(registrazionimod);
+
+
+}
+
+bool CNuovaRegistrazione::addNewRegistration()
+{
+    db.transaction();
+    registrazionimod=new QSqlTableModel(0,db);
+    registrazionimod->setTable("registrazioni");
+    QSqlRecord rec = registrazionimod->record();
+
+    rec.setValue(0,QVariant(-1));
+    rec.setValue(1,QVariant(QDate::currentDate().toString("yyyy-MM-dd")));
+    rec.setValue(2,static_cast<QSqlTableModel*>(ui->cbConto->model())->index(ui->cbConto->currentIndex(),0).data(0));
+    rec.setValue(3,static_cast<QSqlTableModel*>(ui->cbTipoRegistrazione->model())->index(ui->cbTipoRegistrazione->currentIndex(),0).data(0));
+    rec.setValue(4,static_cast<QSqlTableModel*>(ui->cbContropartita->model())->index(ui->cbContropartita->currentIndex(),0).data(0));
+    bool flag=ui->checkBox->isChecked();
+    rec.setValue(5,QVariant(flag));
+    rec.setValue(6,QVariant());
+    rec.setValue(7,QVariant());
+    rec.setValue(8,QVariant(ui->ptNote->toPlainText()));
+
+
+    registrazionimod->insertRecord(registrazionimod->rowCount(),rec);
+
+    if(registrazionimod->submit())
+    {
+       /* QMessageBox::information(this,"OK","SIII",QMessageBox::Ok);
+        CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
+        f->init(db);
+        f->show();*/
+
+
+        db.commit();
+    }
+    else
+    {
+        db.rollback();
+        QMessageBox::information(this,"NO","NOOO",QMessageBox::Ok);
+
+    }
+
+    registrazionimod->select();
+
 
 
 
@@ -114,8 +190,18 @@ void CNuovaRegistrazione::on_pushButton_4_clicked()
 
 void CNuovaRegistrazione::on_pushButton_clicked()
 {
-    CNuovaRigaRegistrrazione *f= new CNuovaRigaRegistrrazione();
-    f->init(db);
+    CNuovaRigaRegistrazione *f= new CNuovaRigaRegistrazione();
+
+    nReg = registrazionimod->index(registrazionimod->rowCount(),0).data(0).toInt();
+
+    //TEMP========
+    //
+    f->init(db,nReg);
 
     f->show();
+}
+
+void CNuovaRegistrazione::on_pushButton_3_clicked()
+{
+    addNewRegistration();
 }

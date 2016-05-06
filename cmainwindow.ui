@@ -519,7 +519,7 @@
       <item row="0" column="2">
        <widget class="QPushButton" name="pushButton_4">
         <property name="text">
-         <string>Inserisci nuova</string>
+         <string>Inserisci nuova registrazione</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">

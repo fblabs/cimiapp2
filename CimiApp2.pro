@@ -18,20 +18,20 @@ SOURCES += main.cpp\
     cregistrazione.cpp \
     crelationaltablemodel.cpp \
     cnuovaregistrazione.cpp \
-    cnuovarigaregistrrazione.cpp
+    cnuovarigaregistrazione.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
     cregistrazione.h \
     crelationaltablemodel.h \
     cnuovaregistrazione.h \
-    cnuovarigaregistrrazione.h
+    cnuovarigaregistrazione.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
     cregistrazione.ui \
     cnuovaregistrazione.ui \
-    cnuovarigaregistrrazione.ui
+    cnuovarigaregistrazione.ui
 
 RESOURCES += \
     graphics.qrc

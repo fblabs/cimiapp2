@@ -228,7 +228,7 @@ public:
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Operazioni", 0));
         pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
         pushButton_3->setText(QApplication::translate("CMainWindow", "Mandati", 0));
-        pushButton_4->setText(QApplication::translate("CMainWindow", "Inserisci nuova", 0));
+        pushButton_4->setText(QApplication::translate("CMainWindow", "Inserisci nuova registrazione", 0));
         label_4->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp2", 0));
         label_3->setText(QString());

@@ -1,6 +1,7 @@
 #include "cregistrazione.h"
 #include "ui_cregistrazione.h"
 #include "crelationaltablemodel.h"
+#include "cnuovarigaregistrazione.h"
 #include <QSqlRelation>
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
@@ -69,4 +70,11 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
 void CRegistrazione::on_pushButton_2_clicked()
 {
     close();
+}
+
+void CRegistrazione::on_pushButton_3_clicked()
+{
+  CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
+  f->init(db,ID);
+  f->show();
 }

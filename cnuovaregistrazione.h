@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
+#include <QSqlTableModel>
 
 namespace Ui {
 class CNuovaRegistrazione;
@@ -26,11 +27,16 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::CNuovaRegistrazione *ui;
     QSqlDatabase db;
     void filterConto();
     void filterContropartita();
+    bool addNewRegistration();
+    QSqlTableModel *registrazionimod;
+    int nReg;
 
 };
 
