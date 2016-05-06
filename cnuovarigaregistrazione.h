@@ -36,6 +36,7 @@ private:
     QSqlDatabase db;
     int idRegistrazione;
     double calculate();
+    void resetForm();
 };
 
 #endif // CNUOVARIGAREGISTRAZIONE_H

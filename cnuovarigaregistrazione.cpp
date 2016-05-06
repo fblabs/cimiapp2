@@ -210,20 +210,33 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
 
 
     q.bindValue(":ID",idRegistrazione);
-    q.bindValue(":riga",10);
+    int riga=11;
+    q.bindValue(":riga",riga);//TODO vedere come incrementare il numero di riga
     q.bindValue(":tipo_ope",ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),0).data(0).toInt());
     q.bindValue(":richiesta",richiesta);
     q.bindValue(":entrate",entrate);
     q.bindValue(":uscite",uscite);
+    q.bindValue(":note",ui->ptNote->toPlainText());
 
    if(q.exec())
    {
-       close();
+      // close();
+       resetForm();
+
    }
    else
    {
-       QMessageBox::warning(this,QApplication::applicationName(),"ERRORE salvando la riga",QMessageBox::Ok);
+       QMessageBox::warning(this,QApplication::applicationName(),"ERRORE salvando la riga\n"+q.lastError().text(),QMessageBox::Ok);
 
    }
+
+}
+
+void CNuovaRigaRegistrazione::resetForm()
+{
+
+    ui->cbTipoOpe->setCurrentIndex(0);
+    ui->ptNote->setPlainText("");
+
 
 }

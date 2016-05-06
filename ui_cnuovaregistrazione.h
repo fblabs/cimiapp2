@@ -19,6 +19,7 @@
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -61,6 +62,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QGroupBox *groupBox;
     QFrame *line_3;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_3;
@@ -231,6 +233,11 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout);
 
+        groupBox = new QGroupBox(CNuovaRegistrazione);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+
+        verticalLayout_3->addWidget(groupBox);
+
         line_3 = new QFrame(CNuovaRegistrazione);
         line_3->setObjectName(QStringLiteral("line_3"));
         line_3->setFrameShape(QFrame::HLine);
@@ -280,6 +287,7 @@ public:
         label_6->setText(QApplication::translate("CNuovaRegistrazione", "Note:", 0));
         pushButton->setText(QApplication::translate("CNuovaRegistrazione", "Nuova Riga", 0));
         pushButton_2->setText(QApplication::translate("CNuovaRegistrazione", "Elimina Riga", 0));
+        groupBox->setTitle(QApplication::translate("CNuovaRegistrazione", "GroupBox", 0));
         pushButton_3->setText(QApplication::translate("CNuovaRegistrazione", "Salva", 0));
         pushButton_4->setText(QApplication::translate("CNuovaRegistrazione", "Chiudi", 0));
     } // retranslateUi
