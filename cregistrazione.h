@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlError>
+#include <QSqlTableModel>
 
 namespace Ui {
 class CRegistrazione;
@@ -23,11 +24,15 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::CRegistrazione *ui;
     QSqlDatabase db;
    // void setFilter(QString fil="");
     int ID;
+    QSqlTableModel *modRegistrazione;
+    QSqlTableModel *modRighe;
 };
 
 #endif // CREGISTRAZIONE_H

@@ -32,6 +32,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void reload();
+
 private:
     Ui::COperations *ui;
     QSqlDatabase db;

@@ -151,6 +151,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="text">
+      <string>Crea Registrazione</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="label_3">
@@ -160,7 +167,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableView" name="tvDetails"/>
+      <widget class="QTableView" name="tvDetails">
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="checkBox">

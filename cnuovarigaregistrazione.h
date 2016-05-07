@@ -16,7 +16,7 @@ class CNuovaRigaRegistrazione : public QWidget
 public:
     explicit CNuovaRigaRegistrazione(QWidget *parent = 0);
     ~CNuovaRigaRegistrazione();
-    void init(QSqlDatabase pdb,int pidRegistrazione);
+    void init(QSqlDatabase pdb, int pidRegistrazione, QSqlTableModel *pRows);
 
 
 private slots:
@@ -30,13 +30,20 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::CNuovaRigaRegistrazione *ui;
     QSqlTableModel *modtipiope;
+    QSqlTableModel *modrighe;
     QSqlDatabase db;
     int idRegistrazione;
     double calculate();
     void resetForm();
+signals:
+    void nrdone();
 };
 
 #endif // CNUOVARIGAREGISTRAZIONE_H

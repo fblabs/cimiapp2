@@ -32,6 +32,11 @@ COperations::~COperations()
     delete ui;
 }
 
+void COperations::reload()
+{
+    mod->select();
+}
+
 void COperations::init(QSqlDatabase pdb)
 {
     db=pdb;
@@ -43,7 +48,7 @@ void COperations::init(QSqlDatabase pdb)
 
 
 
-    qDebug()<<mod->database().databaseName();
+
     mod->setTable("registrazioni");
     mod->setSort(1,Qt::DescendingOrder);
     mod->setFilter("datareg between '" + ui->deDal->date().toString("yyyy-MM-dd") + "' AND '" +ui->deAl->date().toString("yyyy-MM-dd")+"'");
@@ -113,6 +118,7 @@ void COperations::on_pushButton_clicked()
  qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
     f->init(ID,ix,db);
+    connect(f,SIGNAL(done),this,SLOT(reload()));
 
     f->show();
 }
@@ -129,5 +135,7 @@ void COperations::on_pushButton_3_clicked()
 {
   CNuovaRegistrazione *f=new CNuovaRegistrazione();
   f->init(db);
+
+  connect(f,SIGNAL(done()),this,SLOT(reload()));
   f->show();
 }

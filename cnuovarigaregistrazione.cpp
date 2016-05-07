@@ -18,13 +18,22 @@ CNuovaRigaRegistrazione::CNuovaRigaRegistrazione(QWidget *parent) :
     ui->setupUi(this);
 }
 
-void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid)
+void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pRows)
 {
     db=pdb;
     idRegistrazione=pid;
 
+    if (pRows)
+    {
+    modrighe=pRows;
+    }
+    else
+    {
+        modrighe=new QSqlTableModel(0,db);
+        modrighe->setTable("righe_reg");
+        modrighe->setFilter ("ID="+ QString::number(idRegistrazione));
 
-
+    }
 
     if(!db.isOpen())
     {
@@ -180,6 +189,7 @@ void CNuovaRigaRegistrazione::on_pushButton_2_clicked()
 {
     if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere?",QMessageBox::Ok|QMessageBox::Cancel))
     {
+        emit nrdone();
         close();
     }
 }
@@ -188,9 +198,10 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
 {
     QSqlQuery q(db);
     QString sql;
-    double richiesta=125.2;//temp
+    double richiesta;//temp
     double entrate;
     double uscite;
+
     if (ui->rbE->isChecked())
     {
         entrate= 12.0;
@@ -201,8 +212,8 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
     else
     {
         entrate=0.0;
-        richiesta=741.0;
-        uscite=234.234;
+        richiesta=ui->leRichiesta->text().toDouble();
+        uscite=ui->leUscite->text().toDouble();
     }
 
     sql= "INSERT INTO `cimidb`.`righe_reg`(`ID`,`riga`,`tipo_ope`,`richiesta`,`entrate`,`uscite`,`note`)VALUES  (:ID,:riga,:tipo_ope,:richiesta,:entrate,:uscite,:note);";
@@ -210,7 +221,7 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
 
 
     q.bindValue(":ID",idRegistrazione);
-    int riga=11;
+    int riga=modrighe->rowCount()+1;
     q.bindValue(":riga",riga);//TODO vedere come incrementare il numero di riga
     q.bindValue(":tipo_ope",ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),0).data(0).toInt());
     q.bindValue(":richiesta",richiesta);
@@ -230,6 +241,8 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
 
    }
 
+   modrighe->select();
+   emit nrdone();
 }
 
 void CNuovaRigaRegistrazione::resetForm()
@@ -238,5 +251,15 @@ void CNuovaRigaRegistrazione::resetForm()
     ui->cbTipoOpe->setCurrentIndex(0);
     ui->ptNote->setPlainText("");
 
+
+}
+
+void CNuovaRigaRegistrazione::on_pushButton_3_clicked()
+{
+
+}
+
+void CNuovaRigaRegistrazione::on_pushButton_4_clicked()
+{
 
 }

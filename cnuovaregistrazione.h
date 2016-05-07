@@ -29,14 +29,24 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_5_clicked();
+
+    void reload();
+
 private:
     Ui::CNuovaRegistrazione *ui;
     QSqlDatabase db;
     void filterConto();
     void filterContropartita();
-    bool addNewRegistration();
+    bool saveNewRegistration();
     QSqlTableModel *registrazionimod;
+    QSqlTableModel *righemod;
     int nReg;
+    bool createNewRegistrazione();
+
+signals:
+
+    void done();
 
 };
 

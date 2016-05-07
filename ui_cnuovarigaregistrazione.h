@@ -53,6 +53,7 @@ public:
     QPlainTextEdit *ptNote;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
 
@@ -179,20 +180,29 @@ public:
 
         horizontalLayout_4->addWidget(pushButton_3);
 
+        pushButton_4 = new QPushButton(CNuovaRigaRegistrazione);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon3);
+        pushButton_4->setIconSize(QSize(32, 32));
+
+        horizontalLayout_4->addWidget(pushButton_4);
+
         pushButton = new QPushButton(CNuovaRigaRegistrazione);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon4);
         pushButton->setIconSize(QSize(32, 32));
 
         horizontalLayout_4->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(CNuovaRigaRegistrazione);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon5);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout_4->addWidget(pushButton_2);
@@ -219,7 +229,8 @@ public:
         lbUscite->setText(QApplication::translate("CNuovaRigaRegistrazione", "Uscite:", 0));
         label_5->setText(QApplication::translate("CNuovaRigaRegistrazione", "Note:", 0));
         pushButton_3->setText(QApplication::translate("CNuovaRigaRegistrazione", "Nuova Riga", 0));
-        pushButton->setText(QApplication::translate("CNuovaRigaRegistrazione", "Salva", 0));
+        pushButton_4->setText(QApplication::translate("CNuovaRigaRegistrazione", "Rimuovi riga", 0));
+        pushButton->setText(QApplication::translate("CNuovaRigaRegistrazione", "Salva Riga", 0));
         pushButton_2->setText(QApplication::translate("CNuovaRigaRegistrazione", "Chiudi", 0));
     } // retranslateUi
 

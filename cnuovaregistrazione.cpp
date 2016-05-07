@@ -105,36 +105,22 @@ void CNuovaRegistrazione::init(QSqlDatabase pdb)
 
 }
 
-bool CNuovaRegistrazione::addNewRegistration()
+bool CNuovaRegistrazione::saveNewRegistration()
 {
-    db.transaction();
+   /* db.transaction();
     registrazionimod=new QSqlTableModel(0,db);
     registrazionimod->setTable("registrazioni");
-    QSqlRecord rec = registrazionimod->record();
 
-    rec.setValue(0,QVariant(-1));
-    rec.setValue(1,QVariant(QDate::currentDate().toString("yyyy-MM-dd")));
-    rec.setValue(2,static_cast<QSqlTableModel*>(ui->cbConto->model())->index(ui->cbConto->currentIndex(),0).data(0));
-    rec.setValue(3,static_cast<QSqlTableModel*>(ui->cbTipoRegistrazione->model())->index(ui->cbTipoRegistrazione->currentIndex(),0).data(0));
-    rec.setValue(4,static_cast<QSqlTableModel*>(ui->cbContropartita->model())->index(ui->cbContropartita->currentIndex(),0).data(0));
-    bool flag=ui->checkBox->isChecked();
-    rec.setValue(5,QVariant(flag));
-    rec.setValue(6,QVariant());
-    rec.setValue(7,QVariant());
-    rec.setValue(8,QVariant(ui->ptNote->toPlainText()));
-
-
-    registrazionimod->insertRecord(registrazionimod->rowCount(),rec);
 
     if(registrazionimod->submit())
     {
-       /* QMessageBox::information(this,"OK","SIII",QMessageBox::Ok);
+      //  QMessageBox::information(this,"OK","SIII",QMessageBox::Ok)
         CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
-        f->init(db);
-        f->show();*/
+        f->init(db,-1);
+        f->show();
 
 
-        db.commit();
+      //  db.commit();
     }
     else
     {
@@ -146,7 +132,7 @@ bool CNuovaRegistrazione::addNewRegistration()
     registrazionimod->select();
 
 
-
+*/
 
 
 }
@@ -184,6 +170,7 @@ void CNuovaRegistrazione::on_pushButton_4_clicked()
 {
     if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere la finestra?",QMessageBox::Ok|QMessageBox::Cancel))
     {
+
         close();
     }
 }
@@ -193,15 +180,79 @@ void CNuovaRegistrazione::on_pushButton_clicked()
     CNuovaRigaRegistrazione *f= new CNuovaRigaRegistrazione();
 
     nReg = registrazionimod->index(registrazionimod->rowCount(),0).data(0).toInt();
+    qDebug()<<nReg;
 
     //TEMP========
     //
-    f->init(db,nReg);
+    f->init(db,nReg,righemod=0);
+    connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
 
     f->show();
 }
 
 void CNuovaRegistrazione::on_pushButton_3_clicked()
 {
-    addNewRegistration();
+    saveNewRegistration();
+    reload();
+}
+
+void CNuovaRegistrazione::reload()
+{
+    righemod->select();
+}
+
+void CNuovaRegistrazione::on_pushButton_5_clicked()
+{
+   bool b = createNewRegistrazione();
+}
+
+bool CNuovaRegistrazione::createNewRegistrazione()
+{
+    db.transaction();
+    registrazionimod=new QSqlTableModel(0,db);
+    righemod=new QSqlTableModel(0,db);
+
+    registrazionimod->setTable("registrazioni");
+    registrazionimod->select();
+
+    righemod->setTable("righe_reg");
+    righemod->select();
+
+    QSqlRecord rec = registrazionimod->record();
+
+    rec.setValue(0,QVariant(-1));
+    rec.setValue(1,QVariant(QDate::currentDate().toString("yyyy-MM-dd")));
+    rec.setValue(2,static_cast<QSqlTableModel*>(ui->cbConto->model())->index(ui->cbConto->currentIndex(),0).data(0));
+    rec.setValue(3,static_cast<QSqlTableModel*>(ui->cbTipoRegistrazione->model())->index(ui->cbTipoRegistrazione->currentIndex(),0).data(0));
+    rec.setValue(4,static_cast<QSqlTableModel*>(ui->cbContropartita->model())->index(ui->cbContropartita->currentIndex(),0).data(0));
+    bool flag=ui->checkBox->isChecked();
+    rec.setValue(5,QVariant(flag));
+    rec.setValue(6,QVariant());
+    rec.setValue(7,QVariant());
+    rec.setValue(8,QVariant(ui->ptNote->toPlainText()));
+
+
+    registrazionimod->insertRecord(registrazionimod->rowCount(),rec);
+    qDebug()<<"rowcount registrazioni: before submit "<<registrazionimod->rowCount();
+
+    registrazionimod->select();
+    qDebug()<<"rowcount registrazioni: after submit "<<registrazionimod->rowCount();
+
+    if(registrazionimod->submit())
+    {
+        int nReg=registrazionimod->index(registrazionimod->rowCount()-1,0).data(0).toInt();
+        CNuovaRigaRegistrazione *f=new CNuovaRigaRegistrazione();
+        f->init(db,nReg,righemod);
+        f->show();
+    }
+    db.commit();
+
+    emit done();
+
+
+
+
+
+
+    return false;
 }

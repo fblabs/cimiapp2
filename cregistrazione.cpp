@@ -6,6 +6,7 @@
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
 #include <QSqlQuery>
+#include <QSqlRecord>
 
 #include <QDebug>
 #include <QSqlError>
@@ -28,7 +29,8 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
     ID=pid;
     db=pdb;
 
-
+    modRegistrazione=new QSqlTableModel(0,db);
+    modRighe=new QSqlTableModel(0,db);
 
 /*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
@@ -75,6 +77,18 @@ void CRegistrazione::on_pushButton_2_clicked()
 void CRegistrazione::on_pushButton_3_clicked()
 {
   CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
-  f->init(db,ID);
+  f->init(db,ID,0);
   f->show();
+}
+
+void CRegistrazione::on_pushButton_clicked()
+{
+
+
+    QSqlRecord reg;
+    QSqlRecord rig;
+
+    reg=modRegistrazione->record();
+    rig=modRighe->record();
+
 }

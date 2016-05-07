@@ -53,6 +53,7 @@ public:
     QComboBox *cbCpSottogruppo;
     QComboBox *cbContropartita;
     QFrame *line_2;
+    QPushButton *pushButton_5;
     QVBoxLayout *verticalLayout;
     QLabel *label_3;
     QTableView *tvDetails;
@@ -180,6 +181,11 @@ public:
 
         verticalLayout_3->addWidget(line_2);
 
+        pushButton_5 = new QPushButton(CNuovaRegistrazione);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+
+        verticalLayout_3->addWidget(pushButton_5);
+
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_3 = new QLabel(CNuovaRegistrazione);
@@ -189,6 +195,7 @@ public:
 
         tvDetails = new QTableView(CNuovaRegistrazione);
         tvDetails->setObjectName(QStringLiteral("tvDetails"));
+        tvDetails->setAlternatingRowColors(true);
 
         verticalLayout->addWidget(tvDetails);
 
@@ -282,6 +289,7 @@ public:
         label_4->setText(QApplication::translate("CNuovaRegistrazione", "Conto:", 0));
         cbxRimborso->setText(QApplication::translate("CNuovaRegistrazione", "Rimborso Spese Dipendenti", 0));
         label_5->setText(QApplication::translate("CNuovaRegistrazione", "Contropartita:", 0));
+        pushButton_5->setText(QApplication::translate("CNuovaRegistrazione", "Crea Registrazione", 0));
         label_3->setText(QApplication::translate("CNuovaRegistrazione", "Dettagli:", 0));
         checkBox->setText(QApplication::translate("CNuovaRegistrazione", "Liquidato", 0));
         label_6->setText(QApplication::translate("CNuovaRegistrazione", "Note:", 0));
