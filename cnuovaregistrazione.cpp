@@ -168,9 +168,10 @@ void CNuovaRegistrazione::on_cbSottogruppo_currentIndexChanged(int index)
 
 void CNuovaRegistrazione::on_pushButton_4_clicked()
 {
-    if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere la finestra?",QMessageBox::Ok|QMessageBox::Cancel))
-    {
 
+   if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere la finestra?",QMessageBox::Ok|QMessageBox::Cancel))
+    {
+        emit done();
         close();
     }
 }
@@ -188,6 +189,7 @@ void CNuovaRegistrazione::on_pushButton_clicked()
     connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
 
     f->show();
+
 }
 
 void CNuovaRegistrazione::on_pushButton_3_clicked()
@@ -203,7 +205,9 @@ void CNuovaRegistrazione::reload()
 
 void CNuovaRegistrazione::on_pushButton_5_clicked()
 {
-   bool b = createNewRegistrazione();
+   if(QMessageBox::warning(this,QApplication::applicationName(),"Confermare la creazione di un registrazione per conto e tipo selezionati?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+
+    createNewRegistrazione();
 }
 
 bool CNuovaRegistrazione::createNewRegistrazione()
@@ -243,15 +247,10 @@ bool CNuovaRegistrazione::createNewRegistrazione()
         int nReg=registrazionimod->index(registrazionimod->rowCount()-1,0).data(0).toInt();
         CNuovaRigaRegistrazione *f=new CNuovaRigaRegistrazione();
         f->init(db,nReg,righemod);
+        connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
         f->show();
     }
     db.commit();
-
-    emit done();
-
-
-
-
 
 
     return false;

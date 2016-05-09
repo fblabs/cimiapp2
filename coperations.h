@@ -13,7 +13,6 @@ class COperations : public QWidget
 {
     Q_OBJECT
 
-    CRelationalTableModel *mod;
 
 public:
     explicit COperations(QWidget *parent = 0);
@@ -34,9 +33,12 @@ private slots:
 
     void reload();
 
+    void on_tvMain_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::COperations *ui;
     QSqlDatabase db;
+    QSqlRelationalTableModel *mod;
     void setFilter(QString fil="");
 };
 

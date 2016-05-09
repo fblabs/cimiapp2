@@ -34,6 +34,8 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
+    QPushButton *pbConti;
+    QPushButton *pushButton_5;
     QLabel *label_4;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
@@ -124,7 +126,7 @@ public:
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon1);
-        pushButton_2->setIconSize(QSize(32, 32));
+        pushButton_2->setIconSize(QSize(64, 64));
         pushButton_2->setFlat(true);
 
         gridLayout_2->addWidget(pushButton_2, 1, 0, 1, 1);
@@ -132,9 +134,9 @@ public:
         pBOperazioni = new QPushButton(centralWidget);
         pBOperazioni->setObjectName(QStringLiteral("pBOperazioni"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Folder.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/Resources/palet-03-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         pBOperazioni->setIcon(icon2);
-        pBOperazioni->setIconSize(QSize(32, 32));
+        pBOperazioni->setIconSize(QSize(64, 64));
         pBOperazioni->setFlat(true);
 
         gridLayout_2->addWidget(pBOperazioni, 1, 2, 1, 1);
@@ -144,7 +146,7 @@ public:
         QIcon icon3;
         icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon3);
-        pushButton->setIconSize(QSize(32, 32));
+        pushButton->setIconSize(QSize(64, 64));
         pushButton->setFlat(true);
 
         gridLayout_2->addWidget(pushButton, 1, 4, 1, 1);
@@ -152,9 +154,9 @@ public:
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Book.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QStringLiteral(":/Resources/Accounting.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon4);
-        pushButton_3->setIconSize(QSize(32, 32));
+        pushButton_3->setIconSize(QSize(64, 64));
         pushButton_3->setFlat(true);
 
         gridLayout_2->addWidget(pushButton_3, 1, 3, 1, 1);
@@ -162,12 +164,32 @@ public:
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         QIcon icon5;
-        icon5.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_4->setIcon(icon5);
-        pushButton_4->setIconSize(QSize(32, 32));
+        pushButton_4->setIconSize(QSize(64, 64));
         pushButton_4->setFlat(true);
 
-        gridLayout_2->addWidget(pushButton_4, 0, 2, 1, 1);
+        gridLayout_2->addWidget(pushButton_4, 2, 2, 1, 1);
+
+        pbConti = new QPushButton(centralWidget);
+        pbConti->setObjectName(QStringLiteral("pbConti"));
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/Resources/user-group-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbConti->setIcon(icon6);
+        pbConti->setIconSize(QSize(64, 64));
+        pbConti->setFlat(true);
+
+        gridLayout_2->addWidget(pbConti, 1, 1, 1, 1);
+
+        pushButton_5 = new QPushButton(centralWidget);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/Resources/ManageUsers.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_5->setIcon(icon7);
+        pushButton_5->setIconSize(QSize(64, 64));
+        pushButton_5->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_5, 2, 1, 1, 1);
 
 
         gridLayout->addLayout(gridLayout_2, 3, 0, 1, 1);
@@ -212,7 +234,7 @@ public:
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setMaximumSize(QSize(16777215, 30));
 
-        gridLayout->addWidget(label_5, 4, 0, 1, 1);
+        gridLayout->addWidget(label_5, 5, 0, 1, 1);
 
         CMainWindow->setCentralWidget(centralWidget);
 
@@ -225,10 +247,12 @@ public:
     {
         CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2", 0));
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
-        pBOperazioni->setText(QApplication::translate("CMainWindow", "Operazioni", 0));
+        pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni", 0));
         pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
         pushButton_3->setText(QApplication::translate("CMainWindow", "Mandati", 0));
         pushButton_4->setText(QApplication::translate("CMainWindow", "Inserisci nuova registrazione", 0));
+        pbConti->setText(QApplication::translate("CMainWindow", "Anagrafica", 0));
+        pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));
         label_4->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp2", 0));
         label_3->setText(QString());

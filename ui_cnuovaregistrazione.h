@@ -19,7 +19,6 @@
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -63,7 +62,6 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QGroupBox *groupBox;
     QFrame *line_3;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_3;
@@ -75,6 +73,9 @@ public:
             CNuovaRegistrazione->setObjectName(QStringLiteral("CNuovaRegistrazione"));
         CNuovaRegistrazione->setWindowModality(Qt::ApplicationModal);
         CNuovaRegistrazione->resize(1011, 608);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        CNuovaRegistrazione->setWindowIcon(icon);
         verticalLayout_3 = new QVBoxLayout(CNuovaRegistrazione);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         formLayout_2 = new QFormLayout();
@@ -220,17 +221,17 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         pushButton = new QPushButton(CNuovaRegistrazione);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon1);
 
         horizontalLayout->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(CNuovaRegistrazione);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon2);
 
         horizontalLayout->addWidget(pushButton_2);
 
@@ -239,11 +240,6 @@ public:
 
 
         verticalLayout_3->addLayout(verticalLayout);
-
-        groupBox = new QGroupBox(CNuovaRegistrazione);
-        groupBox->setObjectName(QStringLiteral("groupBox"));
-
-        verticalLayout_3->addWidget(groupBox);
 
         line_3 = new QFrame(CNuovaRegistrazione);
         line_3->setObjectName(QStringLiteral("line_3"));
@@ -256,18 +252,18 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         pushButton_3 = new QPushButton(CNuovaRegistrazione);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon3);
         pushButton_3->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_3);
 
         pushButton_4 = new QPushButton(CNuovaRegistrazione);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon4);
         pushButton_4->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_4);
@@ -283,7 +279,7 @@ public:
 
     void retranslateUi(QWidget *CNuovaRegistrazione)
     {
-        CNuovaRegistrazione->setWindowTitle(QApplication::translate("CNuovaRegistrazione", "Form", 0));
+        CNuovaRegistrazione->setWindowTitle(QApplication::translate("CNuovaRegistrazione", "Nuova registrazione", 0));
         label_2->setText(QApplication::translate("CNuovaRegistrazione", "Data Registrazione:", 0));
         label->setText(QApplication::translate("CNuovaRegistrazione", "Tipo:", 0));
         label_4->setText(QApplication::translate("CNuovaRegistrazione", "Conto:", 0));
@@ -295,7 +291,6 @@ public:
         label_6->setText(QApplication::translate("CNuovaRegistrazione", "Note:", 0));
         pushButton->setText(QApplication::translate("CNuovaRegistrazione", "Nuova Riga", 0));
         pushButton_2->setText(QApplication::translate("CNuovaRegistrazione", "Elimina Riga", 0));
-        groupBox->setTitle(QApplication::translate("CNuovaRegistrazione", "GroupBox", 0));
         pushButton_3->setText(QApplication::translate("CNuovaRegistrazione", "Salva", 0));
         pushButton_4->setText(QApplication::translate("CNuovaRegistrazione", "Chiudi", 0));
     } // retranslateUi

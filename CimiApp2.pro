@@ -18,20 +18,28 @@ SOURCES += main.cpp\
     cregistrazione.cpp \
     crelationaltablemodel.cpp \
     cnuovaregistrazione.cpp \
-    cnuovarigaregistrazione.cpp
+    cnuovarigaregistrazione.cpp \
+    cconti.cpp \
+    ctipianagrafici.cpp \
+    csqltipianagraficimodel.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
     cregistrazione.h \
     crelationaltablemodel.h \
     cnuovaregistrazione.h \
-    cnuovarigaregistrazione.h
+    cnuovarigaregistrazione.h \
+    cconti.h \
+    ctipianagrafici.h \
+    csqltipianagraficimodel.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
     cregistrazione.ui \
     cnuovaregistrazione.ui \
-    cnuovarigaregistrazione.ui
+    cnuovarigaregistrazione.ui \
+    cconti.ui \
+    ctipianagrafici.ui
 
 RESOURCES += \
     graphics.qrc

@@ -44,6 +44,9 @@ public:
         if (COperations->objectName().isEmpty())
             COperations->setObjectName(QStringLiteral("COperations"));
         COperations->resize(1088, 511);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Resources/palet-03-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        COperations->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(COperations);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
@@ -87,27 +90,27 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         pushButton = new QPushButton(COperations);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Pencil.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Pencil.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon1);
         pushButton->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton);
 
         pushButton_3 = new QPushButton(COperations);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon2);
         pushButton_3->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_3);
 
         pushButton_2 = new QPushButton(COperations);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon3);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_2);

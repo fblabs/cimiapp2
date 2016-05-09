@@ -29,8 +29,8 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
     ID=pid;
     db=pdb;
 
-    modRegistrazione=new QSqlTableModel(0,db);
-    modRighe=new QSqlTableModel(0,db);
+    modRegistrazione=new QSqlRelationalTableModel(0,db);
+    modRighe=new QSqlRelationalTableModel(0,db);
 
 /*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
@@ -41,19 +41,20 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
     ui->comboBox->setModel(tipimod);
     ui->comboBox->setModelColumn(1);
 
-    CRelationalTableModel *mod= new CRelationalTableModel();
+    modRighe= new QSqlRelationalTableModel();
 
-    mod->setTable("righe_reg");
-    mod->setFilter("righe_reg.ID="+QString::number(ID));
-    mod->setSort(1,Qt::AscendingOrder);
+    modRighe->setTable("righe_reg");
+    modRighe->setFilter("righe_reg.ID="+QString::number(ID));
+    modRighe->setSort(1,Qt::AscendingOrder);
 
-    mod->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
-    mod->select();
+    modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
+    modRighe->select();
 
     //qDebug()<<mod->query().lastQuery()<<mod->lastError().text();
     qDebug()<<"tipomov: "<<tipomov;
 
-    ui->tvDetails->setModel(mod);
+    ui->tvDetails->setModel(modRighe);
+    ui->tvDetails->setColumnHidden(0,true);
 
     QSqlQuery q(db);
     q.prepare("SELECT descrizione from tipi_mov where ID=:tipomov");
@@ -79,6 +80,7 @@ void CRegistrazione::on_pushButton_3_clicked()
   CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
   f->init(db,ID,0);
   f->show();
+  modRighe->select();
 }
 
 void CRegistrazione::on_pushButton_clicked()
@@ -91,4 +93,12 @@ void CRegistrazione::on_pushButton_clicked()
     reg=modRegistrazione->record();
     rig=modRighe->record();
 
+}
+
+void CRegistrazione::on_pushButton_4_clicked()
+{
+    QSqlTableModel *mod =static_cast<QSqlTableModel*>(ui->tvDetails->model());
+    mod->removeRow(ui->tvDetails->currentIndex().row());
+    mod->submit();
+    mod->select();
 }

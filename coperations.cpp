@@ -34,12 +34,23 @@ COperations::~COperations()
 
 void COperations::reload()
 {
+    qDebug()<<"RELOAD";
+    mod = new CRelationalTableModel();
+    mod->setTable("registrazioni");
+    mod->setSort(1,Qt::DescendingOrder);
+    mod->setFilter("datareg between '" + ui->deDal->date().toString("yyyy-MM-dd") + "' AND '" +ui->deAl->date().toString("yyyy-MM-dd")+"'");
+    mod->setRelation(2,QSqlRelation("anagrafica","ID","descrizione"));
+    mod->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
+    mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
+    mod->select();
     mod->select();
 }
 
 void COperations::init(QSqlDatabase pdb)
 {
     db=pdb;
+
+
 
     if (!db.isOpen())
     {
@@ -138,4 +149,32 @@ void COperations::on_pushButton_3_clicked()
 
   connect(f,SIGNAL(done()),this,SLOT(reload()));
   f->show();
+}
+
+
+
+void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
+{
+
+
+        CRegistrazione *f=new CRegistrazione();
+
+        int ID=ui->tvMain->model()->index(index.row(),0).data(0).toInt();
+        QString tipo=ui->tvMain->model()->index(index.row(),3).data(0).toString();
+        QSqlQuery q(db);
+        q.prepare("SELECT ID FROM tipi_mov where descrizione=:tipo");
+        q.bindValue(":tipo",tipo);
+        qDebug()<<"parm tipo"<<tipo;
+        q.exec();
+        q.first();
+
+
+        int ix=q.value(0).toInt();
+     qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
+
+        f->init(ID,ix,db);
+        connect(f,SIGNAL(done),this,SLOT(reload()));
+
+        f->show();
+
 }

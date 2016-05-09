@@ -6,6 +6,8 @@
 
 #include "coperations.h"
 #include "cnuovaregistrazione.h"
+#include "cconti.h"
+#include "ctipianagrafici.h"
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -63,5 +65,18 @@ void CMainWindow::on_pushButton_4_clicked()
 {
     CNuovaRegistrazione *f = new CNuovaRegistrazione();
     f->init(db);
+    f->show();
+}
+
+void CMainWindow::on_pbConti_clicked()
+{
+    CConti *f=new CConti(0,db);
+    f->show();
+}
+
+void CMainWindow::on_pushButton_5_clicked()
+{
+    CTipiAnagrafici *f=new CTipiAnagrafici(0,db);
+
     f->show();
 }

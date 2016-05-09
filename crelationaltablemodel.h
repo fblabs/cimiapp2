@@ -6,6 +6,7 @@
 class CRelationalTableModel : public QSqlRelationalTableModel
 {
     Q_OBJECT
+    CRelationalTableModel *mod;
 public:
     explicit CRelationalTableModel(QObject *parent = 0);
 

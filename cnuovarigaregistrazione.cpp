@@ -216,12 +216,20 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
         uscite=ui->leUscite->text().toDouble();
     }
 
+    sql="SELECT COUNT(riga) FROM righe_reg where ID=:ID";
+    q.prepare(sql);
+    q.bindValue(":ID",idRegistrazione);
+    q.exec();
+    q.first();
+    int riga=q.value(0).toInt();
+    riga++;
+
+
     sql= "INSERT INTO `cimidb`.`righe_reg`(`ID`,`riga`,`tipo_ope`,`richiesta`,`entrate`,`uscite`,`note`)VALUES  (:ID,:riga,:tipo_ope,:richiesta,:entrate,:uscite,:note);";
     q.prepare(sql);
 
 
     q.bindValue(":ID",idRegistrazione);
-    int riga=modrighe->rowCount()+1;
     q.bindValue(":riga",riga);//TODO vedere come incrementare il numero di riga
     q.bindValue(":tipo_ope",ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),0).data(0).toInt());
     q.bindValue(":richiesta",richiesta);
@@ -242,7 +250,7 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
    }
 
    modrighe->select();
-   emit nrdone();
+
 }
 
 void CNuovaRigaRegistrazione::resetForm()

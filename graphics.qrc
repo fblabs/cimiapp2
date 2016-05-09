@@ -75,5 +75,27 @@
         <file>Resources/Warning-Sign.PNG</file>
         <file>Resources/Wood-4-icon.png</file>
         <file>Resources/money.png</file>
+        <file>Resources/Accounting.png</file>
+        <file>Resources/Web.png</file>
+        <file>Resources/Advertisements.png</file>
+        <file>Resources/Alerts.png</file>
+        <file>Resources/Balance.png</file>
+        <file>Resources/ControlPanel.png</file>
+        <file>Resources/DeviceControl.png</file>
+        <file>Resources/Dock.png</file>
+        <file>Resources/Downloads.png</file>
+        <file>Resources/Entertainment.png</file>
+        <file>Resources/ERP.png</file>
+        <file>Resources/Events.png</file>
+        <file>Resources/Games.png</file>
+        <file>Resources/InvoiceSearch.png</file>
+        <file>Resources/ManageUsers.png</file>
+        <file>Resources/News.png</file>
+        <file>Resources/Print.png</file>
+        <file>Resources/SearchStatistics.png</file>
+        <file>Resources/Security.png</file>
+        <file>Resources/SignOut.png</file>
+        <file>Resources/Statistics.png</file>
+        <file>Resources/Users.png</file>
     </qresource>
 </RCC>

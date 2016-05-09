@@ -6,6 +6,9 @@ INPUT(
 ./release/crelationaltablemodel.o
 ./release/cnuovaregistrazione.o
 ./release/cnuovarigaregistrazione.o
+./release/cconti.o
+./release/ctipianagrafici.o
+./release/csqltipianagraficimodel.o
 ./release/qrc_graphics.o
 ./release/moc_cmainwindow.o
 ./release/moc_coperations.o
@@ -13,4 +16,7 @@ INPUT(
 ./release/moc_crelationaltablemodel.o
 ./release/moc_cnuovaregistrazione.o
 ./release/moc_cnuovarigaregistrazione.o
+./release/moc_cconti.o
+./release/moc_ctipianagrafici.o
+./release/moc_csqltipianagraficimodel.o
 );

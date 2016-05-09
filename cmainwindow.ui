@@ -447,8 +447,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>32</width>
-          <height>32</height>
+          <width>64</width>
+          <height>64</height>
          </size>
         </property>
         <property name="flat">
@@ -459,16 +459,16 @@
       <item row="1" column="2">
        <widget class="QPushButton" name="pBOperazioni">
         <property name="text">
-         <string>Operazioni</string>
+         <string>Registrazioni</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Folder.PNG</normaloff>:/Resources/Folder.PNG</iconset>
+          <normaloff>:/Resources/palet-03-icon.png</normaloff>:/Resources/palet-03-icon.png</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>32</width>
-          <height>32</height>
+          <width>64</width>
+          <height>64</height>
          </size>
         </property>
         <property name="flat">
@@ -487,8 +487,8 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>32</width>
-          <height>32</height>
+          <width>64</width>
+          <height>64</height>
          </size>
         </property>
         <property name="flat">
@@ -503,12 +503,12 @@
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Book.PNG</normaloff>:/Resources/Book.PNG</iconset>
+          <normaloff>:/Resources/Accounting.png</normaloff>:/Resources/Accounting.png</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>32</width>
-          <height>32</height>
+          <width>64</width>
+          <height>64</height>
          </size>
         </property>
         <property name="flat">
@@ -516,19 +516,59 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
+      <item row="2" column="2">
        <widget class="QPushButton" name="pushButton_4">
         <property name="text">
          <string>Inserisci nuova registrazione</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Visa.PNG</normaloff>:/Resources/Visa.PNG</iconset>
+          <normaloff>:/Resources/Database.PNG</normaloff>:/Resources/Database.PNG</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>32</width>
-          <height>32</height>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pbConti">
+        <property name="text">
+         <string>Anagrafica</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/user-group-icon.png</normaloff>:/Resources/user-group-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="text">
+         <string>Tipi Anagrafici</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/ManageUsers.png</normaloff>:/Resources/ManageUsers.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
          </size>
         </property>
         <property name="flat">
@@ -590,7 +630,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="label_5">
       <property name="maximumSize">
        <size>

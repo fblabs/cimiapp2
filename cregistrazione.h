@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 
 namespace Ui {
 class CRegistrazione;
@@ -26,13 +27,15 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::CRegistrazione *ui;
     QSqlDatabase db;
    // void setFilter(QString fil="");
     int ID;
-    QSqlTableModel *modRegistrazione;
-    QSqlTableModel *modRighe;
+    QSqlRelationalTableModel *modRegistrazione;
+    QSqlRelationalTableModel *modRighe;
 };
 
 #endif // CREGISTRAZIONE_H
