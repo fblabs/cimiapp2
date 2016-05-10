@@ -8,6 +8,7 @@
 #include "cnuovaregistrazione.h"
 #include "cconti.h"
 #include "ctipianagrafici.h"
+#include "cmastri.h"
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -78,5 +79,11 @@ void CMainWindow::on_pushButton_5_clicked()
 {
     CTipiAnagrafici *f=new CTipiAnagrafici(0,db);
 
+    f->show();
+}
+
+void CMainWindow::on_pushButton_3_clicked()
+{
+    CMastri *f = new CMastri(0,db);
     f->show();
 }

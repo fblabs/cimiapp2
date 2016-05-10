@@ -499,11 +499,11 @@
       <item row="1" column="3">
        <widget class="QPushButton" name="pushButton_3">
         <property name="text">
-         <string>Mandati</string>
+         <string>Mastri</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Accounting.png</normaloff>:/Resources/Accounting.png</iconset>
+          <normaloff>:/Resources/Statistics.png</normaloff>:/Resources/Statistics.png</iconset>
         </property>
         <property name="iconSize">
          <size>

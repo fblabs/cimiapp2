@@ -100,6 +100,9 @@ public:
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
         lvAnagrafica = new QListView(CConti);
         lvAnagrafica->setObjectName(QStringLiteral("lvAnagrafica"));
+        lvAnagrafica->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        lvAnagrafica->setSelectionBehavior(QAbstractItemView::SelectRows);
+        lvAnagrafica->setSelectionRectVisible(false);
 
         horizontalLayout_11->addWidget(lvAnagrafica);
 

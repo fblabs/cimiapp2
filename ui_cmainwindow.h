@@ -154,7 +154,7 @@ public:
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Accounting.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QStringLiteral(":/Resources/Statistics.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon4);
         pushButton_3->setIconSize(QSize(64, 64));
         pushButton_3->setFlat(true);
@@ -249,7 +249,7 @@ public:
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni", 0));
         pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
-        pushButton_3->setText(QApplication::translate("CMainWindow", "Mandati", 0));
+        pushButton_3->setText(QApplication::translate("CMainWindow", "Mastri", 0));
         pushButton_4->setText(QApplication::translate("CMainWindow", "Inserisci nuova registrazione", 0));
         pbConti->setText(QApplication::translate("CMainWindow", "Anagrafica", 0));
         pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));

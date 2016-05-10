@@ -85,14 +85,17 @@ void CConti::on_pbSave_clicked()
         mod->submitAll();
 
     }
-    else
-    {
+
         mod->select();
-    }
+
 }
 
 void CConti::on_pushButton_clicked()
 {
-  //  QSqlRecord rec=mod->record();
-  //  mod->insertRecord(mod->rowCount(),rec);
+    QSqlRecord rec=mod->record();
+    QModelIndex index=mod->index(mod->rowCount()-1,2);
+    mod->insertRecord(index.row(),rec);
+    if(index.isValid())
+      ui->lvAnagrafica->selectionModel()->setCurrentIndex(index,QItemSelectionModel::Select);
+
 }

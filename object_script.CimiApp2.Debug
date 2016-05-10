@@ -9,6 +9,7 @@ INPUT(
 ./debug/cconti.o
 ./debug/ctipianagrafici.o
 ./debug/csqltipianagraficimodel.o
+./debug/cmastri.o
 ./debug/qrc_graphics.o
 ./debug/moc_cmainwindow.o
 ./debug/moc_coperations.o
@@ -19,4 +20,5 @@ INPUT(
 ./debug/moc_cconti.o
 ./debug/moc_ctipianagrafici.o
 ./debug/moc_csqltipianagraficimodel.o
+./debug/moc_cmastri.o
 );
