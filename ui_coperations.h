@@ -126,7 +126,7 @@ public:
 
     void retranslateUi(QWidget *COperations)
     {
-        COperations->setWindowTitle(QApplication::translate("COperations", "Form", 0));
+        COperations->setWindowTitle(QApplication::translate("COperations", "Registrazioni", 0));
         label->setText(QApplication::translate("COperations", "Dal:", 0));
         label_2->setText(QApplication::translate("COperations", "Al:", 0));
 #ifndef QT_NO_TOOLTIP

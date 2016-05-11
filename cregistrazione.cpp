@@ -24,13 +24,28 @@ CRegistrazione::~CRegistrazione()
     delete ui;
 }
 
-void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
+void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase())
 {
     ID=pid;
     db=pdb;
 
     modRegistrazione=new QSqlRelationalTableModel(0,db);
     modRighe=new QSqlRelationalTableModel(0,db);
+
+    QSqlQuery qdate(db);
+
+    QString sql="SELECT datareg FROM registrazioni where ID=:id ";
+    qdate.prepare(sql);
+    qdate.bindValue(":id",pid);
+
+    qdate.exec();
+    qdate.first();
+
+    QDate date=qdate.value(0).toDate();
+
+    qDebug()<< date.toString();
+
+    ui->dateEdit->setDate(date);
 
 /*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
@@ -50,11 +65,15 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
     modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
     modRighe->select();
 
-    //qDebug()<<mod->query().lastQuery()<<mod->lastError().text();
-    qDebug()<<"tipomov: "<<tipomov;
+    qDebug()<<modRighe->lastError()<<modRighe->query().lastQuery();
+
+
+
 
     ui->tvDetails->setModel(modRighe);
     ui->tvDetails->setColumnHidden(0,true);
+
+    ui->tvDetails->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     QSqlQuery q(db);
     q.prepare("SELECT descrizione from tipi_mov where ID=:tipomov");
@@ -65,7 +84,7 @@ void CRegistrazione::init(int pid,int tipomov, QSqlDatabase pdb)
     QString desc=q.value(0).toString();
 
 
-    qDebug()<<"DESC:"<<desc;
+
     ui->comboBox->setCurrentIndex(ui->comboBox->findText(desc));
 
 }

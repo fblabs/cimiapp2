@@ -25,12 +25,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     db.setPassword("mysql50pwd");
     db.setPort(3306);
 
-    if (db.open())
-    {
-        setWindowTitle("CONNESSO");
-    }
-    else
-    {
+    if (!db.open())    {
         setWindowTitle("MA NOOO!!!");
         QMessageBox::information(this,QApplication::applicationName(),"ERORE:\n"+db.lastError().text(),QMessageBox::Ok);
 

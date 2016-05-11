@@ -36,6 +36,8 @@ private:
     int ID;
     QSqlRelationalTableModel *modRegistrazione;
     QSqlRelationalTableModel *modRighe;
+signals:
+    void closing();
 };
 
 #endif // CREGISTRAZIONE_H

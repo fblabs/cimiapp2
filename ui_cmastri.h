@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -27,12 +28,13 @@ QT_BEGIN_NAMESPACE
 class Ui_CMastri
 {
 public:
-    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
+    QFormLayout *formLayout;
     QLabel *label;
     QComboBox *cbConti;
     QTableView *tvMastro;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *pushButton_2;
     QPushButton *pushButton;
 
     void setupUi(QWidget *CMastri)
@@ -43,44 +45,58 @@ public:
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/SearchStatistics.png"), QSize(), QIcon::Normal, QIcon::Off);
         CMastri->setWindowIcon(icon);
-        verticalLayout_2 = new QVBoxLayout(CMastri);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout = new QVBoxLayout();
+        verticalLayout = new QVBoxLayout(CMastri);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        formLayout = new QFormLayout();
+        formLayout->setObjectName(QStringLiteral("formLayout"));
         label = new QLabel(CMastri);
         label->setObjectName(QStringLiteral("label"));
+        label->setMaximumSize(QSize(50, 16777215));
 
-        horizontalLayout->addWidget(label);
+        formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
         cbConti = new QComboBox(CMastri);
         cbConti->setObjectName(QStringLiteral("cbConti"));
         cbConti->setEditable(true);
         cbConti->setModelColumn(2);
 
-        horizontalLayout->addWidget(cbConti);
+        formLayout->setWidget(0, QFormLayout::FieldRole, cbConti);
 
 
-        verticalLayout->addLayout(horizontalLayout);
+        verticalLayout->addLayout(formLayout);
 
         tvMastro = new QTableView(CMastri);
         tvMastro->setObjectName(QStringLiteral("tvMastro"));
+        tvMastro->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvMastro->setAlternatingRowColors(true);
+        tvMastro->setSelectionMode(QAbstractItemView::SingleSelection);
+        tvMastro->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tvMastro->setSortingEnabled(true);
 
         verticalLayout->addWidget(tvMastro);
 
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        pushButton_2 = new QPushButton(CMastri);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/InvoiceSearch.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
+        pushButton_2->setIconSize(QSize(32, 32));
 
-        verticalLayout_2->addLayout(verticalLayout);
+        horizontalLayout_2->addWidget(pushButton_2);
 
         pushButton = new QPushButton(CMastri);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon2);
         pushButton->setIconSize(QSize(32, 32));
 
-        verticalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(pushButton);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
 
 
         retranslateUi(CMastri);
@@ -92,6 +108,7 @@ public:
     {
         CMastri->setWindowTitle(QApplication::translate("CMastri", "Mastri", 0));
         label->setText(QApplication::translate("CMastri", "Conto:", 0));
+        pushButton_2->setText(QApplication::translate("CMastri", "Dettagli", 0));
         pushButton->setText(QApplication::translate("CMastri", "Chiudi", 0));
     } // retranslateUi
 
