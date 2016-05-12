@@ -17,6 +17,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -34,6 +35,9 @@ public:
     QLabel *label_2;
     QDateEdit *deAl;
     QTableView *tvMain;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_3;
+    QLineEdit *lineEdit;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
     QPushButton *pushButton_3;
@@ -86,6 +90,22 @@ public:
 
         verticalLayout->addWidget(tvMain);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_3 = new QLabel(COperations);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        horizontalLayout_3->addWidget(label_3);
+
+        lineEdit = new QLineEdit(COperations);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setClearButtonEnabled(true);
+
+        horizontalLayout_3->addWidget(lineEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         pushButton = new QPushButton(COperations);
@@ -129,6 +149,7 @@ public:
         COperations->setWindowTitle(QApplication::translate("COperations", "Registrazioni", 0));
         label->setText(QApplication::translate("COperations", "Dal:", 0));
         label_2->setText(QApplication::translate("COperations", "Al:", 0));
+        label_3->setText(QApplication::translate("COperations", "Cerca:", 0));
 #ifndef QT_NO_TOOLTIP
         pushButton->setToolTip(QApplication::translate("COperations", "modifica registrazione selezionata", 0));
 #endif // QT_NO_TOOLTIP

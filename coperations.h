@@ -35,6 +35,8 @@ private slots:
 
     void on_tvMain_doubleClicked(const QModelIndex &index);
 
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::COperations *ui;
     QSqlDatabase db;

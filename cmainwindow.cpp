@@ -8,7 +8,9 @@
 #include "cnuovaregistrazione.h"
 #include "cconti.h"
 #include "ctipianagrafici.h"
+#include <QSettings>
 #include "cmastri.h"
+#include "csettings.h"
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,11 +21,20 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
    db = QSqlDatabase::addDatabase("QMYSQL");
 
-    db.setDatabaseName("cimidb");
-    db.setHostName("192.168.1.34");
-    db.setUserName("root");
-    db.setPassword("mysql50pwd");
-    db.setPort(3306);
+
+    QSettings settings("CIMIAPP2");
+    QString username=settings.value("username").toString();
+    QString server=settings.value("server").toString();
+    int port =(settings.value("port").toInt());
+    QString database =settings.value("database").toString();
+    QString password=settings.value("password").toString();
+
+
+    db.setDatabaseName(database);
+    db.setHostName(server);
+    db.setUserName(username);
+    db.setPassword(password);
+    db.setPort(port);
 
     if (!db.open())    {
         setWindowTitle("MA NOOO!!!");
@@ -80,5 +91,11 @@ void CMainWindow::on_pushButton_5_clicked()
 void CMainWindow::on_pushButton_3_clicked()
 {
     CMastri *f = new CMastri(0,db);
+    f->show();
+}
+
+void CMainWindow::on_pushButton_2_clicked()
+{
+    CSettings *f=new CSettings();
     f->show();
 }

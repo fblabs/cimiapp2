@@ -32,18 +32,20 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
     modRegistrazione=new QSqlRelationalTableModel(0,db);
     modRighe=new QSqlRelationalTableModel(0,db);
 
-    QSqlQuery qdate(db);
+    QSqlQuery qRegistrazione(db);
 
-    QString sql="SELECT datareg FROM registrazioni where ID=:id ";
-    qdate.prepare(sql);
-    qdate.bindValue(":id",pid);
+    QString sql="SELECT codana,datareg FROM registrazioni where ID=:id ";
+    qRegistrazione.prepare(sql);
+    qRegistrazione.bindValue(":id",pid);
 
-    qdate.exec();
-    qdate.first();
+    qRegistrazione.exec();
+    qRegistrazione.first();
 
-    QDate date=qdate.value(0).toDate();
+    int codana=qRegistrazione.value(0).toInt();
+    QDate date=qRegistrazione.value(1).toDate();
 
-    qDebug()<< date.toString();
+
+    qDebug()<< date.toString()<<"codana: "<<codana;
 
     ui->dateEdit->setDate(date);
 
@@ -106,11 +108,12 @@ void CRegistrazione::on_pushButton_clicked()
 {
 
 
-    QSqlRecord reg;
-    QSqlRecord rig;
+  //  QSqlRecord reg;
+  //  QSqlRecord rig;
 
-    reg=modRegistrazione->record();
-    rig=modRighe->record();
+  //  reg=modRegistrazione->record();
+  //  rig=modRighe->record();
+    modRighe->select();
 
 }
 

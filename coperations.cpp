@@ -178,3 +178,9 @@ void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
         f->show();
 
 }
+
+void COperations::on_lineEdit_textChanged(const QString &arg1)
+{
+    mod->setFilter("relTblAl_2.descrizione LIKE '"+arg1+"%'");
+    qDebug()<<mod->query().lastQuery()<<mod->query().lastError().text();
+}

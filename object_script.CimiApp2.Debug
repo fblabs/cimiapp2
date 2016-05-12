@@ -10,6 +10,7 @@ INPUT(
 ./debug/ctipianagrafici.o
 ./debug/csqltipianagraficimodel.o
 ./debug/cmastri.o
+./debug/csettings.o
 ./debug/qrc_graphics.o
 ./debug/moc_cmainwindow.o
 ./debug/moc_coperations.o
@@ -21,4 +22,5 @@ INPUT(
 ./debug/moc_ctipianagrafici.o
 ./debug/moc_csqltipianagraficimodel.o
 ./debug/moc_cmastri.o
+./debug/moc_csettings.o
 );

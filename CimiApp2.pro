@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     cconti.cpp \
     ctipianagrafici.cpp \
     csqltipianagraficimodel.cpp \
-    cmastri.cpp
+    cmastri.cpp \
+    csettings.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -33,7 +34,8 @@ HEADERS  += cmainwindow.h \
     cconti.h \
     ctipianagrafici.h \
     csqltipianagraficimodel.h \
-    cmastri.h
+    cmastri.h \
+    csettings.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
@@ -42,7 +44,8 @@ FORMS    += cmainwindow.ui \
     cnuovarigaregistrazione.ui \
     cconti.ui \
     ctipianagrafici.ui \
-    cmastri.ui
+    cmastri.ui \
+    csettings.ui
 
 RESOURCES += \
     graphics.qrc

@@ -97,5 +97,6 @@
         <file>Resources/SignOut.png</file>
         <file>Resources/Statistics.png</file>
         <file>Resources/Users.png</file>
+        <file>Resources/Misc-Settings-icon.png</file>
     </qresource>
 </RCC>

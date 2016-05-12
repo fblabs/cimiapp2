@@ -91,8 +91,11 @@ public:
 
         tvDetails = new QTableView(CRegistrazione);
         tvDetails->setObjectName(QStringLiteral("tvDetails"));
+        tvDetails->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvDetails->setAlternatingRowColors(true);
         tvDetails->setSelectionMode(QAbstractItemView::SingleSelection);
+        tvDetails->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tvDetails->verticalHeader()->setVisible(false);
 
         verticalLayout_2->addWidget(tvDetails);
 
