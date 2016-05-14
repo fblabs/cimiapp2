@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pbAnnulla_clicked();
+
 private:
     Ui::CConti *ui;
     QSqlDatabase db;

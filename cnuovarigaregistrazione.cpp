@@ -5,7 +5,7 @@
 
 #include <QSqlTableModel>
 #include <QSqlQuery>
-#include <QDebug>
+// #include <QDebug>
 #include <QSqlError>
 #include <QCompleter>
 #include <QMessageBox>
@@ -81,7 +81,7 @@ void CNuovaRigaRegistrazione::setupUI()
     QString segno = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),3).data(0).toString();
     QString tipo = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),1).data(0).toString();
 
-    qDebug()<<"segno: "<<segno<<"tipo: "<<tipo;
+    //qDebug()<<"segno: "<<segno<<"tipo: "<<tipo;
 
     if (segno=="E")
     {
@@ -96,13 +96,13 @@ void CNuovaRigaRegistrazione::setupUI()
     {
         ui->lbElementi->setVisible(true);
         ui->leElementi->setVisible(true);
-        ui->leElementi->setText("0.0");
+        ui->leElementi->setText("1");
     }
     else
     {
         ui->lbElementi->setVisible(false);
         ui->leElementi->setVisible(false);
-        ui->leElementi->setText("0.0");
+        ui->leElementi->setText("1");
     }
 
 }
@@ -140,7 +140,7 @@ void CNuovaRigaRegistrazione::on_rbE_toggled(bool checked)
 double CNuovaRigaRegistrazione::calculate()
 {
     double result;
-    int elementi;
+    int elementi=1;
     double richiesta;
 
     bool eok=true;
@@ -161,12 +161,12 @@ double CNuovaRigaRegistrazione::calculate()
 
     if (!ok)
     {
-        ui->leRichiesta->setText("");
+        ui->leRichiesta->setText("0.0");
         QMessageBox::warning(this,QApplication::applicationName(),"Errore nel formato del numero inserito nel campo Richiesta! Verificare",QMessageBox::Ok);
     }
     if (!eok)
     {
-        ui->leElementi->setText("");
+        ui->leElementi->setText("1");
         QMessageBox::warning(this,QApplication::applicationName(),"Errore nel formato del numero inserito nel campo Elementi! Verificare",QMessageBox::Ok);
     }
 
@@ -262,12 +262,4 @@ void CNuovaRigaRegistrazione::resetForm()
 
 }
 
-void CNuovaRigaRegistrazione::on_pushButton_3_clicked()
-{
 
-}
-
-void CNuovaRigaRegistrazione::on_pushButton_4_clicked()
-{
-
-}

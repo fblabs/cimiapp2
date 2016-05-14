@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cmastri.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cmastri.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.3.1. It"
+#error "This file was generated using the moc from 5.5.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,22 +20,23 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CMastri_t {
     QByteArrayData data[7];
-    char stringdata[97];
+    char stringdata0[97];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CMastri_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CMastri_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CMastri_t qt_meta_stringdata_CMastri = {
     {
-QT_MOC_LITERAL(0, 0, 7),
-QT_MOC_LITERAL(1, 8, 9),
-QT_MOC_LITERAL(2, 18, 0),
-QT_MOC_LITERAL(3, 19, 21),
-QT_MOC_LITERAL(4, 41, 23),
-QT_MOC_LITERAL(5, 65, 25),
-QT_MOC_LITERAL(6, 91, 5)
+QT_MOC_LITERAL(0, 0, 7), // "CMastri"
+QT_MOC_LITERAL(1, 8, 9), // "getMastro"
+QT_MOC_LITERAL(2, 18, 0), // ""
+QT_MOC_LITERAL(3, 19, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(4, 41, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(5, 65, 25), // "on_tvMastro_doubleClicked"
+QT_MOC_LITERAL(6, 91, 5) // "index"
+
     },
     "CMastri\0getMastro\0\0on_pushButton_clicked\0"
     "on_pushButton_2_clicked\0"
@@ -75,6 +76,7 @@ void CMastri::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CMastri *_t = static_cast<CMastri *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->getMastro(); break;
         case 1: _t->on_pushButton_clicked(); break;
@@ -87,7 +89,7 @@ void CMastri::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
 
 const QMetaObject CMastri::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CMastri.data,
-      qt_meta_data_CMastri,  qt_static_metacall, 0, 0}
+      qt_meta_data_CMastri,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -98,8 +100,8 @@ const QMetaObject *CMastri::metaObject() const
 
 void *CMastri::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CMastri.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_CMastri.stringdata0))
         return static_cast<void*>(const_cast< CMastri*>(this));
     return QWidget::qt_metacast(_clname);
 }

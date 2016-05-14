@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cconti.ui'
 **
-** Created by: Qt User Interface Compiler version 5.3.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -82,6 +82,7 @@ public:
     QLineEdit *lineEdit;
     QHBoxLayout *horizontalLayout_12;
     QPushButton *pushButton;
+    QPushButton *pbAnnulla;
     QPushButton *pbSave;
     QPushButton *pbClose;
 
@@ -358,20 +359,31 @@ public:
 
         horizontalLayout_12->addWidget(pushButton);
 
+        pbAnnulla = new QPushButton(CConti);
+        pbAnnulla->setObjectName(QStringLiteral("pbAnnulla"));
+        pbAnnulla->setEnabled(false);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Banned-Sign.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pbAnnulla->setIcon(icon2);
+        pbAnnulla->setIconSize(QSize(32, 32));
+
+        horizontalLayout_12->addWidget(pbAnnulla);
+
         pbSave = new QPushButton(CConti);
         pbSave->setObjectName(QStringLiteral("pbSave"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pbSave->setIcon(icon2);
+        pbSave->setEnabled(false);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbSave->setIcon(icon3);
         pbSave->setIconSize(QSize(32, 32));
 
         horizontalLayout_12->addWidget(pbSave);
 
         pbClose = new QPushButton(CConti);
         pbClose->setObjectName(QStringLiteral("pbClose"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pbClose->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbClose->setIcon(icon4);
         pbClose->setIconSize(QSize(32, 32));
 
         horizontalLayout_12->addWidget(pbClose);
@@ -409,6 +421,7 @@ public:
         label_14->setText(QApplication::translate("CConti", "Note:", 0));
         label_15->setText(QApplication::translate("CConti", "Cerca:", 0));
         pushButton->setText(QApplication::translate("CConti", "Nuovo", 0));
+        pbAnnulla->setText(QApplication::translate("CConti", "Annulla", 0));
         pbSave->setText(QApplication::translate("CConti", "Salva", 0));
         pbClose->setText(QApplication::translate("CConti", "Chudi", 0));
     } // retranslateUi

@@ -114,7 +114,7 @@
        </property>
        <property name="icon">
         <iconset resource="graphics.qrc">
-         <normaloff>:/Resources/Visa.PNG</normaloff>:/Resources/Visa.PNG</iconset>
+         <normaloff>:/Resources/Database.PNG</normaloff>:/Resources/Database.PNG</iconset>
        </property>
        <property name="iconSize">
         <size>

@@ -2,7 +2,7 @@
 #include "ui_cmastri.h"
 #include "cregistrazione.h"
 
-#include <QDebug>
+// #include <QDebug>
 #include <QSqlError>
 
 #include <QSqlQueryModel>
@@ -15,6 +15,7 @@ CMastri::CMastri(QWidget *parent,QSqlDatabase pdb) :
     ui(new Ui::CMastri)
 {
     ui->setupUi(this);
+    showMaximized();
 
     db=pdb;
 
@@ -66,7 +67,7 @@ void CMastri::getMastro()
     q.bindValue(":pid",pid);
 
     q.exec();
-    qDebug()<<q.lastError().text();
+    //qDebug()<<q.lastError().text();
 
     mod->setQuery(q);
 
@@ -112,7 +113,7 @@ void CMastri::on_tvMastro_doubleClicked(const QModelIndex &index)
     q.first();
     int tipo=q.value(0).toInt();
 
-qDebug()<<"mastri tipomov: "<<tipo<<q.lastError().text();
+//qDebug()<<"mastri tipomov: "<<tipo<<q.lastError().text();
     CRegistrazione *f=new CRegistrazione();
     f->init(id,tipo,db);
     connect (f,SIGNAL(closing()),this,SLOT(getMastro()));

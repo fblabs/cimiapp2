@@ -4,7 +4,7 @@
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QDate>
-#include <QDebug>
+// #include <QDebug>
 #include <QSqlError>
 #include "crelationaltablemodel.h"
 #include <QSqlRelation>
@@ -34,7 +34,7 @@ COperations::~COperations()
 
 void COperations::reload()
 {
-    qDebug()<<"RELOAD";
+
     mod = new CRelationalTableModel();
     mod->setTable("registrazioni");
     mod->setSort(1,Qt::DescendingOrder);
@@ -48,6 +48,7 @@ void COperations::reload()
 
 void COperations::init(QSqlDatabase pdb)
 {
+    showMaximized();
     db=pdb;
 
 
@@ -120,16 +121,16 @@ void COperations::on_pushButton_clicked()
     QSqlQuery q(db);
     q.prepare("SELECT ID FROM tipi_mov where descrizione=:tipo");
     q.bindValue(":tipo",tipo);
-    qDebug()<<"parm tipo"<<tipo;
+    //qDebug()<<"parm tipo"<<tipo;
     q.exec();
     q.first();
 
 
     int ix=q.value(0).toInt();
- qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
+ //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
     f->init(ID,ix,db);
-    connect(f,SIGNAL(done),this,SLOT(reload()));
+    connect(f,SIGNAL(closing()),this,SLOT(reload()));
 
     f->show();
 }
@@ -164,23 +165,24 @@ void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
         QSqlQuery q(db);
         q.prepare("SELECT ID FROM tipi_mov where descrizione=:tipo");
         q.bindValue(":tipo",tipo);
-        qDebug()<<"parm tipo"<<tipo;
+        //qDebug()<<"parm tipo"<<tipo;
         q.exec();
         q.first();
 
 
         int ix=q.value(0).toInt();
-     qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
+     //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
         f->init(ID,ix,db);
         connect(f,SIGNAL(done),this,SLOT(reload()));
 
         f->show();
+        reload();
 
 }
 
 void COperations::on_lineEdit_textChanged(const QString &arg1)
 {
     mod->setFilter("relTblAl_2.descrizione LIKE '"+arg1+"%'");
-    qDebug()<<mod->query().lastQuery()<<mod->query().lastError().text();
+   // qDebug()<<mod->query().lastQuery()<<mod->query().lastError().text();
 }

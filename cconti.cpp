@@ -88,6 +88,10 @@ void CConti::on_pbSave_clicked()
 
         mod->select();
 
+        ui->pbAnnulla->setEnabled(false);
+        ui->pbSave->setEnabled(false);
+        ui->pushButton->setEnabled(true);
+
 }
 
 void CConti::on_pushButton_clicked()
@@ -97,5 +101,20 @@ void CConti::on_pushButton_clicked()
     mod->insertRecord(index.row(),rec);
     if(index.isValid())
       ui->lvAnagrafica->selectionModel()->setCurrentIndex(index,QItemSelectionModel::Select);
+    ui->pbSave->setEnabled(true);
+    ui->pbAnnulla->setEnabled(true);
+    ui->pushButton->setEnabled(false);
 
+}
+
+void CConti::on_pbAnnulla_clicked()
+{
+    mod->select();
+
+    ui->pbAnnulla->setEnabled(false);
+    ui->pbSave->setEnabled(false);
+    ui->pushButton->setEnabled(true);
+
+    QModelIndex index=mod->index(0,2);
+    ui->lvAnagrafica->selectionModel()->setCurrentIndex(index,QItemSelectionModel::Select);
 }

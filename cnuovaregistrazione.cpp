@@ -6,7 +6,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QDebug>
+// #include <QDebug>
 
 #include <QSqlRelation>
 #include <QSqlTableModel>
@@ -133,7 +133,7 @@ bool CNuovaRegistrazione::saveNewRegistration()
 
 
 */
-
+    return true;
 
 }
 
@@ -141,7 +141,7 @@ void  CNuovaRegistrazione::filterConto()
 {
    QString filter="tipo='"+ui->cbSottogruppo->currentText()+"'";
    static_cast<QSqlTableModel*>( ui->cbConto->model())->setFilter(filter);
-   qDebug()<<"Conto:"<<filter;
+   //qDebug()<<"Conto:"<<filter;
    ui->cbConto->setCurrentIndex(0);
 
 }
@@ -150,7 +150,7 @@ void  CNuovaRegistrazione::filterContropartita()
 {
     QString filter="tipo='"+ui->cbCpSottogruppo->currentText()+"'";
     static_cast<QSqlTableModel*>( ui->cbContropartita->model())->setFilter(filter);
-    qDebug()<<"Contropartita:"<<filter;
+   // qDebug()<<"Contropartita:"<<filter;
     ui->cbContropartita->setCurrentIndex(0);
 
 }
@@ -181,7 +181,7 @@ void CNuovaRegistrazione::on_pushButton_clicked()
     CNuovaRigaRegistrazione *f= new CNuovaRigaRegistrazione();
 
     nReg = registrazionimod->index(registrazionimod->rowCount(),0).data(0).toInt();
-    qDebug()<<nReg;
+    //qDebug()<<nReg;
 
     //TEMP========
     //
@@ -196,6 +196,8 @@ void CNuovaRegistrazione::on_pushButton_3_clicked()
 {
     saveNewRegistration();
     reload();
+    ui->pushButton->setEnabled(false);
+    ui->pushButton_2->setEnabled(false);
 }
 
 void CNuovaRegistrazione::reload()
@@ -208,6 +210,8 @@ void CNuovaRegistrazione::on_pushButton_5_clicked()
    if(QMessageBox::warning(this,QApplication::applicationName(),"Confermare la creazione di un registrazione per conto e tipo selezionati?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
 
     createNewRegistrazione();
+    ui->pushButton->setEnabled(true);
+    ui->pushButton_2->setEnabled(true);
 }
 
 bool CNuovaRegistrazione::createNewRegistrazione()
@@ -237,10 +241,10 @@ bool CNuovaRegistrazione::createNewRegistrazione()
 
 
     registrazionimod->insertRecord(registrazionimod->rowCount(),rec);
-    qDebug()<<"rowcount registrazioni: before submit "<<registrazionimod->rowCount();
+    //qDebug()<<"rowcount registrazioni: before submit "<<registrazionimod->rowCount();
 
     registrazionimod->select();
-    qDebug()<<"rowcount registrazioni: after submit "<<registrazionimod->rowCount();
+    //qDebug()<<"rowcount registrazioni: after submit "<<registrazionimod->rowCount();
 
     if(registrazionimod->submit())
     {

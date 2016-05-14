@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cnuovaregistrazione.ui'
 **
-** Created by: Qt User Interface Compiler version 5.3.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -184,6 +184,8 @@ public:
 
         pushButton_5 = new QPushButton(CNuovaRegistrazione);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        pushButton_5->setIcon(icon);
+        pushButton_5->setIconSize(QSize(32, 32));
 
         verticalLayout_3->addWidget(pushButton_5);
 
@@ -221,6 +223,7 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         pushButton = new QPushButton(CNuovaRegistrazione);
         pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setEnabled(false);
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton->setIcon(icon1);
@@ -229,6 +232,7 @@ public:
 
         pushButton_2 = new QPushButton(CNuovaRegistrazione);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setEnabled(false);
         QIcon icon2;
         icon2.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon2);
@@ -252,6 +256,7 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         pushButton_3 = new QPushButton(CNuovaRegistrazione);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setEnabled(false);
         QIcon icon3;
         icon3.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon3);

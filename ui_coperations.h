@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'coperations.ui'
 **
-** Created by: Qt User Interface Compiler version 5.3.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -120,7 +120,7 @@ public:
         pushButton_3 = new QPushButton(COperations);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Visa.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon2);
         pushButton_3->setIconSize(QSize(32, 32));
 

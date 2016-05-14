@@ -45,7 +45,7 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
     QDate date=qRegistrazione.value(1).toDate();
 
 
-    qDebug()<< date.toString()<<"codana: "<<codana;
+    //qDebug()<< date.toString()<<"codana: "<<codana;
 
     ui->dateEdit->setDate(date);
 
@@ -67,7 +67,7 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
     modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
     modRighe->select();
 
-    qDebug()<<modRighe->lastError()<<modRighe->query().lastQuery();
+    qDebug()<<modRighe->rowCount()<<modRighe->columnCount();
 
 
 
@@ -88,11 +88,43 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
 
 
     ui->comboBox->setCurrentIndex(ui->comboBox->findText(desc));
+    ui->tvDetails->setCurrentIndex(ui->tvDetails->model()->index(0,0));
+    recordTotals();
+
+
+   // connect(ui->tvDetails->,SIGNAL(),this,SLOT(recordTotals()));
+
+}
+
+void CRegistrazione::recordTotals()
+{
+    double dare,avere,totale;
+    dare=0;
+    avere=0;
+    int righe=modRighe->rowCount();
+
+    for (int x=0;x<righe;x++)
+    {
+       avere+=modRighe->index(x,4).data(Qt::DisplayRole).toDouble();
+       dare+=modRighe->index(x,5).data(Qt::DisplayRole).toDouble();
+       qDebug()<<dare<<avere;
+
+    }
+
+
+
+   totale=avere - dare;
+
+    ui->lbTotaleAvere->setText(QString::number(avere,'f',2));
+    ui->lbTotaleDare->setText(QString::number(dare,'f',2));
+    ui->lbTotaleRegistrazione->setText(QString::number(totale,'f',2));
+
 
 }
 
 void CRegistrazione::on_pushButton_2_clicked()
 {
+    emit closing();
     close();
 }
 
@@ -101,26 +133,27 @@ void CRegistrazione::on_pushButton_3_clicked()
   CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
   f->init(db,ID,0);
   f->show();
+  connect(f,SIGNAL(nrdone()),this,SLOT(recordTotals()));
   modRighe->select();
+  ui->tvDetails->setModel(modRighe);
+
 }
 
 void CRegistrazione::on_pushButton_clicked()
 {
 
 
-  //  QSqlRecord reg;
-  //  QSqlRecord rig;
-
-  //  reg=modRegistrazione->record();
-  //  rig=modRighe->record();
     modRighe->select();
+    recordTotals();
 
 }
 
 void CRegistrazione::on_pushButton_4_clicked()
 {
-    QSqlTableModel *mod =static_cast<QSqlTableModel*>(ui->tvDetails->model());
-    mod->removeRow(ui->tvDetails->currentIndex().row());
-    mod->submit();
-    mod->select();
+ //  QSqlTableModel *mod =static_cast<QSqlTableModel*>(ui->tvDetails->model());
+    modRighe->removeRow(ui->tvDetails->currentIndex().row());
+    modRighe->submitAll();
+    modRighe->select();
+    ui->tvDetails->setModel(modRighe);
+    recordTotals();
 }
