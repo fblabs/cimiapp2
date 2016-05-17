@@ -39,6 +39,8 @@ private:
     QSqlDatabase db;
     int idRegistrazione;
     double calculate();
+    double calculateDays();
+    double calculateNoDays();
     void resetForm();
 signals:
     void nrdone();

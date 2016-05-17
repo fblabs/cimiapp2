@@ -426,7 +426,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>CimiApp2</string>
+   <string>CimiApp2 1.0.0.3</string>
   </property>
   <property name="windowIcon">
    <iconset resource="graphics.qrc">
@@ -491,6 +491,9 @@
             <underline>false</underline>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 0, 255);</string>
+          </property>
           <property name="text">
            <string>CimiApp 2</string>
           </property>
@@ -513,7 +516,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Versione. 1.0.0</string>
+           <string>Versione. 1.0.0.3</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -537,8 +540,8 @@
        <widget class="QPushButton" name="pushButton_2">
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -575,8 +578,8 @@
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -601,8 +604,8 @@
        <widget class="QPushButton" name="pushButton">
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -627,8 +630,8 @@
        <widget class="QPushButton" name="pushButton_3">
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -665,8 +668,8 @@
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -691,8 +694,8 @@
        <widget class="QPushButton" name="pbConti">
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -717,8 +720,8 @@
        <widget class="QPushButton" name="pushButton_5">
         <property name="font">
          <font>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -727,6 +730,26 @@
         <property name="icon">
          <iconset resource="graphics.qrc">
           <normaloff>:/Resources/ManageUsers.png</normaloff>:/Resources/ManageUsers.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="text">
+         <string>Aggiorna</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/Download.PNG</normaloff>:/Resources/Download.PNG</iconset>
         </property>
         <property name="iconSize">
          <size>

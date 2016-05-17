@@ -30,6 +30,8 @@ private slots:
     void on_pushButton_4_clicked();
     void recordTotals();
 
+    void on_cbLiquidato_toggled(bool checked);
+
 private:
     Ui::CRegistrazione *ui;
     QSqlDatabase db;
@@ -39,6 +41,7 @@ private:
     QSqlRelationalTableModel *modRighe;
 signals:
     void closing();
+    void done();
 };
 
 #endif // CREGISTRAZIONE_H

@@ -47,8 +47,10 @@ FORMS    += cmainwindow.ui \
     cmastri.ui \
     csettings.ui
 
-RESOURCES += \
-    graphics.qrc
+RESOURCES += graphics.qrc
+win32:RC_ICONS += cimiapp2.ico
 
-DISTFILES += \
-    Resources/money.png
+
+
+
+

@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QFormLayout>
@@ -39,6 +40,10 @@ public:
     QLabel *label_2;
     QDateEdit *dateEdit;
     QTableView *tvDetails;
+    QHBoxLayout *horizontalLayout_4;
+    QCheckBox *cbLiquidato;
+    QLabel *label_6;
+    QDateEdit *dataliq;
     QVBoxLayout *verticalLayout_2;
     QFormLayout *formLayout_5;
     QFormLayout *formLayout_3;
@@ -61,7 +66,7 @@ public:
     {
         if (CRegistrazione->objectName().isEmpty())
             CRegistrazione->setObjectName(QStringLiteral("CRegistrazione"));
-        CRegistrazione->resize(698, 435);
+        CRegistrazione->resize(869, 506);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Pencil.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         CRegistrazione->setWindowIcon(icon);
@@ -113,6 +118,26 @@ public:
         tvDetails->verticalHeader()->setVisible(false);
 
         verticalLayout_3->addWidget(tvDetails);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        cbLiquidato = new QCheckBox(CRegistrazione);
+        cbLiquidato->setObjectName(QStringLiteral("cbLiquidato"));
+
+        horizontalLayout_4->addWidget(cbLiquidato);
+
+        label_6 = new QLabel(CRegistrazione);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        horizontalLayout_4->addWidget(label_6);
+
+        dataliq = new QDateEdit(CRegistrazione);
+        dataliq->setObjectName(QStringLiteral("dataliq"));
+
+        horizontalLayout_4->addWidget(dataliq);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_4);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -234,6 +259,8 @@ public:
         CRegistrazione->setWindowTitle(QApplication::translate("CRegistrazione", "Modifica Registrazione", 0));
         label->setText(QApplication::translate("CRegistrazione", "Tipo:", 0));
         label_2->setText(QApplication::translate("CRegistrazione", "Data Registrazione:", 0));
+        cbLiquidato->setText(QApplication::translate("CRegistrazione", "Liquidato", 0));
+        label_6->setText(QApplication::translate("CRegistrazione", "Data liquidazione:", 0));
         label_3->setText(QApplication::translate("CRegistrazione", "Totale Dare:", 0));
         lbTotaleDare->setText(QApplication::translate("CRegistrazione", "0.0", 0));
         label_4->setText(QApplication::translate("CRegistrazione", "Totale Avere:", 0));

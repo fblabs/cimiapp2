@@ -5,7 +5,7 @@
 
 #include <QSqlTableModel>
 #include <QSqlQuery>
-// #include <QDebug>
+ #include <QDebug>
 #include <QSqlError>
 #include <QCompleter>
 #include <QMessageBox>
@@ -58,6 +58,7 @@ void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pR
 
     ui->cbTipoOpe->setModel(modtipiope);
     ui->cbTipoOpe->setModelColumn(2);
+    ui->cbTipoOpe->setCurrentIndex(-1);
 
     QCompleter *comptipiope = new QCompleter(modtipiope);
     comptipiope->setCompletionColumn(2);
@@ -139,45 +140,122 @@ void CNuovaRigaRegistrazione::on_rbE_toggled(bool checked)
 
 double CNuovaRigaRegistrazione::calculate()
 {
-    double result;
-    int elementi=1;
+    QString segno = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),3).data(0).toString();
+    QString tipo = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),1).data(0).toString();
+    double liq;
+
+    if (segno=="E")
+    {
+        ui->rbE->setChecked(true);
+    }
+    else
+    {
+        ui->rbU->setChecked(true);
+    }
+    if (tipo=="G" || tipo=="D")
+    {
+        ui->lbElementi->setVisible(true);
+        ui->leElementi->setVisible(true);
+      //  ui->leElementi->setText("1");
+        liq = calculateDays();
+    }
+    else
+    {
+        ui->lbElementi->setVisible(false);
+        ui->leElementi->setVisible(false);
+       // ui->leElementi->setText("1");
+        liq =calculateNoDays();
+    }
+    return liq;
+}
+
+double CNuovaRigaRegistrazione::calculateNoDays()
+{
+    double liquidazione;
+    double massimale;
+    double percent;
     double richiesta;
 
-    bool eok=true;
     bool ok;
 
-    if(ui->leElementi->isVisible())
-    {
-            elementi=ui->leElementi->text().toInt(&eok);
-    }
-    if(ui->leRichiesta->isVisible())
-    {
-            richiesta=ui->leRichiesta->text().toDouble(&ok);
-    }
-
-    double percent=modtipiope->index(ui->cbTipoOpe->currentIndex(),4).data(0).toDouble();
-
+    percent=modtipiope->index(ui->cbTipoOpe->currentIndex(),4).data(0).toDouble();
     richiesta=ui->leRichiesta->text().toDouble(&ok);
-
     if (!ok)
     {
         ui->leRichiesta->setText("0.0");
         QMessageBox::warning(this,QApplication::applicationName(),"Errore nel formato del numero inserito nel campo Richiesta! Verificare",QMessageBox::Ok);
     }
+    massimale=modtipiope->index(ui->cbTipoOpe->currentIndex(),5).data(0).toDouble();
+
+
+
+    liquidazione=richiesta*percent;
+    if (liquidazione > massimale)
+    {
+        liquidazione= massimale;
+    }
+
+
+
+
+    return liquidazione;
+}
+
+double CNuovaRigaRegistrazione::calculateDays()
+{
+
+    int elementi=1;
+    double richiesta;
+    double richiestaElemento;
+    double percent;
+    double massimaleRegistrazione;
+    double massimaleElemento;
+    double massimale;
+
+    double liquidazioneElemento;
+    double liquidazione;
+
+    bool eok=true;
+    bool ok;
+
+
+//richiesta
+    richiesta=ui->leRichiesta->text().toDouble(&ok);
+    if (!ok)
+     {
+         ui->leRichiesta->setText("0.0");
+         QMessageBox::warning(this,QApplication::applicationName(),"Errore nel formato del numero inserito nel campo Richiesta! Verificare",QMessageBox::Ok);
+     }
+//percentuale
+    percent=modtipiope->index(ui->cbTipoOpe->currentIndex(),4).data(0).toDouble();
+//elementi
+    elementi=ui->leElementi->text().toInt(&eok);
     if (!eok)
     {
         ui->leElementi->setText("1");
         QMessageBox::warning(this,QApplication::applicationName(),"Errore nel formato del numero inserito nel campo Elementi! Verificare",QMessageBox::Ok);
     }
 
+//il massimo per registrazione è 50% richiesta
+    massimaleRegistrazione=richiesta / 2;
+ //il massimale è il massimale per singolo elemento
+    massimaleElemento = modtipiope->index(ui->cbTipoOpe->currentIndex(),5).data(Qt::DisplayRole).toDouble();
+// per il singolo elemento la richiesta è:
+    richiestaElemento=richiesta / elementi;
 
-    result =richiesta*percent;
+    liquidazioneElemento=richiestaElemento * percent;
+
+    liquidazione=liquidazioneElemento * elementi;
+
+    if(liquidazione>massimaleRegistrazione)
+    {
+        liquidazione=massimaleRegistrazione;
+    }
 
 
 
-    return result;
+    return liquidazione;
 }
-
 
 void CNuovaRigaRegistrazione::on_pbCalc_clicked()
 {

@@ -3,6 +3,7 @@
 #include <QSqlDatabase>
 #include <QMessageBox>
 #include <QSqlError>
+#include <QProcess>
 
 #include "coperations.h"
 #include "cnuovaregistrazione.h"
@@ -11,6 +12,8 @@
 #include <QSettings>
 #include "cmastri.h"
 #include "csettings.h"
+#include <QDir>
+#include <QDebug>
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -98,4 +101,10 @@ void CMainWindow::on_pushButton_2_clicked()
 {
     CSettings *f=new CSettings();
     f->show();
+}
+
+void CMainWindow::on_pushButton_6_clicked()
+{
+   qDebug()<< QDir::currentPath();
+    QProcess::startDetached("cimiUpdate.exe",QStringList(QDir::currentPath()));
 }

@@ -16,6 +16,7 @@ CRegistrazione::CRegistrazione(QWidget *parent) :
     ui(new Ui::CRegistrazione)
 {
     ui->setupUi(this);
+    setWindowModality(Qt::ApplicationModal);
 
 }
 
@@ -32,9 +33,11 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
     modRegistrazione=new QSqlRelationalTableModel(0,db);
     modRighe=new QSqlRelationalTableModel(0,db);
 
+    ui->dataliq->setDate(QDate::currentDate());
+
     QSqlQuery qRegistrazione(db);
 
-    QString sql="SELECT codana,datareg FROM registrazioni where ID=:id ";
+    QString sql="SELECT codana,datareg,flag,data_liquidazione FROM registrazioni where ID=:id ";
     qRegistrazione.prepare(sql);
     qRegistrazione.bindValue(":id",pid);
 
@@ -43,11 +46,14 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
 
     int codana=qRegistrazione.value(0).toInt();
     QDate date=qRegistrazione.value(1).toDate();
+    bool liq = qRegistrazione.value(2).toBool();
+    QDate dateliq=qRegistrazione.value(3).toDate();
 
 
-    //qDebug()<< date.toString()<<"codana: "<<codana;
+    qDebug()<< liq<<qRegistrazione.value(2).toString()<<qRegistrazione.value(3).toString();
 
     ui->dateEdit->setDate(date);
+    ui->cbLiquidato->setChecked(liq);
 
 /*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
@@ -125,6 +131,7 @@ void CRegistrazione::recordTotals()
 void CRegistrazione::on_pushButton_2_clicked()
 {
     emit closing();
+    emit done();
     close();
 }
 
@@ -143,8 +150,26 @@ void CRegistrazione::on_pushButton_clicked()
 {
 
 
-    modRighe->select();
-    recordTotals();
+ //  modRegistrazione->submitAll();
+ //  modRighe->submitAll();
+    int l=ui->cbLiquidato->isChecked()? 1:0;
+    qDebug()<<l;
+
+    QSqlQuery q(db);
+
+    QString sql="UPDATE registrazioni SET flag=:flag,data_liquidazione=:dataliq WHERE id=:id";
+    q.prepare(sql);
+    q.bindValue(":flag",l);
+    q.bindValue(":id",ID);
+    q.bindValue(":dataliq",ui->dataliq->isVisible()?ui->dataliq->date().toString("yyyy-MM-dd"): "NULL");
+    q.exec();
+
+
+    emit done();
+
+
+
+
 
 }
 
@@ -156,4 +181,10 @@ void CRegistrazione::on_pushButton_4_clicked()
     modRighe->select();
     ui->tvDetails->setModel(modRighe);
     recordTotals();
+}
+
+void CRegistrazione::on_cbLiquidato_toggled(bool checked)
+{
+    ui->label_6->setVisible(checked);
+    ui->dataliq->setVisible(checked);
 }

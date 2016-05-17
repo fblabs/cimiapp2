@@ -107,7 +107,7 @@ void CNuovaRegistrazione::init(QSqlDatabase pdb)
 
 bool CNuovaRegistrazione::saveNewRegistration()
 {
-   /* db.transaction();
+    db.transaction();
     registrazionimod=new QSqlTableModel(0,db);
     registrazionimod->setTable("registrazioni");
 
@@ -116,7 +116,8 @@ bool CNuovaRegistrazione::saveNewRegistration()
     {
       //  QMessageBox::information(this,"OK","SIII",QMessageBox::Ok)
         CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
-        f->init(db,-1);
+    //    f->init(db,-1);
+        f->init(db,-1,0);
         f->show();
 
 
@@ -132,7 +133,7 @@ bool CNuovaRegistrazione::saveNewRegistration()
     registrazionimod->select();
 
 
-*/
+
     return true;
 
 }

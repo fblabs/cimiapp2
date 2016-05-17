@@ -44,6 +44,7 @@ public:
     QPushButton *pushButton_4;
     QPushButton *pbConti;
     QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
     QLabel *label_5;
 
     void setupUi(QMainWindow *CMainWindow)
@@ -154,6 +155,7 @@ public:
         font.setUnderline(false);
         font.setWeight(75);
         label->setFont(font);
+        label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 255);"));
         label->setTextFormat(Qt::AutoText);
         label->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
 
@@ -188,8 +190,8 @@ public:
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
+        font2.setBold(false);
+        font2.setWeight(50);
         pushButton_2->setFont(font2);
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -269,6 +271,16 @@ public:
 
         gridLayout_2->addWidget(pushButton_5, 2, 1, 1, 1);
 
+        pushButton_6 = new QPushButton(centralWidget);
+        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/Resources/Download.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_6->setIcon(icon8);
+        pushButton_6->setIconSize(QSize(64, 64));
+        pushButton_6->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_6, 2, 0, 1, 1);
+
 
         verticalLayout_2->addLayout(gridLayout_2);
 
@@ -287,10 +299,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.0.3", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Versione. 1.0.0", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "Versione. 1.0.0.3", 0));
         label_4->setText(QString());
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni", 0));
@@ -299,6 +311,7 @@ public:
         pushButton_4->setText(QApplication::translate("CMainWindow", "Nuova registrazione", 0));
         pbConti->setText(QApplication::translate("CMainWindow", "Anagrafica", 0));
         pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));
+        pushButton_6->setText(QApplication::translate("CMainWindow", "Aggiorna", 0));
         label_5->setText(QString());
     } // retranslateUi
 

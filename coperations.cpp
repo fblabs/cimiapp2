@@ -35,15 +35,16 @@ COperations::~COperations()
 void COperations::reload()
 {
 
-    mod = new CRelationalTableModel();
+  /*  mod = new CRelationalTableModel();
     mod->setTable("registrazioni");
     mod->setSort(1,Qt::DescendingOrder);
     mod->setFilter("datareg between '" + ui->deDal->date().toString("yyyy-MM-dd") + "' AND '" +ui->deAl->date().toString("yyyy-MM-dd")+"'");
     mod->setRelation(2,QSqlRelation("anagrafica","ID","descrizione"));
     mod->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
-    mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
+    mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));*/
     mod->select();
-    mod->select();
+   // ui->tvMain->setModel(mod);
+
 }
 
 void COperations::init(QSqlDatabase pdb)
@@ -69,10 +70,18 @@ void COperations::init(QSqlDatabase pdb)
     mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
     mod->select();
 
+    mod->setHeaderData(1,Qt::Horizontal,"Data registrazione");
+    mod->setHeaderData(2,Qt::Horizontal,"Conto");
+    mod->setHeaderData(3,Qt::Horizontal,"Tipo registrazione");
+    mod->setHeaderData(4,Qt::Horizontal,"Contropartita");
+    mod->setHeaderData(5,Qt::Horizontal,"Liquidato");
+    mod->setHeaderData(6,Qt::Horizontal,"Data liquidazione");
+    mod->setHeaderData(7,Qt::Horizontal,"Mandato");
+    mod->setHeaderData(8,Qt::Horizontal,"Note");
 
 
 
-    ui->tvMain->setModel(mod);
+   ui->tvMain->setModel(mod);
 
 
 
@@ -80,6 +89,7 @@ void COperations::init(QSqlDatabase pdb)
 
    ui->tvMain->setColumnWidth(5,20);
    ui->tvMain->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
 
 
 
@@ -150,6 +160,8 @@ void COperations::on_pushButton_3_clicked()
 
   connect(f,SIGNAL(done()),this,SLOT(reload()));
   f->show();
+
+
 }
 
 
@@ -174,10 +186,10 @@ void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
      //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
         f->init(ID,ix,db);
-        connect(f,SIGNAL(done),this,SLOT(reload()));
+        connect(f,SIGNAL(done()),this,SLOT(reload()));
 
         f->show();
-        reload();
+
 
 }
 
