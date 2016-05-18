@@ -4,14 +4,16 @@
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QDate>
-// #include <QDebug>
 #include <QSqlError>
-#include "crelationaltablemodel.h"
+#include "qsqlrelationaltablemodel.h"
 #include <QSqlRelation>
 #include <QHeaderView>
 #include "cregistrazione.h"
 #include "cnuovaregistrazione.h"
 #include <QMessageBox>
+#include "csqlrelationaltablemodel.h"
+#include <QMenu>
+#include <QAction>
 
 
 COperations::COperations(QWidget *parent) :
@@ -20,7 +22,7 @@ COperations::COperations(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    mod = new CRelationalTableModel();
+    mod = new CSqlRelationalTableModel(this,db);
 
     ui->deAl->setDate(QDate::currentDate());
     ui->deDal->setDate(QDate::currentDate().addMonths(-8));
@@ -89,6 +91,9 @@ void COperations::init(QSqlDatabase pdb)
 
    ui->tvMain->setColumnWidth(5,20);
    ui->tvMain->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+   setContextMenuPolicy(Qt::CustomContextMenu);
+   connect(this, SIGNAL(customContextMenuRequested(const QPoint &)),
+           this, SLOT(ShowContextMenu(const QPoint &)));
 
 
 
@@ -197,4 +202,43 @@ void COperations::on_lineEdit_textChanged(const QString &arg1)
 {
     mod->setFilter("relTblAl_2.descrizione LIKE '"+arg1+"%'");
    // qDebug()<<mod->query().lastQuery()<<mod->query().lastError().text();
+}
+
+/*void COperations::showContextMenu(const QPoint &pos)
+{
+       QMenu contextMenu(tr("Context menu"), this);
+
+       QAction action1("Remove Data Point", this);
+       connect(&action1, SIGNAL(triggered()), this, SLOT(removeDataPoint()));
+       contextMenu.addAction(&action1);
+
+       contextMenu.exec(mapToGlobal(pos));
+}
+*/
+
+void COperations::on_tvMain_customContextMenuRequested(const QPoint &pos)
+{
+
+    CRegistrazione *f=new CRegistrazione();
+    QModelIndex index=ui->tvMain->currentIndex();
+
+    int ID=ui->tvMain->model()->index(index.row(),0).data(0).toInt();
+    QString tipo=ui->tvMain->model()->index(index.row(),3).data(0).toString();
+    QSqlQuery q(db);
+    q.prepare("SELECT ID FROM tipi_mov where descrizione=:tipo");
+    q.bindValue(":tipo",tipo);
+    //qDebug()<<"parm tipo"<<tipo;
+    q.exec();
+    q.first();
+
+
+    int ix=q.value(0).toInt();
+ //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
+
+    f->init(ID,ix,db);
+    connect(f,SIGNAL(done()),this,SLOT(reload()));
+
+    f->show();
+
+
 }

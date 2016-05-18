@@ -10,6 +10,7 @@
 #include <QSqlQuery>
 
 
+
 CMastri::CMastri(QWidget *parent,QSqlDatabase pdb) :
     QWidget(parent),
     ui(new Ui::CMastri)

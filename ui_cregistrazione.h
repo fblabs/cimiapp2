@@ -270,7 +270,7 @@ public:
         pushButton_3->setText(QApplication::translate("CRegistrazione", "Nuova riga", 0));
         pushButton_4->setText(QApplication::translate("CRegistrazione", "Rimuovi riga", 0));
         pushButton->setText(QApplication::translate("CRegistrazione", "Salva", 0));
-        pushButton_2->setText(QApplication::translate("CRegistrazione", "Chiudi", 0));
+        pushButton_2->setText(QApplication::translate("CRegistrazione", "Annulla", 0));
     } // retranslateUi
 
 };

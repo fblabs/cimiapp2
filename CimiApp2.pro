@@ -16,26 +16,26 @@ SOURCES += main.cpp\
         cmainwindow.cpp \
     coperations.cpp \
     cregistrazione.cpp \
-    crelationaltablemodel.cpp \
     cnuovaregistrazione.cpp \
     cnuovarigaregistrazione.cpp \
     cconti.cpp \
     ctipianagrafici.cpp \
     csqltipianagraficimodel.cpp \
     cmastri.cpp \
-    csettings.cpp
+    csettings.cpp \
+    csqlrelationaltablemodel.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
     cregistrazione.h \
-    crelationaltablemodel.h \
     cnuovaregistrazione.h \
     cnuovarigaregistrazione.h \
     cconti.h \
     ctipianagrafici.h \
     csqltipianagraficimodel.h \
     cmastri.h \
-    csettings.h
+    csettings.h \
+    csqlrelationaltablemodel.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \

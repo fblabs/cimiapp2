@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
-#include "crelationaltablemodel.h"
+#include "csqlrelationaltablemodel.h"
 
 namespace Ui {
 class COperations;
@@ -37,10 +37,14 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+//    void showContextMenu(const QPoint &);
+
+    void on_tvMain_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::COperations *ui;
     QSqlDatabase db;
-    QSqlRelationalTableModel *mod;
+    CSqlRelationalTableModel *mod;
     void setFilter(QString fil="");
 };
 

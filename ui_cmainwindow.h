@@ -299,10 +299,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.0.3", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.1", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Versione. 1.0.0.3", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.1", 0));
         label_4->setText(QString());
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni", 0));

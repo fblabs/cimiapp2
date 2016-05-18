@@ -228,7 +228,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="text">
-        <string>Chiudi</string>
+        <string>Annulla</string>
        </property>
        <property name="icon">
         <iconset resource="graphics.qrc">

@@ -1,13 +1,13 @@
 #include "cregistrazione.h"
 #include "ui_cregistrazione.h"
-#include "crelationaltablemodel.h"
+#include "csqlrelationaltablemodel.h"
 #include "cnuovarigaregistrazione.h"
 #include <QSqlRelation>
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
 #include <QSqlQuery>
 #include <QSqlRecord>
-
+#include <QMessageBox>
 #include <QDebug>
 #include <QSqlError>
 
@@ -54,6 +54,7 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
 
     ui->dateEdit->setDate(date);
     ui->cbLiquidato->setChecked(liq);
+    ui->dataliq->setDate(dateliq);
 
 /*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
@@ -73,7 +74,7 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
     modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
     modRighe->select();
 
-    qDebug()<<modRighe->rowCount()<<modRighe->columnCount();
+
 
 
 
@@ -95,11 +96,19 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
 
     ui->comboBox->setCurrentIndex(ui->comboBox->findText(desc));
     ui->tvDetails->setCurrentIndex(ui->tvDetails->model()->index(0,0));
+    ui->label_6->setVisible(liq);
+    ui->dataliq->setVisible(liq);
     recordTotals();
+
 
 
    // connect(ui->tvDetails->,SIGNAL(),this,SLOT(recordTotals()));
 
+}
+
+void CRegistrazione::reload()
+{
+    modRighe->select();
 }
 
 void CRegistrazione::recordTotals()
@@ -140,9 +149,8 @@ void CRegistrazione::on_pushButton_3_clicked()
   CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
   f->init(db,ID,0);
   f->show();
-  connect(f,SIGNAL(nrdone()),this,SLOT(recordTotals()));
-  modRighe->select();
-  ui->tvDetails->setModel(modRighe);
+  connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
+
 
 }
 
@@ -166,6 +174,7 @@ void CRegistrazione::on_pushButton_clicked()
 
 
     emit done();
+    close();
 
 
 
@@ -175,12 +184,14 @@ void CRegistrazione::on_pushButton_clicked()
 
 void CRegistrazione::on_pushButton_4_clicked()
 {
- //  QSqlTableModel *mod =static_cast<QSqlTableModel*>(ui->tvDetails->model());
+   if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Eliminare questa riga?\n(attenzione questa operazione è irreversibile)",QMessageBox::Ok|QMessageBox::Cancel))
+  {
     modRighe->removeRow(ui->tvDetails->currentIndex().row());
     modRighe->submitAll();
     modRighe->select();
     ui->tvDetails->setModel(modRighe);
     recordTotals();
+  }
 }
 
 void CRegistrazione::on_cbLiquidato_toggled(bool checked)

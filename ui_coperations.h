@@ -80,6 +80,7 @@ public:
 
         tvMain = new QTableView(COperations);
         tvMain->setObjectName(QStringLiteral("tvMain"));
+        tvMain->setContextMenuPolicy(Qt::CustomContextMenu);
         tvMain->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvMain->setAlternatingRowColors(true);
         tvMain->setSelectionMode(QAbstractItemView::SingleSelection);

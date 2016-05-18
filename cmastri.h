@@ -7,6 +7,7 @@
 #include <QSqlQueryModel>
 
 
+
 namespace Ui {
 class CMastri;
 }

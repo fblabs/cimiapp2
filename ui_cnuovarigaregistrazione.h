@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -32,11 +33,16 @@ class Ui_CNuovaRigaRegistrazione
 {
 public:
     QVBoxLayout *verticalLayout;
+    QFormLayout *formLayout_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QComboBox *cbTipoOpe;
     QRadioButton *rbE;
     QRadioButton *rbU;
+    QFormLayout *formLayout_2;
+    QLabel *label_2;
+    QLineEdit *leMassimale;
+    QFrame *line;
     QHBoxLayout *horizontalLayout_2;
     QLabel *lbrichiesta;
     QLineEdit *leRichiesta;
@@ -60,12 +66,14 @@ public:
         if (CNuovaRigaRegistrazione->objectName().isEmpty())
             CNuovaRigaRegistrazione->setObjectName(QStringLiteral("CNuovaRigaRegistrazione"));
         CNuovaRigaRegistrazione->setWindowModality(Qt::ApplicationModal);
-        CNuovaRigaRegistrazione->resize(926, 432);
+        CNuovaRigaRegistrazione->resize(1028, 455);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         CNuovaRigaRegistrazione->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(CNuovaRigaRegistrazione);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label = new QLabel(CNuovaRigaRegistrazione);
@@ -92,7 +100,35 @@ public:
         horizontalLayout->addWidget(rbU);
 
 
-        verticalLayout->addLayout(horizontalLayout);
+        formLayout_3->setLayout(0, QFormLayout::LabelRole, horizontalLayout);
+
+        formLayout_2 = new QFormLayout();
+        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
+        label_2 = new QLabel(CNuovaRigaRegistrazione);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_2);
+
+        leMassimale = new QLineEdit(CNuovaRigaRegistrazione);
+        leMassimale->setObjectName(QStringLiteral("leMassimale"));
+        leMassimale->setMaximumSize(QSize(50, 16777215));
+        leMassimale->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 127);"));
+        leMassimale->setReadOnly(true);
+
+        formLayout_2->setWidget(0, QFormLayout::FieldRole, leMassimale);
+
+
+        formLayout_3->setLayout(0, QFormLayout::FieldRole, formLayout_2);
+
+
+        verticalLayout->addLayout(formLayout_3);
+
+        line = new QFrame(CNuovaRigaRegistrazione);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout->addWidget(line);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -161,6 +197,7 @@ public:
 
         ptNote = new QPlainTextEdit(CNuovaRigaRegistrazione);
         ptNote->setObjectName(QStringLiteral("ptNote"));
+        ptNote->setMaximumSize(QSize(16777215, 100));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, ptNote);
 
@@ -202,6 +239,7 @@ public:
         label->setText(QApplication::translate("CNuovaRigaRegistrazione", "Tipo Operazione:", 0));
         rbE->setText(QApplication::translate("CNuovaRigaRegistrazione", "Entrata", 0));
         rbU->setText(QApplication::translate("CNuovaRigaRegistrazione", "Uscita", 0));
+        label_2->setText(QApplication::translate("CNuovaRigaRegistrazione", "Massimale:", 0));
         lbrichiesta->setText(QApplication::translate("CNuovaRigaRegistrazione", "Richiesta:", 0));
         lbElementi->setText(QApplication::translate("CNuovaRigaRegistrazione", "Elementi/Giorni:", 0));
         leElementi->setText(QApplication::translate("CNuovaRigaRegistrazione", "1", 0));

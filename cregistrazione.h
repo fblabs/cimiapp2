@@ -31,6 +31,7 @@ private slots:
     void recordTotals();
 
     void on_cbLiquidato_toggled(bool checked);
+    void reload();
 
 private:
     Ui::CRegistrazione *ui;

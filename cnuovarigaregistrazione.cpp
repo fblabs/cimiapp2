@@ -81,6 +81,10 @@ void CNuovaRigaRegistrazione::setupUI()
 
     QString segno = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),3).data(0).toString();
     QString tipo = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),1).data(0).toString();
+    QString massimale=ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),5).data(0).toString();
+    double liquidazione=ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),4).data(0).toDouble();
+
+    ui->leMassimale->setText(QString::number(liquidazione*100)+"%");
 
     //qDebug()<<"segno: "<<segno<<"tipo: "<<tipo;
 
@@ -237,7 +241,7 @@ double CNuovaRigaRegistrazione::calculateDays()
     }
 
 //il massimo per registrazione è 50% richiesta
-    massimaleRegistrazione=richiesta / 2;
+    massimale=richiesta * percent;
  //il massimale è il massimale per singolo elemento
     massimaleElemento = modtipiope->index(ui->cbTipoOpe->currentIndex(),5).data(Qt::DisplayRole).toDouble();
 // per il singolo elemento la richiesta è:
@@ -247,9 +251,9 @@ double CNuovaRigaRegistrazione::calculateDays()
 
     liquidazione=liquidazioneElemento * elementi;
 
-    if(liquidazione>massimaleRegistrazione)
+    if(liquidazione>massimale)
     {
-        liquidazione=massimaleRegistrazione;
+        liquidazione=massimale;
     }
 
 
@@ -328,6 +332,7 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
    }
 
    modrighe->select();
+   emit nrdone();
 
 }
 
