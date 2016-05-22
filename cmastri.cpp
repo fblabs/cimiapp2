@@ -97,7 +97,7 @@ void CMastri::on_pushButton_2_clicked()
 
 
     CRegistrazione *f=new CRegistrazione();
-    f->init(id,20,db);
+    f->init(id,tipo,db);
     connect (f,SIGNAL(closing()),this,SLOT(getMastro()));
     f->show();
 }

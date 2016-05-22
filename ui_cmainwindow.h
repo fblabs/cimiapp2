@@ -45,42 +45,47 @@ public:
     QPushButton *pbConti;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
     QLabel *label_5;
 
     void setupUi(QMainWindow *CMainWindow)
     {
         if (CMainWindow->objectName().isEmpty())
             CMainWindow->setObjectName(QStringLiteral("CMainWindow"));
-        CMainWindow->resize(1106, 600);
+        CMainWindow->resize(1106, 625);
         QPalette palette;
         QBrush brush(QColor(0, 0, 0, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush1(QColor(170, 170, 255, 255));
+        QBrush brush1(QColor(135, 135, 203, 255));
         brush1.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush1);
-        QBrush brush2(QColor(255, 255, 255, 255));
+        QBrush brush2(QColor(219, 219, 255, 255));
         brush2.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Light, brush2);
-        QBrush brush3(QColor(212, 212, 255, 255));
+        QBrush brush3(QColor(177, 177, 229, 255));
         brush3.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Midlight, brush3);
-        QBrush brush4(QColor(85, 85, 127, 255));
+        QBrush brush4(QColor(67, 67, 101, 255));
         brush4.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Dark, brush4);
-        QBrush brush5(QColor(113, 113, 170, 255));
+        QBrush brush5(QColor(90, 90, 135, 255));
         brush5.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Mid, brush5);
         palette.setBrush(QPalette::Active, QPalette::Text, brush);
-        palette.setBrush(QPalette::Active, QPalette::BrightText, brush2);
+        QBrush brush6(QColor(255, 255, 255, 255));
+        brush6.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::BrightText, brush6);
         palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush2);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush6);
         palette.setBrush(QPalette::Active, QPalette::Window, brush1);
         palette.setBrush(QPalette::Active, QPalette::Shadow, brush);
-        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush3);
-        QBrush brush6(QColor(255, 255, 220, 255));
-        brush6.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::ToolTipBase, brush6);
+        QBrush brush7(QColor(195, 195, 229, 255));
+        brush7.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush7);
+        QBrush brush8(QColor(255, 255, 220, 255));
+        brush8.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipBase, brush8);
         palette.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
         palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
         palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
@@ -89,13 +94,13 @@ public:
         palette.setBrush(QPalette::Inactive, QPalette::Dark, brush4);
         palette.setBrush(QPalette::Inactive, QPalette::Mid, brush5);
         palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush6);
         palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush6);
         palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
         palette.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush3);
-        palette.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush6);
+        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush7);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush8);
         palette.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
         palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
         palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
@@ -104,13 +109,13 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Dark, brush4);
         palette.setBrush(QPalette::Disabled, QPalette::Mid, brush5);
         palette.setBrush(QPalette::Disabled, QPalette::Text, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush6);
         palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
         palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
         palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
         palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
         palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         CMainWindow->setPalette(palette);
         QIcon icon;
@@ -155,7 +160,8 @@ public:
         font.setUnderline(false);
         font.setWeight(75);
         label->setFont(font);
-        label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 255);"));
+        label->setStyleSheet(QLatin1String("\n"
+"color: rgb(85, 85, 255);"));
         label->setTextFormat(Qt::AutoText);
         label->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
 
@@ -281,6 +287,16 @@ public:
 
         gridLayout_2->addWidget(pushButton_6, 2, 0, 1, 1);
 
+        pushButton_7 = new QPushButton(centralWidget);
+        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
+        QIcon icon9;
+        icon9.addFile(QStringLiteral(":/Resources/Accounting.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_7->setIcon(icon9);
+        pushButton_7->setIconSize(QSize(64, 64));
+        pushButton_7->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_7, 0, 2, 1, 1);
+
 
         verticalLayout_2->addLayout(gridLayout_2);
 
@@ -299,10 +315,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.1", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.2", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.1", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.2", 0));
         label_4->setText(QString());
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni", 0));
@@ -312,6 +328,7 @@ public:
         pbConti->setText(QApplication::translate("CMainWindow", "Anagrafica", 0));
         pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));
         pushButton_6->setText(QApplication::translate("CMainWindow", "Aggiorna", 0));
+        pushButton_7->setText(QApplication::translate("CMainWindow", "Mandati", 0));
         label_5->setText(QString());
     } // retranslateUi
 

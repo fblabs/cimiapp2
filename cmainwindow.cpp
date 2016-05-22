@@ -12,6 +12,7 @@
 #include <QSettings>
 #include "cmastri.h"
 #include "csettings.h"
+#include "cmandati.h"
 #include <QDir>
 #include <QDebug>
 
@@ -107,4 +108,10 @@ void CMainWindow::on_pushButton_6_clicked()
 {
    qDebug()<< QDir::currentPath();
     QProcess::startDetached("cimiUpdate.exe",QStringList(QDir::currentPath()));
+}
+
+void CMainWindow::on_pushButton_7_clicked()
+{
+    CMandati *f=new CMandati(0,db);
+    f->show();
 }
