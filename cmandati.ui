@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>CMandati</class>
  <widget class="QWidget" name="CMandati">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,39 +14,56 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Mandati</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <property name="windowIcon">
+   <iconset resource="graphics.qrc">
+    <normaloff>:/Resources/Accounting.png</normaloff>:/Resources/Accounting.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Anno:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="sbYear">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="specialValueText">
+        <string/>
+       </property>
+       <property name="minimum">
+        <number>2010</number>
+       </property>
+       <property name="maximum">
+        <number>2100</number>
+       </property>
+       <property name="value">
+        <number>2010</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <layout class="QFormLayout" name="formLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Anno:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QSpinBox" name="sbYear">
-           <property name="specialValueText">
-            <string/>
-           </property>
-           <property name="minimum">
-            <number>2010</number>
-           </property>
-           <property name="maximum">
-            <number>2100</number>
-           </property>
-           <property name="value">
-            <number>2010</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Mandato</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QTableView" name="tvMaster">
@@ -67,12 +87,108 @@
       </layout>
      </item>
      <item>
-      <widget class="QTableView" name="tvDetails"/>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Dettagli</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableView" name="tvDetails">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Importo:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leImporto">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Modifica registrazione</string>
+         </property>
+         <property name="icon">
+          <iconset resource="graphics.qrc">
+           <normaloff>:/Resources/Pencil.PNG</normaloff>:/Resources/Pencil.PNG</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Nuovo Mandato</string>
+       </property>
+       <property name="icon">
+        <iconset resource="graphics.qrc">
+         <normaloff>:/Resources/Case.PNG</normaloff>:/Resources/Case.PNG</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Chiudi</string>
+       </property>
+       <property name="icon">
+        <iconset resource="graphics.qrc">
+         <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="graphics.qrc"/>
+ </resources>
  <connections/>
 </ui>

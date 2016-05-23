@@ -13,6 +13,8 @@
 #include "cmastri.h"
 #include "csettings.h"
 #include "cmandati.h"
+#include "cnewmandato.h"
+
 #include <QDir>
 #include <QDebug>
 
@@ -113,5 +115,11 @@ void CMainWindow::on_pushButton_6_clicked()
 void CMainWindow::on_pushButton_7_clicked()
 {
     CMandati *f=new CMandati(0,db);
+    f->show();
+}
+
+void CMainWindow::on_pushButton_8_clicked()
+{
+    CNewMandato *f=new CNewMandato(0,db);
     f->show();
 }

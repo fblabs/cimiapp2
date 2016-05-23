@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     cmastri.cpp \
     csettings.cpp \
     csqlrelationaltablemodel.cpp \
-    cmandati.cpp
+    cmandati.cpp \
+    cnewmandato.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -37,7 +38,8 @@ HEADERS  += cmainwindow.h \
     cmastri.h \
     csettings.h \
     csqlrelationaltablemodel.h \
-    cmandati.h
+    cmandati.h \
+    cnewmandato.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
@@ -48,7 +50,8 @@ FORMS    += cmainwindow.ui \
     ctipianagrafici.ui \
     cmastri.ui \
     csettings.ui \
-    cmandati.ui
+    cmandati.ui \
+    cnewmandato.ui
 
 RESOURCES += graphics.qrc
 win32:RC_ICONS += cimiapp2.ico

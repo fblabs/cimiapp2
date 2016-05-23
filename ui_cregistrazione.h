@@ -66,6 +66,7 @@ public:
     {
         if (CRegistrazione->objectName().isEmpty())
             CRegistrazione->setObjectName(QStringLiteral("CRegistrazione"));
+        CRegistrazione->setWindowModality(Qt::ApplicationModal);
         CRegistrazione->resize(869, 506);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Pencil.PNG"), QSize(), QIcon::Normal, QIcon::Off);

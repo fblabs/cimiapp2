@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1106</width>
-    <height>625</height>
+    <height>671</height>
    </rect>
   </property>
   <property name="palette">
@@ -537,123 +537,7 @@ color: rgb(85, 85, 255);</string>
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Impostazioni</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Actions-configure-icon.png</normaloff>:/Resources/Actions-configure-icon.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="pBOperazioni">
-        <property name="minimumSize">
-         <size>
-          <width>225</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>225</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Registrazioni</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/palet-03-icon.png</normaloff>:/Resources/palet-03-icon.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QPushButton" name="pushButton">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Chiudi</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Mastri</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Statistics.png</normaloff>:/Resources/Statistics.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
+      <item row="3" column="2">
        <widget class="QPushButton" name="pushButton_4">
         <property name="minimumSize">
          <size>
@@ -691,33 +575,7 @@ color: rgb(85, 85, 255);</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="pbConti">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Anagrafica</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/user-group-icon.png</normaloff>:/Resources/user-group-icon.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
+      <item row="3" column="1">
        <widget class="QPushButton" name="pushButton_5">
         <property name="font">
          <font>
@@ -743,7 +601,59 @@ color: rgb(85, 85, 255);</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="2" column="4">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Mastri</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/Statistics.png</normaloff>:/Resources/Statistics.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QPushButton" name="pushButton">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Chiudi</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/Actions-window-close-icon.png</normaloff>:/Resources/Actions-window-close-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
        <widget class="QPushButton" name="pushButton_6">
         <property name="text">
          <string>Aggiorna</string>
@@ -763,7 +673,97 @@ color: rgb(85, 85, 255);</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pbConti">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Anagrafica</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/user-group-icon.png</normaloff>:/Resources/user-group-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Impostazioni</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/Actions-configure-icon.png</normaloff>:/Resources/Actions-configure-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="pBOperazioni">
+        <property name="minimumSize">
+         <size>
+          <width>225</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>225</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Registrazioni</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/palet-03-icon.png</normaloff>:/Resources/palet-03-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
        <widget class="QPushButton" name="pushButton_7">
         <property name="text">
          <string>Mandati</string>
@@ -771,6 +771,26 @@ color: rgb(85, 85, 255);</string>
         <property name="icon">
          <iconset resource="graphics.qrc">
           <normaloff>:/Resources/Accounting.png</normaloff>:/Resources/Accounting.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="text">
+         <string>Nuovo Mandato</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/Case.PNG</normaloff>:/Resources/Case.PNG</iconset>
         </property>
         <property name="iconSize">
          <size>

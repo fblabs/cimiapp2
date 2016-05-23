@@ -12,6 +12,7 @@ INPUT(
 ./debug/csettings.o
 ./debug/csqlrelationaltablemodel.o
 ./debug/cmandati.o
+./debug/cnewmandato.o
 ./debug/qrc_graphics.o
 ./debug/moc_cmainwindow.o
 ./debug/moc_coperations.o
@@ -25,4 +26,5 @@ INPUT(
 ./debug/moc_csettings.o
 ./debug/moc_csqlrelationaltablemodel.o
 ./debug/moc_cmandati.o
+./debug/moc_cnewmandato.o
 );

@@ -20,7 +20,16 @@ public:
 private slots:
     void on_sbYear_valueChanged(int arg1);
     void loadMandato();
-    void loadMandatoDetails();
+  //  void loadMandatoDetails();
+    void editRegistrazione();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void getImporto();
 
 private:
     Ui::CMandati *ui;
