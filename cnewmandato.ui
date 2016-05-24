@@ -61,9 +61,23 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QDateEdit" name="dateEdit"/>
+        <widget class="QDateEdit" name="deDataMandato"/>
        </item>
       </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout_8">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Banca:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="cbBanche"/>
      </item>
     </layout>
    </item>
@@ -90,7 +104,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QDateEdit" name="dateEdit_2"/>
+            <widget class="QDateEdit" name="deDal"/>
            </item>
           </layout>
          </item>
@@ -104,14 +118,24 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QDateEdit" name="dateEdit_3"/>
+            <widget class="QDateEdit" name="deAl"/>
            </item>
           </layout>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QTableWidget" name="tableWidget"/>
+        <widget class="QTableView" name="tvRigheMandato">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QFormLayout" name="formLayout_4">

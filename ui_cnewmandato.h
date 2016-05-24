@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -20,7 +21,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -39,18 +40,21 @@ public:
     QLineEdit *leAnno;
     QFormLayout *formLayout_3;
     QLabel *label_3;
-    QDateEdit *dateEdit;
+    QDateEdit *deDataMandato;
+    QFormLayout *formLayout_8;
+    QLabel *label_8;
+    QComboBox *cbBanche;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_5;
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout_7;
     QFormLayout *formLayout_5;
     QLabel *label_6;
-    QDateEdit *dateEdit_2;
+    QDateEdit *deDal;
     QFormLayout *formLayout_6;
     QLabel *label_7;
-    QDateEdit *dateEdit_3;
-    QTableWidget *tableWidget;
+    QDateEdit *deAl;
+    QTableView *tvRigheMandato;
     QFormLayout *formLayout_4;
     QLabel *label_4;
     QLineEdit *leImporto;
@@ -108,16 +112,31 @@ public:
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, label_3);
 
-        dateEdit = new QDateEdit(CNewMandato);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        deDataMandato = new QDateEdit(CNewMandato);
+        deDataMandato->setObjectName(QStringLiteral("deDataMandato"));
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, dateEdit);
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, deDataMandato);
 
 
         horizontalLayout->addLayout(formLayout_3);
 
 
         verticalLayout_3->addLayout(horizontalLayout);
+
+        formLayout_8 = new QFormLayout();
+        formLayout_8->setObjectName(QStringLiteral("formLayout_8"));
+        label_8 = new QLabel(CNewMandato);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        formLayout_8->setWidget(0, QFormLayout::LabelRole, label_8);
+
+        cbBanche = new QComboBox(CNewMandato);
+        cbBanche->setObjectName(QStringLiteral("cbBanche"));
+
+        formLayout_8->setWidget(0, QFormLayout::FieldRole, cbBanche);
+
+
+        verticalLayout_3->addLayout(formLayout_8);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -137,10 +156,10 @@ public:
 
         formLayout_5->setWidget(0, QFormLayout::LabelRole, label_6);
 
-        dateEdit_2 = new QDateEdit(CNewMandato);
-        dateEdit_2->setObjectName(QStringLiteral("dateEdit_2"));
+        deDal = new QDateEdit(CNewMandato);
+        deDal->setObjectName(QStringLiteral("deDal"));
 
-        formLayout_5->setWidget(0, QFormLayout::FieldRole, dateEdit_2);
+        formLayout_5->setWidget(0, QFormLayout::FieldRole, deDal);
 
 
         formLayout_7->setLayout(0, QFormLayout::LabelRole, formLayout_5);
@@ -152,10 +171,10 @@ public:
 
         formLayout_6->setWidget(0, QFormLayout::LabelRole, label_7);
 
-        dateEdit_3 = new QDateEdit(CNewMandato);
-        dateEdit_3->setObjectName(QStringLiteral("dateEdit_3"));
+        deAl = new QDateEdit(CNewMandato);
+        deAl->setObjectName(QStringLiteral("deAl"));
 
-        formLayout_6->setWidget(0, QFormLayout::FieldRole, dateEdit_3);
+        formLayout_6->setWidget(0, QFormLayout::FieldRole, deAl);
 
 
         formLayout_7->setLayout(0, QFormLayout::FieldRole, formLayout_6);
@@ -163,10 +182,13 @@ public:
 
         verticalLayout->addLayout(formLayout_7);
 
-        tableWidget = new QTableWidget(CNewMandato);
-        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        tvRigheMandato = new QTableView(CNewMandato);
+        tvRigheMandato->setObjectName(QStringLiteral("tvRigheMandato"));
+        tvRigheMandato->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tvRigheMandato->setAlternatingRowColors(true);
+        tvRigheMandato->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-        verticalLayout->addWidget(tableWidget);
+        verticalLayout->addWidget(tvRigheMandato);
 
         formLayout_4 = new QFormLayout();
         formLayout_4->setObjectName(QStringLiteral("formLayout_4"));
@@ -225,6 +247,7 @@ public:
         label->setText(QApplication::translate("CNewMandato", "Numero:", 0));
         label_2->setText(QApplication::translate("CNewMandato", "Anno:", 0));
         label_3->setText(QApplication::translate("CNewMandato", "Data:", 0));
+        label_8->setText(QApplication::translate("CNewMandato", "Banca:", 0));
         label_5->setText(QApplication::translate("CNewMandato", "Registrazioni:", 0));
         label_6->setText(QApplication::translate("CNewMandato", "Dal:", 0));
         label_7->setText(QApplication::translate("CNewMandato", "Al:", 0));
