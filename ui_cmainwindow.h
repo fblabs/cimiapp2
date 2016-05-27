@@ -173,8 +173,8 @@ public:
         QFont font1;
         font1.setFamily(QStringLiteral("Arial"));
         font1.setPointSize(10);
-        font1.setBold(false);
-        font1.setWeight(50);
+        font1.setBold(true);
+        font1.setWeight(75);
         label_6->setFont(font1);
         label_6->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 
@@ -326,10 +326,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.2", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.3", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.2", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.3", 0));
         label_4->setText(QString());
         pushButton_4->setText(QApplication::translate("CMainWindow", "Nuova registrazione", 0));
         pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));

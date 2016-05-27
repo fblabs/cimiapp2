@@ -87,7 +87,7 @@ void COperations::init(QSqlDatabase pdb)
 
 
 
-    ui->tvMain->setColumnHidden(0,true);
+ //   ui->tvMain->setColumnHidden(0,true);
 
    ui->tvMain->setColumnWidth(5,20);
    ui->tvMain->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);

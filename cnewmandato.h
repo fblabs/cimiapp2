@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QSqlDatabase>
+#include "csqlrelationaltablemodel.h"
 
 namespace Ui {
 class CNewMandato;
@@ -18,11 +19,19 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-  //  void getImporto();
+    void getImporto();
+
+
+    void setRegsDateRange();
+    bool saveMandato();
+
+    void on_pushButton_2_clicked();
+    int getBancaID();
 
 private:
     Ui::CNewMandato *ui;
     QSqlDatabase db;
+    CSqlRelationalTableModel *regs;
 };
 
 #endif // CNEWMANDATO_H

@@ -187,6 +187,7 @@ public:
         tvRigheMandato->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvRigheMandato->setAlternatingRowColors(true);
         tvRigheMandato->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tvRigheMandato->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(tvRigheMandato);
 

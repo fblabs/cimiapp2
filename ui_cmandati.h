@@ -93,6 +93,7 @@ public:
         tvMaster->setAlternatingRowColors(true);
         tvMaster->setSelectionMode(QAbstractItemView::SingleSelection);
         tvMaster->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tvMaster->setSortingEnabled(true);
         tvMaster->verticalHeader()->setVisible(false);
 
         verticalLayout_2->addWidget(tvMaster);
@@ -111,7 +112,7 @@ public:
         tvDetails->setObjectName(QStringLiteral("tvDetails"));
         tvDetails->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvDetails->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tvDetails->verticalHeader()->setVisible(false);
+        tvDetails->verticalHeader()->setVisible(true);
 
         verticalLayout->addWidget(tvDetails);
 

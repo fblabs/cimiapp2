@@ -21,12 +21,14 @@ CMandati::CMandati(QWidget *parent,QSqlDatabase pdb) :
     db=pdb;
 
     mod=new QSqlRelationalTableModel(0,db);
-    mod->setTable("mandati");
-    mod->setRelation(3,QSqlRelation("anagrafica","ID","descrizione"));
+    mod->setTable("mandati_new");
+    mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
     mod->select();
+   qDebug()<<mod->rowCount();
     ui->tvMaster->setModel(mod);
-    ui->tvMaster->setColumnHidden(1,true);
+  //  ui->tvMaster->setColumnHidden(1,true);
     ui->tvMaster->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tvMaster->setColumnHidden(0,true);
     ui->sbYear->setValue(QDate::currentDate().year());
 
     connect(ui->tvMaster->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(loadMandato()));
@@ -42,29 +44,32 @@ CMandati::~CMandati()
 void CMandati::on_sbYear_valueChanged(int arg1)
 {
     mod->setFilter("year(data)="+QString::number(arg1));
+    qDebug()<<mod->lastError().text();
 }
 
 void CMandati::loadMandato()
 {
+    qDebug()<<"loadMandato()";
     setCursor(Qt::WaitCursor);
     disconnect(ui->tvDetails,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editRegistrazione()));
     QSqlQuery q(db);
-    int anno=ui->sbYear->value();
     int numero = ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),0).data(0).toInt();
-    QString sql="SELECT DISTINCT vwrighe.Pratica AS Pratica, vwrighe.DATA AS Data ,vwrighe.Nome AS Nome, vwrighe.Indirizzo AS Indirizzo,vwrighe.Citta AS Citta,vwrighe.IBAN AS IBAN,vwrighe.importo AS Importo FROM vwrighe, registrazioni WHERE vwrighe.Distinta  = :numero  AND YEAR(DATA) = :anno";
-
+    QString sql="select registrazioni.ID,registrazioni.datareg,anagrafica.descrizione from registrazioni,anagrafica where anagrafica.ID=registrazioni.codana and registrazioni.ID IN (SELECT registrazione from righe_mandati_new where IDMandato=:num)";
     q.prepare(sql);
     q.bindValue(0,numero);
-    q.bindValue(1,anno);
+  //  q.bindValue(1,anno);
 
     q.exec();
 
     QSqlQueryModel *qm=new QSqlQueryModel();
     qm->setQuery(q);
 
+    qDebug()<<numero<<q.lastError()<<q.lastQuery()<<qm->rowCount();
+
     ui->tvDetails->setModel(qm);
 
     ui->tvDetails->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tvDetails->setColumnHidden(0,true);
 
     connect(ui->tvDetails,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editRegistrazione()));
     getImporto();
