@@ -43,7 +43,7 @@ public:
             CMastri->setObjectName(QStringLiteral("CMastri"));
         CMastri->resize(1048, 584);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/SearchStatistics.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/mastri.png"), QSize(), QIcon::Normal, QIcon::Off);
         CMastri->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(CMastri);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));

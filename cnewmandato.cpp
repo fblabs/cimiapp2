@@ -16,7 +16,7 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 {
     ui->setupUi(this);
 
-
+    int anno=QDate::currentDate().year();
     db = pdb;
 
     QSqlTableModel *banchemod=new QSqlTableModel(0,db);
@@ -34,7 +34,7 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 
     QSqlQuery q(db);
   //  q.exec("select max(numero) from mandati where year(data)=:anno");
-    q.exec("select max(numero) from mandati_new where year(data)=:anno");
+    q.exec("select max(numero) from mandati_new where anno=:anno");
     q.bindValue(":anno",QDate::currentDate().year());
     q.exec();
     q.first();
@@ -49,7 +49,7 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 
     ui->deDal->setDate(dataultimomandato);
 
-    int anno=QDate::currentDate().year();
+
 
     ui->leNumero->setText(QString::number(numero));
     ui->leAnno->setText(QString::number(anno));
@@ -59,14 +59,14 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 
 
     regs=new CSqlRelationalTableModel(0,db);
-    regs->setTable("vwrighe");
+    regs->setTable("registrazioni");
 
-   // regs->setRelation(2,QSqlRelation("anagrafica","ID","descrizione"));
-  //  regs->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
-  //  regs->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
+    regs->setRelation(2,QSqlRelation("anagrafica","ID","descrizione"));
+    regs->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
+    regs->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));;
 
     regs->select();
-    regs->setFilter("Data between '"+ui->deDal->date().toString("yyyy-MM-dd")+"' and '"+ui->deAl->date().toString("yyyy-MM-dd")+"'");
+    regs->setFilter("datareg between '"+ui->deDal->date().toString("yyyy-MM-dd")+"' and '"+ui->deAl->date().toString("yyyy-MM-dd")+"'");
 
     ui->tvRigheMandato->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -92,13 +92,21 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 void CNewMandato::getImporto()
 {
     double importo=0;
+    QSqlQuery q(db);
+    QString sql;
 
     int righe=regs->rowCount();
 
     for (int x=0;x<righe;x++)
     {
-        importo += regs->index(x,6).data(Qt::DisplayRole).toDouble();
-        qDebug()<<righe<<importo<<regs->index(x,2).data(Qt::DisplayRole).toString();
+
+        sql="SELECT SUM(uscite) from righe_reg where ID="+regs->index(x,0).data(Qt::DisplayRole).toString();
+        q.exec(sql);
+        q.first();
+
+        importo += q.value(0).toDouble();
+
+       // qDebug()<<q.value(0).toString()<<q.lastError().text();
     }
 
     ui->leImporto->setText(QString::number(importo,'f',2));
@@ -133,7 +141,7 @@ void CNewMandato::setRegsDateRange()
     QDate al =ui->deAl->date();
 
     if(!regs) return;
-    regs->setFilter("Data between '"+dal.toString("yyyy-MM-dd")+"' and '"+al.toString("yyyy-MM-dd")+"'");
+    regs->setFilter("datareg between '"+dal.toString("yyyy-MM-dd")+"' and '"+al.toString("yyyy-MM-dd")+"'");
     getImporto();
 }
 
@@ -144,13 +152,16 @@ bool CNewMandato::saveMandato()
     QString anno=ui->leAnno->text();
     QString data=ui->deDataMandato->date().toString("yyyy-MM-dd");
     QString banca=QString::number(getBancaID());
+    QString numero=ui->leNumero->text();
 
-    QString sql="insert into mandati_new(anno,data,banca) VALUES(:anno,:data,:banca)";
+    QString sql="insert into mandati_new(numero,anno,data,banca) VALUES(:numero,:anno,:data,:banca)";
     QSqlQuery q(db);
     q.prepare(sql);
+    q.bindValue(":numero",numero);
     q.bindValue(":anno",anno);
     q.bindValue(":data",data);
     q.bindValue(":banca",banca);
+
     db.transaction();
     q.exec();
 
@@ -182,7 +193,7 @@ void CNewMandato::on_pushButton_2_clicked()
 {
    if( saveMandato())
    {
-       //setWindowTitle("SALVè");
+       regs->select();
    }
    else
    {

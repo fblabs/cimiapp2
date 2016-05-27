@@ -49,7 +49,7 @@ public:
             COperations->setObjectName(QStringLiteral("COperations"));
         COperations->resize(1088, 511);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/palet-03-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/registrazioni.png"), QSize(), QIcon::Normal, QIcon::Off);
         COperations->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(COperations);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -121,7 +121,7 @@ public:
         pushButton_3 = new QPushButton(COperations);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/Resources/nuovareegistrazione.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon2);
         pushButton_3->setIconSize(QSize(32, 32));
 

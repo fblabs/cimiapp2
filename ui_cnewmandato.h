@@ -69,7 +69,7 @@ public:
         CNewMandato->setWindowModality(Qt::ApplicationModal);
         CNewMandato->resize(1087, 583);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Case.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/nuovomandato.png"), QSize(), QIcon::Normal, QIcon::Off);
         CNewMandato->setWindowIcon(icon);
         verticalLayout_3 = new QVBoxLayout(CNewMandato);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));

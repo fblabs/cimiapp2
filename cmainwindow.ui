@@ -430,7 +430,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="graphics.qrc">
-    <normaloff>:/Resources/My Network Places.png</normaloff>:/Resources/My Network Places.png</iconset>
+    <normaloff>:/Resources/Stardock DesktopX.png</normaloff>:/Resources/Stardock DesktopX.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -470,7 +470,7 @@
          </size>
         </property>
         <property name="pixmap">
-         <pixmap resource="graphics.qrc">:/Resources/My Network Places.png</pixmap>
+         <pixmap resource="graphics.qrc">:/Resources/Stardock DesktopX.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -562,7 +562,7 @@ color: rgb(85, 85, 255);</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Database.PNG</normaloff>:/Resources/Database.PNG</iconset>
+          <normaloff>:/Resources/nuovareegistrazione.png</normaloff>:/Resources/nuovareegistrazione.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -614,7 +614,7 @@ color: rgb(85, 85, 255);</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Statistics.png</normaloff>:/Resources/Statistics.png</iconset>
+          <normaloff>:/Resources/mastri.png</normaloff>:/Resources/mastri.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -660,7 +660,7 @@ color: rgb(85, 85, 255);</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Download.PNG</normaloff>:/Resources/Download.PNG</iconset>
+          <normaloff>:/Resources/aggiorna.png</normaloff>:/Resources/aggiorna.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -750,7 +750,7 @@ color: rgb(85, 85, 255);</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/palet-03-icon.png</normaloff>:/Resources/palet-03-icon.png</iconset>
+          <normaloff>:/Resources/registrazioni.png</normaloff>:/Resources/registrazioni.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -770,7 +770,7 @@ color: rgb(85, 85, 255);</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Accounting.png</normaloff>:/Resources/Accounting.png</iconset>
+          <normaloff>:/Resources/mandati.png</normaloff>:/Resources/mandati.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -790,7 +790,7 @@ color: rgb(85, 85, 255);</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/Case.PNG</normaloff>:/Resources/Case.PNG</iconset>
+          <normaloff>:/Resources/nuovomandato.png</normaloff>:/Resources/nuovomandato.png</iconset>
         </property>
         <property name="iconSize">
          <size>

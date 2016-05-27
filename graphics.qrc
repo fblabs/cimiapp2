@@ -97,6 +97,12 @@
         <file>Resources/SignOut.png</file>
         <file>Resources/Statistics.png</file>
         <file>Resources/Users.png</file>
-        <file>Resources/Misc-Settings-icon.png</file>
+        <file>Resources/mastri.png</file>
+        <file>Resources/nuovareegistrazione.png</file>
+        <file>Resources/nuovomandato.png</file>
+        <file>Resources/aggiorna.png</file>
+        <file>Resources/impostazioni.png</file>
+        <file>Resources/mandati.png</file>
+        <file>Resources/registrazioni.png</file>
     </qresource>
 </RCC>

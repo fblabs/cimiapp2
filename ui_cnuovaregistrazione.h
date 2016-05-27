@@ -74,7 +74,7 @@ public:
         CNuovaRegistrazione->setWindowModality(Qt::ApplicationModal);
         CNuovaRegistrazione->resize(1011, 608);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/nuovareegistrazione.png"), QSize(), QIcon::Normal, QIcon::Off);
         CNuovaRegistrazione->setWindowIcon(icon);
         verticalLayout_3 = new QVBoxLayout(CNuovaRegistrazione);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -184,7 +184,9 @@ public:
 
         pushButton_5 = new QPushButton(CNuovaRegistrazione);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_5->setIcon(icon1);
         pushButton_5->setIconSize(QSize(32, 32));
 
         verticalLayout_3->addWidget(pushButton_5);
@@ -224,18 +226,18 @@ public:
         pushButton = new QPushButton(CNuovaRegistrazione);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setEnabled(false);
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon2);
 
         horizontalLayout->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(CNuovaRegistrazione);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setEnabled(false);
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Minus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon3);
 
         horizontalLayout->addWidget(pushButton_2);
 
@@ -257,18 +259,18 @@ public:
         pushButton_3 = new QPushButton(CNuovaRegistrazione);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setEnabled(false);
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon4);
         pushButton_3->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_3);
 
         pushButton_4 = new QPushButton(CNuovaRegistrazione);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon5);
         pushButton_4->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_4);

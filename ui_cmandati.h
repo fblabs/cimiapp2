@@ -55,7 +55,7 @@ public:
         CMandati->setWindowModality(Qt::ApplicationModal);
         CMandati->resize(1153, 622);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Accounting.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/mandati.png"), QSize(), QIcon::Normal, QIcon::Off);
         CMandati->setWindowIcon(icon);
         verticalLayout_3 = new QVBoxLayout(CMandati);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -152,7 +152,7 @@ public:
         pushButton_3 = new QPushButton(CMandati);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Case.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/Resources/nuovomandato.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon2);
         pushButton_3->setIconSize(QSize(32, 32));
 

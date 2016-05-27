@@ -120,7 +120,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         CMainWindow->setPalette(palette);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/My Network Places.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/Stardock DesktopX.png"), QSize(), QIcon::Normal, QIcon::Off);
         CMainWindow->setWindowIcon(icon);
         CMainWindow->setAutoFillBackground(false);
         CMainWindow->setIconSize(QSize(32, 32));
@@ -143,7 +143,7 @@ public:
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setMinimumSize(QSize(312, 312));
         label_2->setMaximumSize(QSize(312, 312));
-        label_2->setPixmap(QPixmap(QString::fromUtf8(":/Resources/My Network Places.png")));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/Resources/Stardock DesktopX.png")));
         label_2->setScaledContents(true);
 
         horizontalLayout->addWidget(label_2);
@@ -203,7 +203,7 @@ public:
         font2.setWeight(50);
         pushButton_4->setFont(font2);
         QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/Database.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/Resources/nuovareegistrazione.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_4->setIcon(icon1);
         pushButton_4->setIconSize(QSize(64, 64));
         pushButton_4->setFlat(true);
@@ -225,7 +225,7 @@ public:
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setFont(font2);
         QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/Statistics.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QStringLiteral(":/Resources/mastri.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_3->setIcon(icon3);
         pushButton_3->setIconSize(QSize(64, 64));
         pushButton_3->setFlat(true);
@@ -246,7 +246,7 @@ public:
         pushButton_6 = new QPushButton(centralWidget);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
         QIcon icon5;
-        icon5.addFile(QStringLiteral(":/Resources/Download.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QStringLiteral(":/Resources/aggiorna.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_6->setIcon(icon5);
         pushButton_6->setIconSize(QSize(64, 64));
         pushButton_6->setFlat(true);
@@ -281,7 +281,7 @@ public:
         pBOperazioni->setMaximumSize(QSize(225, 16777215));
         pBOperazioni->setFont(font2);
         QIcon icon8;
-        icon8.addFile(QStringLiteral(":/Resources/palet-03-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon8.addFile(QStringLiteral(":/Resources/registrazioni.png"), QSize(), QIcon::Normal, QIcon::Off);
         pBOperazioni->setIcon(icon8);
         pBOperazioni->setIconSize(QSize(64, 64));
         pBOperazioni->setFlat(true);
@@ -291,7 +291,7 @@ public:
         pushButton_7 = new QPushButton(centralWidget);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         QIcon icon9;
-        icon9.addFile(QStringLiteral(":/Resources/Accounting.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon9.addFile(QStringLiteral(":/Resources/mandati.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_7->setIcon(icon9);
         pushButton_7->setIconSize(QSize(64, 64));
         pushButton_7->setFlat(true);
@@ -301,7 +301,7 @@ public:
         pushButton_8 = new QPushButton(centralWidget);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         QIcon icon10;
-        icon10.addFile(QStringLiteral(":/Resources/Case.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        icon10.addFile(QStringLiteral(":/Resources/nuovomandato.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_8->setIcon(icon10);
         pushButton_8->setIconSize(QSize(64, 64));
         pushButton_8->setFlat(true);

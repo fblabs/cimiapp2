@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="graphics.qrc">
-    <normaloff>:/Resources/palet-03-icon.png</normaloff>:/Resources/palet-03-icon.png</iconset>
+    <normaloff>:/Resources/registrazioni.png</normaloff>:/Resources/registrazioni.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -117,7 +117,7 @@
        </property>
        <property name="icon">
         <iconset resource="graphics.qrc">
-         <normaloff>:/Resources/Database.PNG</normaloff>:/Resources/Database.PNG</iconset>
+         <normaloff>:/Resources/nuovareegistrazione.png</normaloff>:/Resources/nuovareegistrazione.png</iconset>
        </property>
        <property name="iconSize">
         <size>
