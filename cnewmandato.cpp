@@ -16,7 +16,7 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 {
     ui->setupUi(this);
 
-    int anno=QDate::currentDate().year();
+
     db = pdb;
 
     QSqlTableModel *banchemod=new QSqlTableModel(0,db);
@@ -31,15 +31,19 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
     ui->deDataMandato->setDate(QDate::currentDate());
 
     ui->deAl->setDate(QDate::currentDate());
+    int anno=QDate::currentDate().year();
 
     QSqlQuery q(db);
-  //  q.exec("select max(numero) from mandati where year(data)=:anno");
-    q.exec("select max(numero) from mandati_new where anno=:anno");
-    q.bindValue(":anno",QDate::currentDate().year());
+    QString qsql="select max(numero) from mandati_new where anno=:anno";
+    q.prepare(qsql);
+    q.bindValue(":anno",anno);
     q.exec();
     q.first();
 
-    int numero=q.value(0).toInt()+1;
+    qDebug()<<q.value(0).toInt()<<q.lastQuery()<<q.boundValue(":anno").toString();
+
+    int numero=q.value(0).toInt();
+    numero++;
     q.clear();
 
     q.exec("SELECT max(data) from mandati_new" );
