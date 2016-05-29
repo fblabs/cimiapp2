@@ -122,7 +122,6 @@ void CRegistrazione::recordTotals()
     {
        avere+=modRighe->index(x,4).data(Qt::DisplayRole).toDouble();
        dare+=modRighe->index(x,5).data(Qt::DisplayRole).toDouble();
-       qDebug()<<dare<<avere;
 
     }
 
@@ -132,7 +131,7 @@ void CRegistrazione::recordTotals()
 
     ui->lbTotaleAvere->setText(QString::number(avere,'f',2));
     ui->lbTotaleDare->setText(QString::number(dare,'f',2));
-    ui->lbTotaleRegistrazione->setText(QString::number(totale,'f',2));
+    ui->lbTotaleRegistrazione->setText(QString::number(qAbs(totale),'f',2));
 
 
 }

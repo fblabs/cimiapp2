@@ -195,14 +195,18 @@ bool CNewMandato::saveMandato()
 
 void CNewMandato::on_pushButton_2_clicked()
 {
-   if( saveMandato())
-   {
-       regs->select();
-   }
-   else
-   {
-       setWindowTitle("ERORRE!!!");
-   }
+    if(QMessageBox::question(this,QApplication::applicationName(),"Salvare? ATTENZIONE, verificare i dati inseriti!",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+    {
+        if( saveMandato())
+        {
+            QMessageBox::information(this,QApplication::applicationName(),"Mandato salvato",QMessageBox::Ok);
+        }
+        else
+        {
+            QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il mandato",QMessageBox::Ok);
+        }
+    }
+
 }
 
 int CNewMandato::getBancaID()

@@ -46,6 +46,7 @@ public:
     QPushButton *pushButton;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QPushButton *pushButton_2;
 
     void setupUi(QWidget *CMandati)
@@ -112,7 +113,7 @@ public:
         tvDetails->setObjectName(QStringLiteral("tvDetails"));
         tvDetails->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tvDetails->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tvDetails->verticalHeader()->setVisible(true);
+        tvDetails->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(tvDetails);
 
@@ -158,11 +159,20 @@ public:
 
         horizontalLayout_2->addWidget(pushButton_3);
 
+        pushButton_4 = new QPushButton(CMandati);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Printer-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon3);
+        pushButton_4->setIconSize(QSize(32, 32));
+
+        horizontalLayout_2->addWidget(pushButton_4);
+
         pushButton_2 = new QPushButton(CMandati);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon4);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_2);
@@ -186,6 +196,7 @@ public:
         label_4->setText(QApplication::translate("CMandati", "Importo:", 0));
         pushButton->setText(QApplication::translate("CMandati", "Modifica registrazione", 0));
         pushButton_3->setText(QApplication::translate("CMandati", "Nuovo Mandato", 0));
+        pushButton_4->setText(QApplication::translate("CMandati", "Stampa", 0));
         pushButton_2->setText(QApplication::translate("CMandati", "Chiudi", 0));
     } // retranslateUi
 

@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include "cregistrazione.h"
 #include "cnewmandato.h"
+#include "hprint.h"
 
 #include <QDebug>
 
@@ -23,6 +24,7 @@ CMandati::CMandati(QWidget *parent,QSqlDatabase pdb) :
     mod=new QSqlRelationalTableModel(0,db);
     mod->setTable("mandati_new");
     mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
+    mod->setSort(3,Qt::DescendingOrder);
     mod->select();
    qDebug()<<mod->rowCount();
     ui->tvMaster->setModel(mod);
@@ -30,10 +32,15 @@ CMandati::CMandati(QWidget *parent,QSqlDatabase pdb) :
     ui->tvMaster->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tvMaster->setColumnHidden(0,true);
     ui->sbYear->setValue(QDate::currentDate().year());
+    QModelIndex ix=mod->index(0,0);
+
 
     connect(ui->tvMaster->selectionModel(),SIGNAL(currentChanged(QModelIndex,QModelIndex)),this,SLOT(loadMandato()));
 
-
+    ui->tvMaster->setCurrentIndex(ix);
+    ui->tvMaster->selectionModel()->select(ix,QItemSelectionModel::Select);
+    ui->tvMaster->setColumnHidden(6,true);
+    ui->tvMaster->setColumnHidden(7,true);
 }
 
 CMandati::~CMandati()
@@ -53,8 +60,8 @@ void CMandati::loadMandato()
     setCursor(Qt::WaitCursor);
     disconnect(ui->tvDetails,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editRegistrazione()));
     QSqlQuery q(db);
-    int numero = ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),0).data(0).toInt();
-    QString sql="select registrazioni.ID,registrazioni.datareg,anagrafica.descrizione from registrazioni,anagrafica where anagrafica.ID=registrazioni.codana and registrazioni.ID IN (SELECT registrazione from righe_mandati_new where IDMandato=:num)";
+    int numero =ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),0).data(0).toInt();
+    QString sql="select registrazioni.ID,registrazioni.datareg,anagrafica.descrizione,registrazioni.importo from registrazioni,anagrafica where anagrafica.ID=registrazioni.codana and registrazioni.ID IN (SELECT registrazione from righe_mandati_new where IDMandato=:num)";
     q.prepare(sql);
     q.bindValue(0,numero);
   //  q.bindValue(1,anno);
@@ -64,7 +71,6 @@ void CMandati::loadMandato()
     QSqlQueryModel *qm=new QSqlQueryModel();
     qm->setQuery(q);
 
-    qDebug()<<numero<<q.lastError()<<q.lastQuery()<<qm->rowCount();
 
     ui->tvDetails->setModel(qm);
 
@@ -108,13 +114,13 @@ void CMandati::getImporto()
 
     for (int x=0;x<mod->rowCount();x++)
     {
-        importo+=ui->tvDetails->model()->index(x,6).data(0).toDouble();
-        qDebug()<<"For "<<ui->tvDetails->model()->index(x,6).data(0).toString()<<importo;
+        importo+=ui->tvDetails->model()->index(x,3).data(0).toDouble();
+
     }
 
     qDebug()<<importo;
 
-    ui->leImporto->setText(QString::number(importo,'f',2));
+    ui->leImporto->setText(QString::number(qAbs(importo),'f',2));
 
 }
 
@@ -122,4 +128,29 @@ void CMandati::on_pushButton_3_clicked()
 {
     CNewMandato *f=new CNewMandato(0,db);
     f->show();
+}
+
+void CMandati::stampaMandato()
+{
+    HPrint *f=new HPrint();
+    f->show();
+
+    f->append("MANDATO N° "+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),1).data(0).toString()+" - Anno: "+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),2).data(0).toString()+"("+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),3).data(0).toString()+")",false);
+    f->append("",false);
+    int rows=ui->tvDetails->model()->rowCount();
+    QTextTable *t = f->addTable(rows,3);
+    for (int row=0;row<rows;row++)
+    {
+        f->writeTableContent(t,row,0,ui->tvDetails->model()->index(row,1).data(0).toString());
+        f->writeTableContent(t,row,1,ui->tvDetails->model()->index(row,2).data(0).toString());
+        f->writeTableContent(t,row,2,QString::number(ui->tvDetails->model()->index(row,3).data(0).toDouble(),'f',2));
+    }
+
+    f->append("IMPORTO: " + ui->leImporto->text(),false);
+
+}
+
+void CMandati::on_pushButton_4_clicked()
+{
+    stampaMandato();
 }

@@ -107,7 +107,7 @@
           <enum>QAbstractItemView::SelectRows</enum>
          </property>
          <attribute name="verticalHeaderVisible">
-          <bool>true</bool>
+          <bool>false</bool>
          </attribute>
         </widget>
        </item>
@@ -160,6 +160,23 @@
        <property name="icon">
         <iconset resource="graphics.qrc">
          <normaloff>:/Resources/nuovomandato.png</normaloff>:/Resources/nuovomandato.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="text">
+        <string>Stampa</string>
+       </property>
+       <property name="icon">
+        <iconset resource="graphics.qrc">
+         <normaloff>:/Resources/Printer-icon.png</normaloff>:/Resources/Printer-icon.png</iconset>
        </property>
        <property name="iconSize">
         <size>

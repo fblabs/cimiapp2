@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlRelationalTableModel>
+#include "hprint.h"
 
 namespace Ui {
 class CMandati;
@@ -30,6 +31,10 @@ private slots:
     void on_pushButton_3_clicked();
 
     void getImporto();
+
+    void stampaMandato();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::CMandati *ui;

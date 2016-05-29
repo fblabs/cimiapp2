@@ -79,7 +79,9 @@ void COperations::init(QSqlDatabase pdb)
     mod->setHeaderData(5,Qt::Horizontal,"Liquidato");
     mod->setHeaderData(6,Qt::Horizontal,"Data liquidazione");
     mod->setHeaderData(7,Qt::Horizontal,"Mandato");
-    mod->setHeaderData(8,Qt::Horizontal,"Note");
+    mod->setHeaderData(8,Qt::Horizontal,"Importo");
+    mod->setHeaderData(9,Qt::Horizontal,"Note");
+
 
 
 

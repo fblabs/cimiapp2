@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     csettings.cpp \
     csqlrelationaltablemodel.cpp \
     cmandati.cpp \
-    cnewmandato.cpp
+    cnewmandato.cpp \
+    hprint.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -39,7 +40,8 @@ HEADERS  += cmainwindow.h \
     csettings.h \
     csqlrelationaltablemodel.h \
     cmandati.h \
-    cnewmandato.h
+    cnewmandato.h \
+    hprint.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
@@ -51,7 +53,8 @@ FORMS    += cmainwindow.ui \
     cmastri.ui \
     csettings.ui \
     cmandati.ui \
-    cnewmandato.ui
+    cnewmandato.ui \
+    hprint.ui
 
 RESOURCES += graphics.qrc
 win32:RC_ICONS += cimiapp2.ico
