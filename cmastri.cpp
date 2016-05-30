@@ -94,10 +94,11 @@ void CMastri::on_pushButton_2_clicked()
 {
     int id=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),0).data(0).toInt();
     int tipo=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),4).data(0).toInt();
+    QString conto=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),2).data(0).toString();
 
 
     CRegistrazione *f=new CRegistrazione();
-    f->init(id,tipo,db);
+    f->init(id,tipo,conto,db);
     connect (f,SIGNAL(closing()),this,SLOT(getMastro()));
     f->show();
 }
@@ -107,7 +108,7 @@ void CMastri::on_tvMastro_doubleClicked(const QModelIndex &index)
     int id=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),0).data(0).toInt();
 
     QString sTipo=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),4).data(0).toString();
-    ;
+    QString conto=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),2).data(0).toString();
 
     QSqlQuery q(db);
     q.exec("SELECT ID from tipi_mov where descrizione='"+sTipo+"'");
@@ -116,7 +117,7 @@ void CMastri::on_tvMastro_doubleClicked(const QModelIndex &index)
 
 //qDebug()<<"mastri tipomov: "<<tipo<<q.lastError().text();
     CRegistrazione *f=new CRegistrazione();
-    f->init(id,tipo,db);
+    f->init(id,tipo,conto,db);
     connect (f,SIGNAL(closing()),this,SLOT(getMastro()));
     f->show();
 }

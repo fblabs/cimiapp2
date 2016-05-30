@@ -14,6 +14,7 @@
 #include "csqlrelationaltablemodel.h"
 #include <QMenu>
 #include <QAction>
+#include <QDebug>
 
 
 COperations::COperations(QWidget *parent) :
@@ -46,6 +47,8 @@ void COperations::reload()
     mod->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));*/
     mod->select();
    // ui->tvMain->setModel(mod);
+
+    qDebug()<<"reload";
 
 }
 
@@ -146,8 +149,8 @@ void COperations::on_pushButton_clicked()
     int ix=q.value(0).toInt();
  //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
-    f->init(ID,ix,db);
-    connect(f,SIGNAL(closing()),this,SLOT(reload()));
+    f->init(ID,ix,ui->tvMain->model()->index(ui->tvMain->selectionModel()->currentIndex().row(),2).data(0).toString(),db);
+    connect(f,SIGNAL(done()),this,SLOT(reload()));
 
     f->show();
 }
@@ -165,7 +168,7 @@ void COperations::on_pushButton_3_clicked()
   CNuovaRegistrazione *f=new CNuovaRegistrazione();
   f->init(db);
 
-  connect(f,SIGNAL(done()),this,SLOT(reload()));
+  //connect(f,SIGNAL(done()),this,SLOT(reload()));
   f->show();
 
 
@@ -175,11 +178,12 @@ void COperations::on_pushButton_3_clicked()
 
 void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
 {
+    showRegistrazione();
 
-
-        CRegistrazione *f=new CRegistrazione();
+       /* CRegistrazione *f=new CRegistrazione();
 
         int ID=ui->tvMain->model()->index(index.row(),0).data(0).toInt();
+        QString conto=ui->tvMain->model()->index(index.row(),2).data(0).toString();
         QString tipo=ui->tvMain->model()->index(index.row(),3).data(0).toString();
         QSqlQuery q(db);
         q.prepare("SELECT ID FROM tipi_mov where descrizione=:tipo");
@@ -192,10 +196,10 @@ void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
         int ix=q.value(0).toInt();
      //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
-        f->init(ID,ix,db);
-        connect(f,SIGNAL(done()),this,SLOT(reload()));
+        f->init(ID,ix,conto,db);
+    //   connect(f,SIGNAL(done()),this,SLOT(reload()));
 
-        f->show();
+        f->show();*/
 
 
 }
@@ -203,26 +207,26 @@ void COperations::on_tvMain_doubleClicked(const QModelIndex &index)
 void COperations::on_lineEdit_textChanged(const QString &arg1)
 {
     mod->setFilter("relTblAl_2.descrizione LIKE '"+arg1+"%'");
-   // qDebug()<<mod->query().lastQuery()<<mod->query().lastError().text();
+
 }
 
-/*void COperations::showContextMenu(const QPoint &pos)
-{
-       QMenu contextMenu(tr("Context menu"), this);
 
-       QAction action1("Remove Data Point", this);
-       connect(&action1, SIGNAL(triggered()), this, SLOT(removeDataPoint()));
-       contextMenu.addAction(&action1);
-
-       contextMenu.exec(mapToGlobal(pos));
-}
-*/
 
 void COperations::on_tvMain_customContextMenuRequested(const QPoint &pos)
 {
 
+   showRegistrazione();
+
+}
+
+void COperations::showRegistrazione()
+{
+
     CRegistrazione *f=new CRegistrazione();
+
     QModelIndex index=ui->tvMain->currentIndex();
+
+
 
     int ID=ui->tvMain->model()->index(index.row(),0).data(0).toInt();
     QString tipo=ui->tvMain->model()->index(index.row(),3).data(0).toString();
@@ -237,10 +241,7 @@ void COperations::on_tvMain_customContextMenuRequested(const QPoint &pos)
     int ix=q.value(0).toInt();
  //qDebug()<<ix<<q.lastQuery()<<q.lastError().text();
 
-    f->init(ID,ix,db);
+    f->init(ID,ix,ui->tvMain->model()->index(ui->tvMain->selectionModel()->currentIndex().row(),2).data(0).toString(),db);
     connect(f,SIGNAL(done()),this,SLOT(reload()));
-
     f->show();
-
-
 }

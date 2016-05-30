@@ -21,7 +21,7 @@ CNewMandato::CNewMandato(QWidget *parent, QSqlDatabase pdb) :
 
     QSqlTableModel *banchemod=new QSqlTableModel(0,db);
     banchemod->setTable("anagrafica");
-    banchemod->setFilter("tipo='D'");
+    banchemod->setFilter("tipo='D' and ID=987");
     banchemod->setSort(2,Qt::AscendingOrder);
     banchemod->select();
 
@@ -183,6 +183,7 @@ bool CNewMandato::saveMandato()
       if(!q.exec())
       {
           qDebug()<<"righe: "<<q.lastError().text()<< x<<righe<<idmandato<<registrazione<<db.lastError().text();
+          db.rollback();
           return false;
       }
     }

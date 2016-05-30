@@ -33,6 +33,8 @@ private slots:
 
     void reload();
 
+    void showRegistrazione();
+
     void on_tvMain_doubleClicked(const QModelIndex &index);
 
     void on_lineEdit_textChanged(const QString &arg1);

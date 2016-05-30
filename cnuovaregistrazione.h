@@ -33,6 +33,8 @@ private slots:
 
     void reload();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::CNuovaRegistrazione *ui;
     QSqlDatabase db;
@@ -46,7 +48,7 @@ private:
 
 signals:
 
-    void done();
+
 
 };
 

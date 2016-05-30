@@ -43,7 +43,8 @@ private:
     double calculateNoDays();
     void resetForm();
 signals:
-    void nrdone();
+    void rowAdded();
+    void rowDeleted();
 };
 
 #endif // CNUOVARIGAREGISTRAZIONE_H

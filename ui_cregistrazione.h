@@ -64,6 +64,7 @@ public:
     QPushButton *pushButton_4;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
+    QPushButton *pushButton_5;
     QPushButton *pushButton_2;
 
     void setupUi(QWidget *CRegistrazione)
@@ -257,11 +258,20 @@ public:
 
         horizontalLayout->addWidget(pushButton);
 
+        pushButton_5 = new QPushButton(CRegistrazione);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Arrow-Left.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_5->setIcon(icon4);
+        pushButton_5->setIconSize(QSize(32, 32));
+
+        horizontalLayout->addWidget(pushButton_5);
+
         pushButton_2 = new QPushButton(CRegistrazione);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon5);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout->addWidget(pushButton_2);
@@ -292,6 +302,7 @@ public:
         pushButton_3->setText(QApplication::translate("CRegistrazione", "Nuova riga", 0));
         pushButton_4->setText(QApplication::translate("CRegistrazione", "Rimuovi riga", 0));
         pushButton->setText(QApplication::translate("CRegistrazione", "Salva", 0));
+        pushButton_5->setText(QApplication::translate("CRegistrazione", "Annulla", 0));
         pushButton_2->setText(QApplication::translate("CRegistrazione", "Annulla", 0));
     } // retranslateUi
 

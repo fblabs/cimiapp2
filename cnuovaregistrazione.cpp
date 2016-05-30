@@ -130,7 +130,7 @@ bool CNuovaRegistrazione::saveNewRegistration()
 
     }
 
-    registrazionimod->select();
+
 
 
 
@@ -172,13 +172,15 @@ void CNuovaRegistrazione::on_pushButton_4_clicked()
 
    if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere la finestra?",QMessageBox::Ok|QMessageBox::Cancel))
     {
-        emit done();
+        //emit done();
         close();
     }
 }
 
 void CNuovaRegistrazione::on_pushButton_clicked()
 {
+    db.transaction();
+
     CNuovaRigaRegistrazione *f= new CNuovaRigaRegistrazione();
 
     nReg = registrazionimod->index(registrazionimod->rowCount(),0).data(0).toInt();
@@ -187,30 +189,46 @@ void CNuovaRegistrazione::on_pushButton_clicked()
     //TEMP========
     //
     f->init(db,nReg,righemod=0,ui->cbConto->currentText());
-    connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
+
+    connect (f,SIGNAL(rowAdded()),this,SLOT(reload()));
+    connect (f,SIGNAL(rowDeleted()),this,SLOT(reload()));
+
 
     f->show();
 
 }
 
+void CNuovaRegistrazione::reload()
+{
+    registrazionimod->select();
+}
+
 void CNuovaRegistrazione::on_pushButton_3_clicked()
 {
     saveNewRegistration();
-    reload();
+    db.commit();
+    //reload();
     ui->pushButton->setEnabled(false);
     ui->pushButton_2->setEnabled(false);
 }
 
-void CNuovaRegistrazione::reload()
-{
-    righemod->select();
-}
+
 
 void CNuovaRegistrazione::on_pushButton_5_clicked()
 {
-   if(QMessageBox::warning(this,QApplication::applicationName(),"Confermare la creazione di un registrazione per conto e tipo selezionati?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+    if(QMessageBox::warning(this,QApplication::applicationName(),"Confermare la creazione di un registrazione per conto e tipo selezionati?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+{
+ bool  b=createNewRegistrazione();
 
-    createNewRegistrazione();
+   if(b)
+   {
+       db.commit();
+   }
+   else
+   {
+       db.rollback();
+   }
+}
     ui->pushButton->setEnabled(true);
     ui->pushButton_2->setEnabled(true);
 }
@@ -244,19 +262,27 @@ bool CNuovaRegistrazione::createNewRegistrazione()
     registrazionimod->insertRecord(registrazionimod->rowCount(),rec);
     //qDebug()<<"rowcount registrazioni: before submit "<<registrazionimod->rowCount();
 
-    registrazionimod->select();
-    //qDebug()<<"rowcount registrazioni: after submit "<<registrazionimod->rowCount();
 
-    if(registrazionimod->submit())
+    //qDebug()<<"rowcount registrazioni: after submit "<<registrazionimod->rowCount();
+    bool s=registrazionimod->submit();
+    if(s)
     {
         int nReg=registrazionimod->index(registrazionimod->rowCount()-1,0).data(0).toInt();
         CNuovaRigaRegistrazione *f=new CNuovaRigaRegistrazione();
         f->init(db,nReg,righemod,ui->cbConto->currentText());
-        connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
+     //   connect(f,SIGNAL(save(bool)),this,SLOT(saveReg(bool)));
         f->show();
     }
-    db.commit();
+
+
 
 
     return false;
+}
+
+
+
+void CNuovaRegistrazione::on_pushButton_6_clicked()
+{
+    db.rollback();
 }

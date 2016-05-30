@@ -247,6 +247,23 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="text">
+        <string>Annulla</string>
+       </property>
+       <property name="icon">
+        <iconset resource="graphics.qrc">
+         <normaloff>:/Resources/Arrow-Left.PNG</normaloff>:/Resources/Arrow-Left.PNG</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="text">
         <string>Annulla</string>

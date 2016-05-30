@@ -272,7 +272,6 @@ void CNuovaRigaRegistrazione::on_pushButton_2_clicked()
 {
     if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere?",QMessageBox::Ok|QMessageBox::Cancel))
     {
-        emit nrdone();
         close();
     }
 }
@@ -287,7 +286,7 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
 
     if (ui->rbE->isChecked())
     {
-        entrate= 12.0;
+        entrate= 0.0;
         richiesta=0.0;
         uscite=0.0;
 
@@ -320,10 +319,13 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
     q.bindValue(":uscite",uscite);
     q.bindValue(":note",ui->ptNote->toPlainText());
 
-   if(q.exec())
+    bool b=q.exec();
+
+   if(b)
    {
-      // close();
-       resetForm();
+       emit rowAdded();
+       close();
+     //  resetForm();
 
    }
    else
@@ -333,7 +335,6 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
    }
 
    modrighe->select();
-   emit nrdone();
 
 }
 

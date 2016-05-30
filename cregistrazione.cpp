@@ -25,7 +25,7 @@ CRegistrazione::~CRegistrazione()
     delete ui;
 }
 
-void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase())
+void CRegistrazione::init(int pid, int tipomov=20, QString conto="", QSqlDatabase pdb=QSqlDatabase())
 {
     ID=pid;
     db=pdb;
@@ -34,6 +34,7 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
     modRighe=new QSqlRelationalTableModel(0,db);
 
     ui->dataliq->setDate(QDate::currentDate());
+    ui->leConto->setText(conto);
 
     QSqlQuery qRegistrazione(db);
 
@@ -106,10 +107,6 @@ void CRegistrazione::init(int pid,int tipomov=20, QSqlDatabase pdb=QSqlDatabase(
 
 }
 
-void CRegistrazione::reload()
-{
-    modRighe->select();
-}
 
 void CRegistrazione::recordTotals()
 {
@@ -138,19 +135,27 @@ void CRegistrazione::recordTotals()
 
 void CRegistrazione::on_pushButton_2_clicked()
 {
-    emit closing();
-    emit done();
+   // emit closing();
+   // emit done();
     close();
 }
 
 void CRegistrazione::on_pushButton_3_clicked()
 {
+  db.transaction();
   CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
   f->init(db,ID,0,ui->leConto->text());
   f->show();
-  connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
+  connect(f,SIGNAL(rowAdded()),this,SLOT(reload()));
+  connect(f,SIGNAL(rowAdded()),this,SLOT(reload()));
+  connect(f,SIGNAL(rowAdded()),this,SLOT(recordTotals()));
 
 
+}
+
+void CRegistrazione::reload()
+{
+    modRighe->select();
 }
 
 void CRegistrazione::on_pushButton_clicked()
@@ -183,7 +188,8 @@ void CRegistrazione::on_pushButton_clicked()
 
 void CRegistrazione::on_pushButton_4_clicked()
 {
-   if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Eliminare questa riga?\n(attenzione questa operazione è irreversibile)",QMessageBox::Ok|QMessageBox::Cancel))
+  db.transaction();
+  if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Eliminare questa riga?\n(attenzione questa operazione è irreversibile)",QMessageBox::Ok|QMessageBox::Cancel))
   {
     modRighe->removeRow(ui->tvDetails->currentIndex().row());
     modRighe->submitAll();
@@ -197,4 +203,11 @@ void CRegistrazione::on_cbLiquidato_toggled(bool checked)
 {
     ui->label_6->setVisible(checked);
     ui->dataliq->setVisible(checked);
+}
+
+void CRegistrazione::on_pushButton_5_clicked()
+{
+    db.rollback();
+    emit done();
+    reload();
 }

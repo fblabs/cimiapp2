@@ -18,7 +18,7 @@ class CRegistrazione : public QWidget
 public:
     explicit CRegistrazione(QWidget *parent = 0);
     ~CRegistrazione();
-    void init(int pid, int tipomov, QSqlDatabase pdb);
+    void init(int pid, int tipomov,QString conto, QSqlDatabase pdb);
 
 private slots:
     void on_pushButton_2_clicked();
@@ -32,6 +32,7 @@ private slots:
 
     void on_cbLiquidato_toggled(bool checked);
     void reload();
+    void on_pushButton_5_clicked();
 
 private:
     Ui::CRegistrazione *ui;
@@ -41,7 +42,7 @@ private:
     QSqlRelationalTableModel *modRegistrazione;
     QSqlRelationalTableModel *modRighe;
 signals:
-    void closing();
+  //  void closing();
     void done();
 };
 

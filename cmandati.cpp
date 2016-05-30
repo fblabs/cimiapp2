@@ -30,7 +30,7 @@ CMandati::CMandati(QWidget *parent,QSqlDatabase pdb) :
     ui->tvMaster->setModel(mod);
   //  ui->tvMaster->setColumnHidden(1,true);
     ui->tvMaster->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tvMaster->setColumnHidden(0,true);
+ //   ui->tvMaster->setColumnHidden(0,true);
     ui->sbYear->setValue(QDate::currentDate().year());
     QModelIndex ix=mod->index(0,0);
 
@@ -85,13 +85,14 @@ void CMandati::loadMandato()
 void CMandati::editRegistrazione()
 {
     int id=ui->tvDetails->model()->index(ui->tvDetails->currentIndex().row(),0).data(0).toInt();
-  //  int tipo=ui->tvMastro->model()->index(ui->tvMastro->currentIndex().row(),4).data(0).toInt();
+    QString conto=ui->tvDetails->model()->index(ui->tvDetails->currentIndex().row(),2).data(0).toString();
     //TODO tipo registrazione
     int tipo=20;
 
 
     CRegistrazione *f=new CRegistrazione();
-    f->init(id,tipo,db);
+    f->init(id,tipo,conto,db);
+    connect(f,SIGNAL(done()),this,SLOT(loadMandato()));
     f->show();
 }
 
