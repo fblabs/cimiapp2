@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1028</width>
-    <height>455</height>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,24 @@
     <normaloff>:/Resources/Plus.PNG</normaloff>:/Resources/Plus.PNG</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Conto:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="leConto">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item>
     <layout class="QFormLayout" name="formLayout_3">
      <item row="0" column="0">

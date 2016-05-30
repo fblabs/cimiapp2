@@ -16,7 +16,7 @@ class CNuovaRigaRegistrazione : public QWidget
 public:
     explicit CNuovaRigaRegistrazione(QWidget *parent = 0);
     ~CNuovaRigaRegistrazione();
-    void init(QSqlDatabase pdb, int pidRegistrazione, QSqlTableModel *pRows);
+    void init(QSqlDatabase pdb, int pidRegistrazione, QSqlTableModel *pRows,QString dest);
 
 
 private slots:

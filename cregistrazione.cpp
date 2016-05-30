@@ -146,7 +146,7 @@ void CRegistrazione::on_pushButton_2_clicked()
 void CRegistrazione::on_pushButton_3_clicked()
 {
   CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
-  f->init(db,ID,0);
+  f->init(db,ID,0,ui->leConto->text());
   f->show();
   connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
 

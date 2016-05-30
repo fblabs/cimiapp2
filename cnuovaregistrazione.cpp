@@ -117,7 +117,7 @@ bool CNuovaRegistrazione::saveNewRegistration()
       //  QMessageBox::information(this,"OK","SIII",QMessageBox::Ok)
         CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
     //    f->init(db,-1);
-        f->init(db,-1,0);
+        f->init(db,-1,0,ui->cbConto->currentText());
         f->show();
 
 
@@ -186,7 +186,7 @@ void CNuovaRegistrazione::on_pushButton_clicked()
 
     //TEMP========
     //
-    f->init(db,nReg,righemod=0);
+    f->init(db,nReg,righemod=0,ui->cbConto->currentText());
     connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
 
     f->show();
@@ -251,7 +251,7 @@ bool CNuovaRegistrazione::createNewRegistrazione()
     {
         int nReg=registrazionimod->index(registrazionimod->rowCount()-1,0).data(0).toInt();
         CNuovaRigaRegistrazione *f=new CNuovaRigaRegistrazione();
-        f->init(db,nReg,righemod);
+        f->init(db,nReg,righemod,ui->cbConto->currentText());
         connect(f,SIGNAL(nrdone()),this,SLOT(reload()));
         f->show();
     }

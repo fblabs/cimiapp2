@@ -33,6 +33,9 @@ class Ui_CNuovaRigaRegistrazione
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_3;
+    QLineEdit *leConto;
     QFormLayout *formLayout_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
@@ -66,12 +69,28 @@ public:
         if (CNuovaRigaRegistrazione->objectName().isEmpty())
             CNuovaRigaRegistrazione->setObjectName(QStringLiteral("CNuovaRigaRegistrazione"));
         CNuovaRigaRegistrazione->setWindowModality(Qt::ApplicationModal);
-        CNuovaRigaRegistrazione->resize(1028, 455);
+        CNuovaRigaRegistrazione->resize(1028, 481);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Plus.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         CNuovaRigaRegistrazione->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(CNuovaRigaRegistrazione);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_3 = new QLabel(CNuovaRigaRegistrazione);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        horizontalLayout_3->addWidget(label_3);
+
+        leConto = new QLineEdit(CNuovaRigaRegistrazione);
+        leConto->setObjectName(QStringLiteral("leConto"));
+        leConto->setReadOnly(true);
+
+        horizontalLayout_3->addWidget(leConto);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
         formLayout_3 = new QFormLayout();
         formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
         horizontalLayout = new QHBoxLayout();
@@ -236,6 +255,7 @@ public:
     void retranslateUi(QWidget *CNuovaRigaRegistrazione)
     {
         CNuovaRigaRegistrazione->setWindowTitle(QApplication::translate("CNuovaRigaRegistrazione", "Inserimento righe della registrazione", 0));
+        label_3->setText(QApplication::translate("CNuovaRigaRegistrazione", "Conto:", 0));
         label->setText(QApplication::translate("CNuovaRigaRegistrazione", "Tipo Operazione:", 0));
         rbE->setText(QApplication::translate("CNuovaRigaRegistrazione", "Entrata", 0));
         rbU->setText(QApplication::translate("CNuovaRigaRegistrazione", "Uscita", 0));

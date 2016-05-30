@@ -18,10 +18,11 @@ CNuovaRigaRegistrazione::CNuovaRigaRegistrazione(QWidget *parent) :
     ui->setupUi(this);
 }
 
-void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pRows)
+void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pRows, QString dest)
 {
     db=pdb;
     idRegistrazione=pid;
+    ui->leConto->setText(dest);
 
     if (pRows)
     {

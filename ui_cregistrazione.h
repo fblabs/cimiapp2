@@ -20,6 +20,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -32,6 +33,9 @@ class Ui_CRegistrazione
 public:
     QVBoxLayout *verticalLayout_4;
     QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_7;
+    QLineEdit *leConto;
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
     QLabel *label;
@@ -75,6 +79,22 @@ public:
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        label_7 = new QLabel(CRegistrazione);
+        label_7->setObjectName(QStringLiteral("label_7"));
+
+        horizontalLayout_5->addWidget(label_7);
+
+        leConto = new QLineEdit(CRegistrazione);
+        leConto->setObjectName(QStringLiteral("leConto"));
+        leConto->setReadOnly(true);
+
+        horizontalLayout_5->addWidget(leConto);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_5);
+
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         formLayout = new QFormLayout();
@@ -258,6 +278,7 @@ public:
     void retranslateUi(QWidget *CRegistrazione)
     {
         CRegistrazione->setWindowTitle(QApplication::translate("CRegistrazione", "Modifica Registrazione", 0));
+        label_7->setText(QApplication::translate("CRegistrazione", "Conto:", 0));
         label->setText(QApplication::translate("CRegistrazione", "Tipo:", 0));
         label_2->setText(QApplication::translate("CRegistrazione", "Data Registrazione:", 0));
         cbLiquidato->setText(QApplication::translate("CRegistrazione", "Liquidato", 0));
