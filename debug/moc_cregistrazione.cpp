@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CRegistrazione_t {
     QByteArrayData data[12];
-    char stringdata0[174];
+    char stringdata0[190];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,24 +30,24 @@ struct qt_meta_stringdata_CRegistrazione_t {
 static const qt_meta_stringdata_CRegistrazione_t qt_meta_stringdata_CRegistrazione = {
     {
 QT_MOC_LITERAL(0, 0, 14), // "CRegistrazione"
-QT_MOC_LITERAL(1, 15, 7), // "closing"
-QT_MOC_LITERAL(2, 23, 0), // ""
-QT_MOC_LITERAL(3, 24, 4), // "done"
-QT_MOC_LITERAL(4, 29, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(5, 53, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(6, 77, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(7, 99, 23), // "on_pushButton_4_clicked"
-QT_MOC_LITERAL(8, 123, 12), // "recordTotals"
-QT_MOC_LITERAL(9, 136, 22), // "on_cbLiquidato_toggled"
-QT_MOC_LITERAL(10, 159, 7), // "checked"
-QT_MOC_LITERAL(11, 167, 6) // "reload"
+QT_MOC_LITERAL(1, 15, 4), // "done"
+QT_MOC_LITERAL(2, 20, 0), // ""
+QT_MOC_LITERAL(3, 21, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(4, 45, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(5, 69, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(6, 91, 23), // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(7, 115, 12), // "recordTotals"
+QT_MOC_LITERAL(8, 128, 22), // "on_cbLiquidato_toggled"
+QT_MOC_LITERAL(9, 151, 7), // "checked"
+QT_MOC_LITERAL(10, 159, 6), // "reload"
+QT_MOC_LITERAL(11, 166, 23) // "on_pushButton_5_clicked"
 
     },
-    "CRegistrazione\0closing\0\0done\0"
-    "on_pushButton_2_clicked\0on_pushButton_3_clicked\0"
-    "on_pushButton_clicked\0on_pushButton_4_clicked\0"
-    "recordTotals\0on_cbLiquidato_toggled\0"
-    "checked\0reload"
+    "CRegistrazione\0done\0\0on_pushButton_2_clicked\0"
+    "on_pushButton_3_clicked\0on_pushButton_clicked\0"
+    "on_pushButton_4_clicked\0recordTotals\0"
+    "on_cbLiquidato_toggled\0checked\0reload\0"
+    "on_pushButton_5_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,23 +62,22 @@ static const uint qt_meta_data_CRegistrazione[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
        1,    0,   59,    2, 0x06 /* Public */,
-       3,    0,   60,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
+       3,    0,   60,    2, 0x08 /* Private */,
        4,    0,   61,    2, 0x08 /* Private */,
        5,    0,   62,    2, 0x08 /* Private */,
        6,    0,   63,    2, 0x08 /* Private */,
        7,    0,   64,    2, 0x08 /* Private */,
-       8,    0,   65,    2, 0x08 /* Private */,
-       9,    1,   66,    2, 0x08 /* Private */,
+       8,    1,   65,    2, 0x08 /* Private */,
+      10,    0,   68,    2, 0x08 /* Private */,
       11,    0,   69,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
@@ -87,7 +86,8 @@ static const uint qt_meta_data_CRegistrazione[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   10,
+    QMetaType::Void, QMetaType::Bool,    9,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -99,15 +99,15 @@ void CRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         CRegistrazione *_t = static_cast<CRegistrazione *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->closing(); break;
-        case 1: _t->done(); break;
-        case 2: _t->on_pushButton_2_clicked(); break;
-        case 3: _t->on_pushButton_3_clicked(); break;
-        case 4: _t->on_pushButton_clicked(); break;
-        case 5: _t->on_pushButton_4_clicked(); break;
-        case 6: _t->recordTotals(); break;
-        case 7: _t->on_cbLiquidato_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 8: _t->reload(); break;
+        case 0: _t->done(); break;
+        case 1: _t->on_pushButton_2_clicked(); break;
+        case 2: _t->on_pushButton_3_clicked(); break;
+        case 3: _t->on_pushButton_clicked(); break;
+        case 4: _t->on_pushButton_4_clicked(); break;
+        case 5: _t->recordTotals(); break;
+        case 6: _t->on_cbLiquidato_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 7: _t->reload(); break;
+        case 8: _t->on_pushButton_5_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -115,14 +115,8 @@ void CRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (CRegistrazione::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CRegistrazione::closing)) {
-                *result = 0;
-            }
-        }
-        {
-            typedef void (CRegistrazione::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&CRegistrazione::done)) {
-                *result = 1;
+                *result = 0;
             }
         }
     }
@@ -165,14 +159,8 @@ int CRegistrazione::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void CRegistrazione::closing()
-{
-    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
-}
-
-// SIGNAL 1
 void CRegistrazione::done()
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
+    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

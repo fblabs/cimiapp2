@@ -17,7 +17,6 @@ SOURCES += main.cpp\
     coperations.cpp \
     cregistrazione.cpp \
     cnuovaregistrazione.cpp \
-    cnuovarigaregistrazione.cpp \
     cconti.cpp \
     ctipianagrafici.cpp \
     csqltipianagraficimodel.cpp \
@@ -26,13 +25,14 @@ SOURCES += main.cpp\
     csqlrelationaltablemodel.cpp \
     cmandati.cpp \
     cnewmandato.cpp \
-    hprint.cpp
+    hprint.cpp \
+    cregistrazioni.cpp \
+    cnuovariga.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
     cregistrazione.h \
     cnuovaregistrazione.h \
-    cnuovarigaregistrazione.h \
     cconti.h \
     ctipianagrafici.h \
     csqltipianagraficimodel.h \
@@ -41,20 +41,23 @@ HEADERS  += cmainwindow.h \
     csqlrelationaltablemodel.h \
     cmandati.h \
     cnewmandato.h \
-    hprint.h
+    hprint.h \
+    cregistrazioni.h \
+    cnuovariga.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
     cregistrazione.ui \
     cnuovaregistrazione.ui \
-    cnuovarigaregistrazione.ui \
     cconti.ui \
     ctipianagrafici.ui \
     cmastri.ui \
     csettings.ui \
     cmandati.ui \
     cnewmandato.ui \
-    hprint.ui
+    hprint.ui \
+    cregistrazioni.ui \
+    cnuovariga.ui
 
 RESOURCES += graphics.qrc
 win32:RC_ICONS += cimiapp2.ico

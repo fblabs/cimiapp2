@@ -30,7 +30,7 @@ CMandati::CMandati(QWidget *parent,QSqlDatabase pdb) :
     ui->tvMaster->setModel(mod);
   //  ui->tvMaster->setColumnHidden(1,true);
     ui->tvMaster->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
- //   ui->tvMaster->setColumnHidden(0,true);
+    ui->tvMaster->setColumnHidden(0,true);
     ui->sbYear->setValue(QDate::currentDate().year());
     QModelIndex ix=mod->index(0,0);
 
@@ -39,8 +39,8 @@ CMandati::CMandati(QWidget *parent,QSqlDatabase pdb) :
 
     ui->tvMaster->setCurrentIndex(ix);
     ui->tvMaster->selectionModel()->select(ix,QItemSelectionModel::Select);
-    ui->tvMaster->setColumnHidden(6,true);
-    ui->tvMaster->setColumnHidden(7,true);
+   // ui->tvMaster->setColumnHidden(6,true);
+   // ui->tvMaster->setColumnHidden(7,true);
 }
 
 CMandati::~CMandati()
@@ -56,7 +56,7 @@ void CMandati::on_sbYear_valueChanged(int arg1)
 
 void CMandati::loadMandato()
 {
-    qDebug()<<"loadMandato()";
+
     setCursor(Qt::WaitCursor);
     disconnect(ui->tvDetails,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editRegistrazione()));
     QSqlQuery q(db);
@@ -116,10 +116,13 @@ void CMandati::getImporto()
     for (int x=0;x<mod->rowCount();x++)
     {
         importo+=ui->tvDetails->model()->index(x,3).data(0).toDouble();
+        qDebug()<< ui->tvDetails->model()->index(x,3).data(0).toString();
 
     }
 
-    qDebug()<<importo;
+
+
+    qDebug()<<"importo: "+QString::number(importo);
 
     ui->leImporto->setText(QString::number(qAbs(importo),'f',2));
 
@@ -128,8 +131,15 @@ void CMandati::getImporto()
 void CMandati::on_pushButton_3_clicked()
 {
     CNewMandato *f=new CNewMandato(0,db);
+    connect(f,SIGNAL(mandatoCreated()),this,SLOT(reloadMandati()));
     f->show();
 }
+
+void CMandati::reloadMandati()
+{
+    mod->select();
+}
+
 
 void CMandati::stampaMandato()
 {
@@ -154,4 +164,44 @@ void CMandati::stampaMandato()
 void CMandati::on_pushButton_4_clicked()
 {
     stampaMandato();
+}
+
+void CMandati::on_pbDelete_clicked()
+{
+    deleteMandato();
+}
+
+void CMandati::deleteMandato()
+{
+    if(QMessageBox::question(this,QApplication::applicationName(),"Cancellare il mandato?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+    {
+        db.transaction();
+        int id=ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),0).data(0).toInt();
+        QSqlQuery q(db);
+        QString sql="DELETE FROM righe_mandati_new WHERE IDMandato=:id";
+        q.prepare(sql);
+        q.bindValue(0,id);
+        q.exec();
+        q.clear();
+
+        sql="DELETE FROM mandati_new where ID=:id";
+        q.prepare(sql);
+        q.bindValue(0,id);
+
+            if(q.exec())
+            {
+                if (QMessageBox::question(this,QApplication::applicationName(),"Mandato eliminato - confermare?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
+                {
+                    db.commit();
+                }
+                else
+                {
+                    db.rollback();
+                }
+            }
+     }
+        loadMandato();
+        mod->select();
+
+
 }

@@ -36,6 +36,12 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pbDelete_clicked();
+
+    void deleteMandato();
+
+    void reloadMandati();
+
 private:
     Ui::CMandati *ui;
     QSqlDatabase db;

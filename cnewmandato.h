@@ -32,6 +32,8 @@ private:
     Ui::CNewMandato *ui;
     QSqlDatabase db;
     CSqlRelationalTableModel *regs;
+signals:
+    void mandatoCreated();
 };
 
 #endif // CNEWMANDATO_H

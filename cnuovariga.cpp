@@ -1,28 +1,32 @@
-#include "cnuovarigaregistrazione.h"
-#include "ui_cnuovarigaregistrazione.h"
+#include "cnuovariga.h"
+#include "ui_cnuovariga.h"
 
 #include <QSqlDatabase>
 
 #include <QSqlTableModel>
 #include <QSqlQuery>
- #include <QDebug>
+#include <QDebug>
 #include <QSqlError>
 #include <QCompleter>
 #include <QMessageBox>
+#include <QSqlRelationalTableModel>
 
 
-CNuovaRigaRegistrazione::CNuovaRigaRegistrazione(QWidget *parent) :
+CNuovaRiga::CNuovaRiga(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::CNuovaRigaRegistrazione)
+    ui(new Ui::CNuovaRiga)
 {
     ui->setupUi(this);
 }
 
-void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pRows, QString dest)
+void CNuovaRiga::init(QSqlDatabase pdb, int pid, QSqlRelationalTableModel *pRows, QString dest)
 {
     db=pdb;
     idRegistrazione=pid;
     ui->leConto->setText(dest);
+
+    qDebug()<<"id = "+ QString::number(idRegistrazione);
+
 
     if (pRows)
     {
@@ -30,9 +34,11 @@ void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pR
     }
     else
     {
-        modrighe=new QSqlTableModel(0,db);
+        modrighe=new QSqlRelationalTableModel(0,db);
         modrighe->setTable("righe_reg");
+        modrighe->setRelation(0,QSqlRelation("registrazioni","ID","ID"));
         modrighe->setFilter ("ID="+ QString::number(idRegistrazione));
+        modrighe->select();
 
     }
 
@@ -72,12 +78,12 @@ void CNuovaRigaRegistrazione::init(QSqlDatabase pdb, int pid, QSqlTableModel *pR
 
 }
 
-CNuovaRigaRegistrazione::~CNuovaRigaRegistrazione()
+CNuovaRiga::~CNuovaRiga()
 {
     delete ui;
 }
 
-void CNuovaRigaRegistrazione::setupUI()
+void CNuovaRiga::setupUI()
 {
 
     QString segno = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),3).data(0).toString();
@@ -113,7 +119,7 @@ void CNuovaRigaRegistrazione::setupUI()
 
 }
 
-void CNuovaRigaRegistrazione::on_rbE_toggled(bool checked)
+void CNuovaRiga::on_rbE_toggled(bool checked)
 {
     if (checked)
     {
@@ -143,7 +149,7 @@ void CNuovaRigaRegistrazione::on_rbE_toggled(bool checked)
     }
 }
 
-double CNuovaRigaRegistrazione::calculate()
+double CNuovaRiga::calculate()
 {
     QString segno = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),3).data(0).toString();
     QString tipo = ui->cbTipoOpe->model()->index(ui->cbTipoOpe->currentIndex(),1).data(0).toString();
@@ -174,7 +180,7 @@ double CNuovaRigaRegistrazione::calculate()
     return liq;
 }
 
-double CNuovaRigaRegistrazione::calculateNoDays()
+double CNuovaRiga::calculateNoDays()
 {
     double liquidazione;
     double massimale;
@@ -206,7 +212,7 @@ double CNuovaRigaRegistrazione::calculateNoDays()
     return liquidazione;
 }
 
-double CNuovaRigaRegistrazione::calculateDays()
+double CNuovaRiga::calculateDays()
 {
 
     int elementi=1;
@@ -262,13 +268,13 @@ double CNuovaRigaRegistrazione::calculateDays()
     return liquidazione;
 }
 
-void CNuovaRigaRegistrazione::on_pbCalc_clicked()
+void CNuovaRiga::on_pbCalc_clicked()
 {
     double liquidazione = calculate();
     ui->leUscite->setText(QString::number(liquidazione));
 }
 
-void CNuovaRigaRegistrazione::on_pushButton_2_clicked()
+void CNuovaRiga::on_pushButton_2_clicked()
 {
     if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Chiudere?",QMessageBox::Ok|QMessageBox::Cancel))
     {
@@ -276,7 +282,7 @@ void CNuovaRigaRegistrazione::on_pushButton_2_clicked()
     }
 }
 
-void CNuovaRigaRegistrazione::on_pushButton_clicked()
+void CNuovaRiga::on_pushButton_clicked()
 {
     QSqlQuery q(db);
     QString sql;
@@ -303,7 +309,7 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
     q.bindValue(":ID",idRegistrazione);
     q.exec();
     q.first();
-    int riga=q.value(0).toInt();
+    int riga=q.value(0).toInt()+1;
     riga++;
 
 
@@ -338,7 +344,7 @@ void CNuovaRigaRegistrazione::on_pushButton_clicked()
 
 }
 
-void CNuovaRigaRegistrazione::resetForm()
+void CNuovaRiga::resetForm()
 {
 
     ui->cbTipoOpe->setCurrentIndex(0);

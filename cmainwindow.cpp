@@ -59,8 +59,7 @@ CMainWindow::~CMainWindow()
 
 void CMainWindow::on_pBOperazioni_clicked()
 {
-    COperations *f =new COperations();
-
+    COperations *f =new COperations(0);
     f->init(db);
 
     f->show();

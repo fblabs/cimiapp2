@@ -158,13 +158,16 @@ bool CNewMandato::saveMandato()
     QString banca=QString::number(getBancaID());
     QString numero=ui->leNumero->text();
 
-    QString sql="insert into mandati_new(numero,anno,data,banca) VALUES(:numero,:anno,:data,:banca)";
+    QString sql="insert into mandati_new(numero,anno,data,banca,dal,al) VALUES(:numero,:anno,:data,:banca,:dal,:al)";
     QSqlQuery q(db);
     q.prepare(sql);
     q.bindValue(":numero",numero);
     q.bindValue(":anno",anno);
     q.bindValue(":data",data);
     q.bindValue(":banca",banca);
+    q.bindValue(":dal",ui->deDal->date().toString("yyyy-MM-dd"));
+    q.bindValue(":al",ui->deAl->date().toString("yyyy-MM-dd"));
+
 
     db.transaction();
     q.exec();
@@ -188,7 +191,6 @@ bool CNewMandato::saveMandato()
       }
     }
     db.commit();
-    //regs->select();
     return true;
 
 
@@ -201,11 +203,15 @@ void CNewMandato::on_pushButton_2_clicked()
         if( saveMandato())
         {
             QMessageBox::information(this,QApplication::applicationName(),"Mandato salvato",QMessageBox::Ok);
+            ui->pushButton_2->setEnabled(false);
+
         }
         else
         {
             QMessageBox::warning(this,QApplication::applicationName(),"Errore salvando il mandato",QMessageBox::Ok);
         }
+
+        emit mandatoCreated();
     }
 
 }

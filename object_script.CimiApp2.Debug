@@ -4,7 +4,6 @@ INPUT(
 ./debug/coperations.o
 ./debug/cregistrazione.o
 ./debug/cnuovaregistrazione.o
-./debug/cnuovarigaregistrazione.o
 ./debug/cconti.o
 ./debug/ctipianagrafici.o
 ./debug/csqltipianagraficimodel.o
@@ -14,12 +13,13 @@ INPUT(
 ./debug/cmandati.o
 ./debug/cnewmandato.o
 ./debug/hprint.o
+./debug/cregistrazioni.o
+./debug/cnuovariga.o
 ./debug/qrc_graphics.o
 ./debug/moc_cmainwindow.o
 ./debug/moc_coperations.o
 ./debug/moc_cregistrazione.o
 ./debug/moc_cnuovaregistrazione.o
-./debug/moc_cnuovarigaregistrazione.o
 ./debug/moc_cconti.o
 ./debug/moc_ctipianagrafici.o
 ./debug/moc_csqltipianagraficimodel.o
@@ -29,4 +29,6 @@ INPUT(
 ./debug/moc_cmandati.o
 ./debug/moc_cnewmandato.o
 ./debug/moc_hprint.o
+./debug/moc_cregistrazioni.o
+./debug/moc_cnuovariga.o
 );

@@ -1,22 +1,23 @@
-#ifndef CNUOVARIGAREGISTRAZIONE_H
-#define CNUOVARIGAREGISTRAZIONE_H
+#ifndef CNUOVARIGA_H
+#define CNUOVARIGA_H
 
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 
 namespace Ui {
-class CNuovaRigaRegistrazione;
+class CNuovaRiga;
 }
 
-class CNuovaRigaRegistrazione : public QWidget
+class CNuovaRiga : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit CNuovaRigaRegistrazione(QWidget *parent = 0);
-    ~CNuovaRigaRegistrazione();
-    void init(QSqlDatabase pdb, int pidRegistrazione, QSqlTableModel *pRows,QString dest);
+    explicit CNuovaRiga(QWidget *parent = 0);
+    ~CNuovaRiga();
+    void init(QSqlDatabase pdb, int pidRegistrazione, QSqlRelationalTableModel *pRows, QString dest);
 
 
 private slots:
@@ -33,9 +34,9 @@ private slots:
 
 
 private:
-    Ui::CNuovaRigaRegistrazione *ui;
+    Ui::CNuovaRiga *ui;
     QSqlTableModel *modtipiope;
-    QSqlTableModel *modrighe;
+    QSqlRelationalTableModel *modrighe;
     QSqlDatabase db;
     int idRegistrazione;
     double calculate();
@@ -47,4 +48,4 @@ signals:
     void rowDeleted();
 };
 
-#endif // CNUOVARIGAREGISTRAZIONE_H
+#endif // CNUOVARIGA_H

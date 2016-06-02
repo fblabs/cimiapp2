@@ -47,6 +47,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
+    QPushButton *pbDelete;
     QPushButton *pushButton_2;
 
     void setupUi(QWidget *CMandati)
@@ -168,11 +169,20 @@ public:
 
         horizontalLayout_2->addWidget(pushButton_4);
 
+        pbDelete = new QPushButton(CMandati);
+        pbDelete->setObjectName(QStringLiteral("pbDelete"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/Banned-Sign.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pbDelete->setIcon(icon4);
+        pbDelete->setIconSize(QSize(32, 32));
+
+        horizontalLayout_2->addWidget(pbDelete);
+
         pushButton_2 = new QPushButton(CMandati);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon5);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_2);
@@ -197,6 +207,7 @@ public:
         pushButton->setText(QApplication::translate("CMandati", "Modifica registrazione", 0));
         pushButton_3->setText(QApplication::translate("CMandati", "Nuovo Mandato", 0));
         pushButton_4->setText(QApplication::translate("CMandati", "Stampa", 0));
+        pbDelete->setText(QApplication::translate("CMandati", "Elimina mandato", 0));
         pushButton_2->setText(QApplication::translate("CMandati", "Chiudi", 0));
     } // retranslateUi
 

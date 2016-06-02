@@ -42,7 +42,7 @@ public:
     QComboBox *comboBox;
     QFormLayout *formLayout_2;
     QLabel *label_2;
-    QDateEdit *dateEdit;
+    QDateEdit *deData;
     QTableView *tvDetails;
     QHBoxLayout *horizontalLayout_4;
     QCheckBox *cbLiquidato;
@@ -120,10 +120,10 @@ public:
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, label_2);
 
-        dateEdit = new QDateEdit(CRegistrazione);
-        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        deData = new QDateEdit(CRegistrazione);
+        deData->setObjectName(QStringLiteral("deData"));
 
-        formLayout_2->setWidget(0, QFormLayout::FieldRole, dateEdit);
+        formLayout_2->setWidget(0, QFormLayout::FieldRole, deData);
 
 
         verticalLayout->addLayout(formLayout_2);
@@ -287,7 +287,7 @@ public:
 
     void retranslateUi(QWidget *CRegistrazione)
     {
-        CRegistrazione->setWindowTitle(QApplication::translate("CRegistrazione", "Modifica Registrazione", 0));
+        CRegistrazione->setWindowTitle(QApplication::translate("CRegistrazione", "Registrazione", 0));
         label_7->setText(QApplication::translate("CRegistrazione", "Conto:", 0));
         label->setText(QApplication::translate("CRegistrazione", "Tipo:", 0));
         label_2->setText(QApplication::translate("CRegistrazione", "Data Registrazione:", 0));
@@ -303,7 +303,7 @@ public:
         pushButton_4->setText(QApplication::translate("CRegistrazione", "Rimuovi riga", 0));
         pushButton->setText(QApplication::translate("CRegistrazione", "Salva", 0));
         pushButton_5->setText(QApplication::translate("CRegistrazione", "Annulla", 0));
-        pushButton_2->setText(QApplication::translate("CRegistrazione", "Annulla", 0));
+        pushButton_2->setText(QApplication::translate("CRegistrazione", "Chiudi", 0));
     } // retranslateUi
 
 };

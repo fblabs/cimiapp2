@@ -1,9 +1,10 @@
 #include "cregistrazione.h"
 #include "ui_cregistrazione.h"
 #include "csqlrelationaltablemodel.h"
-#include "cnuovarigaregistrazione.h"
+#include "cnuovariga.h"
 #include <QSqlRelation>
 #include <QSqlTableModel>
+#include <QSqlQueryModel>
 #include <QSqlRelationalTableModel>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -29,76 +30,62 @@ void CRegistrazione::init(int pid, int tipomov=20, QString conto="", QSqlDatabas
 {
     ID=pid;
     db=pdb;
+    QString sconto=conto;
 
-    modRegistrazione=new QSqlRelationalTableModel(0,db);
-    modRighe=new QSqlRelationalTableModel(0,db);
-
-    ui->dataliq->setDate(QDate::currentDate());
     ui->leConto->setText(conto);
 
-    QSqlQuery qRegistrazione(db);
+    modRegistrazione=new QSqlQueryModel();
+    QSqlQuery q(db);
+    QString sql="SELECT * FROM registrazioni WHERE ID=:id";
+    q.prepare(sql);
+    q.bindValue(":id",ID);
 
-    QString sql="SELECT codana,datareg,flag,data_liquidazione FROM registrazioni where ID=:id ";
-    qRegistrazione.prepare(sql);
-    qRegistrazione.bindValue(":id",pid);
-
-    qRegistrazione.exec();
-    qRegistrazione.first();
-
-    int codana=qRegistrazione.value(0).toInt();
-    QDate date=qRegistrazione.value(1).toDate();
-    bool liq = qRegistrazione.value(2).toBool();
-    QDate dateliq=qRegistrazione.value(3).toDate();
+    q.exec();
+    modRegistrazione->setQuery(q);
 
 
-    qDebug()<< liq<<qRegistrazione.value(2).toString()<<qRegistrazione.value(3).toString();
+    ui->dataliq->setDate(QDate::currentDate());
 
-    ui->dateEdit->setDate(date);
-    ui->cbLiquidato->setChecked(liq);
-    ui->dataliq->setDate(dateliq);
-
-/*    CTableModel *mod=new CTableModel();*/
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
     tipimod->setTable("tipi_mov");
     tipimod->setSort(1,Qt::AscendingOrder);
-
     tipimod->select();
     ui->comboBox->setModel(tipimod);
     ui->comboBox->setModelColumn(1);
 
-    modRighe= new QSqlRelationalTableModel();
 
+    modRighe= new QSqlRelationalTableModel(0,db);
     modRighe->setTable("righe_reg");
-    modRighe->setFilter("righe_reg.ID="+QString::number(ID));
     modRighe->setSort(1,Qt::AscendingOrder);
+  //  modRighe->setRelation(0,QSqlRelation("registrazioni","ID","ID"));
+  //  modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
+    modRighe->setFilter("ID="+QString::number(ID));
 
-    modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
     modRighe->select();
 
-
-
-
+    qDebug()<<modRighe->filter()<<modRighe->lastError();
 
 
     ui->tvDetails->setModel(modRighe);
-    ui->tvDetails->setColumnHidden(0,true);
+  //  ui->tvDetails->setColumnHidden(0,true);
 
     ui->tvDetails->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    QSqlQuery q(db);
-    q.prepare("SELECT descrizione from tipi_mov where ID=:tipomov");
-    q.bindValue(":tipomov",tipomov);
-    q.exec();
-    q.first();
+    QSqlQuery d(db);
+    d.prepare("SELECT descrizione from tipi_mov where ID=:tipomov");
+    d.bindValue(":tipomov",tipomov);
+    d.exec();
+    d.first();
 
-    QString desc=q.value(0).toString();
+    QString desc=d.value(0).toString();
+    ui->deData->setDate(modRegistrazione->index(0,1).data(0).toDate());
 
 
 
     ui->comboBox->setCurrentIndex(ui->comboBox->findText(desc));
     ui->tvDetails->setCurrentIndex(ui->tvDetails->model()->index(0,0));
-    ui->label_6->setVisible(liq);
-    ui->dataliq->setVisible(liq);
+//    ui->label_6->setVisible(liq);
+//    ui->dataliq->setVisible(liq);
     recordTotals();
 
 
@@ -143,7 +130,7 @@ void CRegistrazione::on_pushButton_2_clicked()
 void CRegistrazione::on_pushButton_3_clicked()
 {
   db.transaction();
-  CNuovaRigaRegistrazione *f =new CNuovaRigaRegistrazione();
+  CNuovaRiga *f =new CNuovaRiga();
   f->init(db,ID,0,ui->leConto->text());
   f->show();
   connect(f,SIGNAL(rowAdded()),this,SLOT(reload()));
@@ -155,7 +142,7 @@ void CRegistrazione::on_pushButton_3_clicked()
 
 void CRegistrazione::reload()
 {
-    modRighe->select();
+   // modRegistrazione->select();
 }
 
 void CRegistrazione::on_pushButton_clicked()

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 
 namespace Ui {
 class CNuovaRegistrazione;
@@ -35,6 +36,8 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_cbTipoRegistrazione_currentIndexChanged(int index);
+
 private:
     Ui::CNuovaRegistrazione *ui;
     QSqlDatabase db;
@@ -42,7 +45,7 @@ private:
     void filterContropartita();
     bool saveNewRegistration();
     QSqlTableModel *registrazionimod;
-    QSqlTableModel *righemod;
+    QSqlRelationalTableModel *righemod;
     int nReg;
     bool createNewRegistrazione();
 

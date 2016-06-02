@@ -96,9 +96,9 @@ void COperations::init(QSqlDatabase pdb)
 
    ui->tvMain->setColumnWidth(5,20);
    ui->tvMain->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-   setContextMenuPolicy(Qt::CustomContextMenu);
-   connect(this, SIGNAL(customContextMenuRequested(const QPoint &)),
-           this, SLOT(ShowContextMenu(const QPoint &)));
+  // setContextMenuPolicy(Qt::CustomContextMenu);
+  /* connect(this, SIGNAL(customContextMenuRequested(const QPoint &)),
+           this, SLOT(ShowContextMenu(const QPoint &)));*/
 
 
 

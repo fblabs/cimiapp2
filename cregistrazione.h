@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlTableModel>
+#include <QSqlQueryModel>
 #include <QSqlRelationalTableModel>
 
 namespace Ui {
@@ -39,7 +40,7 @@ private:
     QSqlDatabase db;
    // void setFilter(QString fil="");
     int ID;
-    QSqlRelationalTableModel *modRegistrazione;
+    QSqlQueryModel *modRegistrazione;
     QSqlRelationalTableModel *modRighe;
 signals:
   //  void closing();
