@@ -168,7 +168,7 @@ void COperations::on_pushButton_3_clicked()
   CNuovaRegistrazione *f=new CNuovaRegistrazione();
   f->init(db);
 
-  //connect(f,SIGNAL(done()),this,SLOT(reload()));
+  connect(f,SIGNAL(recordAdded()),this,SLOT(reload()));
   f->show();
 
 

@@ -104,5 +104,6 @@
         <file>Resources/impostazioni.png</file>
         <file>Resources/mandati.png</file>
         <file>Resources/registrazioni.png</file>
+        <file>Resources/cimiapp2.ico</file>
     </qresource>
 </RCC>

@@ -34,17 +34,23 @@ void CRegistrazione::init(int pid, int tipomov=20, QString conto="", QSqlDatabas
 
     ui->leConto->setText(conto);
 
-    modRegistrazione=new QSqlQueryModel();
-    QSqlQuery q(db);
-    QString sql="SELECT * FROM registrazioni WHERE ID=:id";
-    q.prepare(sql);
-    q.bindValue(":id",ID);
 
-    q.exec();
-    modRegistrazione->setQuery(q);
+    modRegistrazione=new QSqlRelationalTableModel(0,db);
+    modRegistrazione->setTable("registrazioni");
+    modRegistrazione->setFilter("registrazioni.ID="+QString::number(ID));
+    modRegistrazione->setRelation(2,QSqlRelation("anagrafica","ID","descrizione"));
+    modRegistrazione->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    modRegistrazione->select();
 
+    bool isLiq=modRegistrazione->index(0,5).data(0).toInt()== 0 ? false :true;
 
-    ui->dataliq->setDate(QDate::currentDate());
+    qDebug()<<modRegistrazione->query().lastError().text()<<"regflag:"<<modRegistrazione->rowCount()<<modRegistrazione->index(0,5).data(0).toInt()<<QString::number(ID)<<isLiq<<modRegistrazione->index(0,5).data(0).toString()<<modRegistrazione->index(0,6).data(0).toString();
+
+    ui->cbLiquidato->setChecked(isLiq);
+    ui->dataliq->setDate(modRegistrazione->index(0,6).data(0).toDate());
+    ui->label_6->setVisible(isLiq);
+    ui->dataliq->setVisible(isLiq);
+
 
     QSqlTableModel *tipimod=new QSqlTableModel(0,db);
     tipimod->setTable("tipi_mov");
@@ -57,9 +63,12 @@ void CRegistrazione::init(int pid, int tipomov=20, QString conto="", QSqlDatabas
     modRighe= new QSqlRelationalTableModel(0,db);
     modRighe->setTable("righe_reg");
     modRighe->setSort(1,Qt::AscendingOrder);
-  //  modRighe->setRelation(0,QSqlRelation("registrazioni","ID","ID"));
-  //  modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
-    modRighe->setFilter("ID="+QString::number(ID));
+    modRighe->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    modRighe->setRelation(0,QSqlRelation("registrazioni","ID","ID"));
+    modRighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
+
+
+    modRighe->setFilter("righe_reg.ID="+QString::number(ID));
 
     modRighe->select();
 
@@ -67,7 +76,7 @@ void CRegistrazione::init(int pid, int tipomov=20, QString conto="", QSqlDatabas
 
 
     ui->tvDetails->setModel(modRighe);
-  //  ui->tvDetails->setColumnHidden(0,true);
+    ui->tvDetails->setColumnHidden(0,true);
 
     ui->tvDetails->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -84,8 +93,9 @@ void CRegistrazione::init(int pid, int tipomov=20, QString conto="", QSqlDatabas
 
     ui->comboBox->setCurrentIndex(ui->comboBox->findText(desc));
     ui->tvDetails->setCurrentIndex(ui->tvDetails->model()->index(0,0));
-//    ui->label_6->setVisible(liq);
-//    ui->dataliq->setVisible(liq);
+  //  bool liq=modRegistrazione
+    //ui->label_6->setVisible(liq);
+   // ui->dataliq->setVisible(liq);
     recordTotals();
 
 
@@ -129,9 +139,9 @@ void CRegistrazione::on_pushButton_2_clicked()
 
 void CRegistrazione::on_pushButton_3_clicked()
 {
-  db.transaction();
+
   CNuovaRiga *f =new CNuovaRiga();
-  f->init(db,ID,0,ui->leConto->text());
+  f->init(db,ID,modRighe,ui->leConto->text());
   f->show();
   connect(f,SIGNAL(rowAdded()),this,SLOT(reload()));
   connect(f,SIGNAL(rowAdded()),this,SLOT(reload()));
@@ -149,7 +159,7 @@ void CRegistrazione::on_pushButton_clicked()
 {
 
 
- //  modRegistrazione->submitAll();
+
  //  modRighe->submitAll();
     int l=ui->cbLiquidato->isChecked()? 1:0;
     qDebug()<<l;
@@ -163,9 +173,11 @@ void CRegistrazione::on_pushButton_clicked()
     q.bindValue(":dataliq",ui->dataliq->isVisible()?ui->dataliq->date().toString("yyyy-MM-dd"): "NULL");
     q.exec();
 
-
+    modRegistrazione->submitAll();
+    modRighe->submitAll();
+    modRighe->select();
     emit done();
-    close();
+
 
 
 
@@ -176,12 +188,9 @@ void CRegistrazione::on_pushButton_clicked()
 void CRegistrazione::on_pushButton_4_clicked()
 {
   db.transaction();
-  if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Eliminare questa riga?\n(attenzione questa operazione è irreversibile)",QMessageBox::Ok|QMessageBox::Cancel))
+  if (QMessageBox::Ok==QMessageBox::question(this,QApplication::applicationName(),"Eliminare questa riga?",QMessageBox::Ok|QMessageBox::Cancel))
   {
     modRighe->removeRow(ui->tvDetails->currentIndex().row());
-    modRighe->submitAll();
-    modRighe->select();
-    ui->tvDetails->setModel(modRighe);
     recordTotals();
   }
 }
@@ -195,6 +204,7 @@ void CRegistrazione::on_cbLiquidato_toggled(bool checked)
 void CRegistrazione::on_pushButton_5_clicked()
 {
     db.rollback();
+    modRighe->select();
     emit done();
     reload();
 }

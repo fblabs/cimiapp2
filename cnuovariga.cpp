@@ -23,6 +23,8 @@ void CNuovaRiga::init(QSqlDatabase pdb, int pid, QSqlRelationalTableModel *pRows
 {
     db=pdb;
     idRegistrazione=pid;
+    modrighe=pRows;
+
     ui->leConto->setText(dest);
 
     qDebug()<<"id = "+ QString::number(idRegistrazione);
@@ -34,10 +36,10 @@ void CNuovaRiga::init(QSqlDatabase pdb, int pid, QSqlRelationalTableModel *pRows
     }
     else
     {
-        modrighe=new QSqlRelationalTableModel(0,db);
+      /*  modrighe=new QSqlRelationalTableModel(0,db);
         modrighe->setTable("righe_reg");
         modrighe->setRelation(0,QSqlRelation("registrazioni","ID","ID"));
-        modrighe->setFilter ("ID="+ QString::number(idRegistrazione));
+        modrighe->setFilter ("ID="+ QString::number(idRegistrazione));*/
         modrighe->select();
 
     }

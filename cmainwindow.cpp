@@ -77,6 +77,7 @@ void CMainWindow::on_pushButton_4_clicked()
 {
     CNuovaRegistrazione *f = new CNuovaRegistrazione();
     f->init(db);
+    //connect()
     f->show();
 }
 
@@ -122,3 +123,4 @@ void CMainWindow::on_pushButton_8_clicked()
     CNewMandato *f=new CNewMandato(0,db);
     f->show();
 }
+

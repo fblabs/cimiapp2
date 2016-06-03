@@ -11,7 +11,7 @@ MAKEFILE      = Makefile.Debug
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DUNICODE -DQT_QML_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
+DEFINES       = -DUNICODE -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I. -I../../../Qt/5.5/mingw492_32/include -I../../../Qt/5.5/mingw492_32/include/QtPrintSupport -I../../../Qt/5.5/mingw492_32/include/QtWidgets -I../../../Qt/5.5/mingw492_32/include/QtGui -I../../../Qt/5.5/mingw492_32/include/QtANGLE -I../../../Qt/5.5/mingw492_32/include/QtSql -I../../../Qt/5.5/mingw492_32/include/QtCore -Idebug -I. -I../../../Qt/5.5/mingw492_32/mkspecs/win32-g++ 
@@ -170,12 +170,12 @@ debug/CimiApp2_resource_res.o: CimiApp2_resource.rc
 	windres -i CimiApp2_resource.rc -o debug/CimiApp2_resource_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug -o Makefile.Debug CimiApp2.pro
+	@$(QMAKE) -spec win32-g++ -o Makefile.Debug CimiApp2.pro
 
 qmake_all: FORCE
 
 dist:
-	$(ZIP) CimiApp2.zip $(SOURCES) $(DIST) CimiApp2.pro ../../../Qt/5.5/mingw492_32/mkspecs/features/spec_pre.prf ../../../Qt/5.5/mingw492_32/mkspecs/qdevice.pri ../../../Qt/5.5/mingw492_32/mkspecs/features/device_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/qconfig.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bootstrap_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_clucene_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_core.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_core_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designer.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designer_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designercomponents_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_gui.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_gui_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_help.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_help_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_network.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_network_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_platformsupport_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_positioning.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_positioning_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qml.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qml_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmldevtools_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quick.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quick_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickparticles_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sql.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sql_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_svg.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_svg_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uiplugin.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xml.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xml_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/features/qt_functions.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/qt_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/qt_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/win32-g++/qmake.conf ../../../Qt/5.5/mingw492_32/mkspecs/features/spec_post.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/exclusive_builds.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/default_pre.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/default_pre.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/resolve_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/exclusive_builds_post.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/default_post.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/build_pass.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/qml_debug.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/rtti.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/precompile_header.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/warn_on.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/qt.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/resources.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/moc.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/opengl.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/uic.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/windows.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/testcase_targets.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/exceptions.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/yacc.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/lex.prf CimiApp2.pro graphics.qrc C:/Qt/5.5/mingw492_32/lib/qtmaind.prl C:/Qt/5.5/mingw492_32/lib/Qt5PrintSupportd.prl C:/Qt/5.5/mingw492_32/lib/Qt5Widgetsd.prl C:/Qt/5.5/mingw492_32/lib/Qt5Guid.prl C:/Qt/5.5/mingw492_32/lib/Qt5Sqld.prl C:/Qt/5.5/mingw492_32/lib/Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
+	$(ZIP) CimiApp2.zip $(SOURCES) $(DIST) CimiApp2.pro ../../../Qt/5.5/mingw492_32/mkspecs/features/spec_pre.prf ../../../Qt/5.5/mingw492_32/mkspecs/qdevice.pri ../../../Qt/5.5/mingw492_32/mkspecs/features/device_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/qconfig.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axbase_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axcontainer_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_axserver_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bluetooth_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_bootstrap_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_clucene_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_concurrent_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_core.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_core_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_dbus_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designer.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designer_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_designercomponents_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_enginio_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_gui.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_gui_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_help.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_help_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimedia_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_multimediawidgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_network.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_network_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_nfc_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_opengl_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_openglextensions_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_platformsupport_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_positioning.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_positioning_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_printsupport_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qml.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qml_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmldevtools_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qmltest_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quick.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quick_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickparticles_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_quickwidgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sensors_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_serialport_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sql.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_sql_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_svg.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_svg_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_testlib_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uiplugin.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_uitools_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webchannel_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkit_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_webkitwidgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_websockets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_widgets_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_winextras_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xml.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xml_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns.pri ../../../Qt/5.5/mingw492_32/mkspecs/modules/qt_lib_xmlpatterns_private.pri ../../../Qt/5.5/mingw492_32/mkspecs/features/qt_functions.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/qt_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/qt_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/win32-g++/qmake.conf ../../../Qt/5.5/mingw492_32/mkspecs/features/spec_post.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/exclusive_builds.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/default_pre.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/default_pre.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/resolve_config.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/exclusive_builds_post.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/default_post.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/build_pass.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/rtti.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/precompile_header.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/warn_on.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/qt.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/resources.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/moc.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/opengl.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/uic.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/win32/windows.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/testcase_targets.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/exceptions.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/yacc.prf ../../../Qt/5.5/mingw492_32/mkspecs/features/lex.prf CimiApp2.pro graphics.qrc C:/Qt/5.5/mingw492_32/lib/qtmaind.prl C:/Qt/5.5/mingw492_32/lib/Qt5PrintSupportd.prl C:/Qt/5.5/mingw492_32/lib/Qt5Widgetsd.prl C:/Qt/5.5/mingw492_32/lib/Qt5Guid.prl C:/Qt/5.5/mingw492_32/lib/Qt5Sqld.prl C:/Qt/5.5/mingw492_32/lib/Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug/main.o debug/cmainwindow.o debug/coperations.o debug/cregistrazione.o debug/cnuovaregistrazione.o debug/cconti.o debug/ctipianagrafici.o debug/csqltipianagraficimodel.o debug/cmastri.o debug/csettings.o debug/csqlrelationaltablemodel.o debug/cmandati.o debug/cnewmandato.o debug/hprint.o debug/cregistrazioni.o debug/cnuovariga.o debug/qrc_graphics.o debug/moc_cmainwindow.o debug/moc_coperations.o debug/moc_cregistrazione.o debug/moc_cnuovaregistrazione.o debug/moc_cconti.o debug/moc_ctipianagrafici.o debug/moc_csqltipianagraficimodel.o debug/moc_cmastri.o debug/moc_csettings.o debug/moc_csqlrelationaltablemodel.o debug/moc_cmandati.o debug/moc_cnewmandato.o debug/moc_hprint.o debug/moc_cregistrazioni.o debug/moc_cnuovariga.o
@@ -641,6 +641,7 @@ debug/moc_cregistrazione.cpp: ../../../Qt/5.5/mingw492_32/include/QtWidgets/QWid
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		cregistrazione.h
@@ -2257,49 +2258,6 @@ debug/cmainwindow.o: cmainwindow.cpp cmainwindow.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqldatabase.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsql.h \
 		ui_cmainwindow.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QGridLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdialog.h \
@@ -2308,12 +2266,14 @@ debug/cmainwindow.o: cmainwindow.cpp cmainwindow.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QProcess \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qprocess.h \
 		coperations.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		csqlrelationaltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QObject \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		cnuovaregistrazione.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlTableModel \
 		cconti.h \
@@ -2345,6 +2305,8 @@ debug/cmainwindow.o: cmainwindow.cpp cmainwindow.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/QTextCursor \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTextEdit \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
 		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/QPrinter \
 		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qprinter.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qpagedpaintdevice.h \
@@ -2472,31 +2434,14 @@ debug/coperations.o: coperations.cpp coperations.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		ui_coperations.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlTableModel \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
+		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/QDate \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlError \
+		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlerror.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelation \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
@@ -2505,40 +2450,27 @@ debug/coperations.o: coperations.cpp coperations.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlTableModel \
-		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
-		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QDate \
-		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlError \
-		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlerror.h \
-		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelation \
 		cregistrazione.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
 		cnuovaregistrazione.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdialog.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QMenu \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qmenu.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/coperations.o coperations.cpp
 
@@ -2654,69 +2586,10 @@ debug/cregistrazione.o: cregistrazione.cpp cregistrazione.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		ui_cregistrazione.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QCheckBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcheckbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		csqlrelationaltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QObject \
 		cnuovariga.h \
@@ -2844,77 +2717,9 @@ debug/cnuovaregistrazione.o: cnuovaregistrazione.cpp cnuovaregistrazione.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		ui_cnuovaregistrazione.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QCheckBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcheckbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFrame \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QGridLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		cnuovariga.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QDate \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlError \
@@ -3045,70 +2850,6 @@ debug/cconti.o: cconti.cpp cconti.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDataWidgetMapper \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatawidgetmapper.h \
 		ui_cconti.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QListView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlistview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdialog.h \
@@ -3228,57 +2969,7 @@ debug/ctipianagrafici.o: ctipianagrafici.cpp ctipianagrafici.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		csqltipianagraficimodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlTablemodel \
-		ui_ctipianagrafici.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout
+		ui_ctipianagrafici.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/ctipianagrafici.o ctipianagrafici.cpp
 
 debug/csqltipianagraficimodel.o: csqltipianagraficimodel.cpp csqltipianagraficimodel.h \
@@ -3467,55 +3158,6 @@ debug/cmastri.o: cmastri.cpp cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
 		ui_cmastri.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		cregistrazione.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlError \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlerror.h \
@@ -3631,55 +3273,6 @@ debug/csettings.o: csettings.cpp csettings.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QSettings \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qsettings.h \
 		ui_csettings.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdialog.h
@@ -3899,55 +3492,6 @@ debug/cmandati.o: cmandati.cpp cmandati.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
 		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qtprintsupportglobal.h \
 		ui_cmandati.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QSpinBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h \
@@ -4081,64 +3625,6 @@ debug/cnewmandato.o: cnewmandato.cpp cnewmandato.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		ui_cnewmandato.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdialog.h \
@@ -4287,52 +3773,6 @@ debug/hprint.o: hprint.cpp hprint.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdialog.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDialog \
 		ui_hprint.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QSpinBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtGui/QTextTableCell \
 		../../../Qt/5.5/mingw492_32/include/QtGui/QImage \
 		../../../Qt/5.5/mingw492_32/include/QtGui/QPixmap \
@@ -4456,56 +3896,6 @@ debug/cregistrazioni.o: cregistrazioni.cpp cregistrazioni.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlDatabase \
 		ui_cregistrazioni.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		csqlrelationaltablemodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelation \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlTableModel \
@@ -4628,72 +4018,6 @@ debug/cnuovariga.o: cnuovariga.cpp cnuovariga.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
 		ui_cnuovariga.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFrame \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QGridLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QRadioButton \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qradiobutton.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QDebug \

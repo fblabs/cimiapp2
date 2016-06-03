@@ -40,7 +40,7 @@ private:
     QSqlDatabase db;
    // void setFilter(QString fil="");
     int ID;
-    QSqlQueryModel *modRegistrazione;
+    QSqlRelationalTableModel *modRegistrazione;
     QSqlRelationalTableModel *modRighe;
 signals:
   //  void closing();

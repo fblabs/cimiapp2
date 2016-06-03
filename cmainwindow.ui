@@ -426,7 +426,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>CimiApp2 1.0.4</string>
+   <string>CimiApp2 1.0.5</string>
   </property>
   <property name="windowIcon">
    <iconset resource="graphics.qrc">
@@ -516,7 +516,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Vers: 1.0.4</string>
+           <string>Vers: 1.0.5</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

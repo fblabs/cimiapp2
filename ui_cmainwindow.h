@@ -325,10 +325,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.4", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.5", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.4", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.5", 0));
         label_4->setText(QString());
         pushButton_4->setText(QApplication::translate("CMainWindow", "Nuova registrazione", 0));
         pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));

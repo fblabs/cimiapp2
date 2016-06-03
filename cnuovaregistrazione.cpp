@@ -170,11 +170,11 @@ void CNuovaRegistrazione::on_pushButton_clicked()
     CNuovaRiga *f= new CNuovaRiga();
 
 
-    qDebug()<<"nuovaregistrazione"<<nReg;
+    qDebug()<<"nuovaregistrazione ID="<<nReg;
 
     //TEMP========
     //
-    f->init(db,nReg,righemod=0,ui->cbConto->currentText());
+    f->init(db,nReg,righemod,ui->cbConto->currentText());
 
     connect (f,SIGNAL(rowAdded()),this,SLOT(reload()));
     connect (f,SIGNAL(rowDeleted()),this,SLOT(reload()));
@@ -186,16 +186,24 @@ void CNuovaRegistrazione::on_pushButton_clicked()
 
 void CNuovaRegistrazione::reload()
 {
-    registrazionimod->select();
+    righemod->select();
 }
 
 void CNuovaRegistrazione::on_pushButton_3_clicked()
 {
-    saveNewRegistration();
-    db.commit();
-    //reload();
-    ui->pushButton->setEnabled(false);
-    ui->pushButton_2->setEnabled(false);
+
+    if(db.commit())
+    {
+    reload();
+        ui->pushButton->setEnabled(false);
+        ui->pushButton_2->setEnabled(false);
+        emit recordAdded();
+        QMessageBox::information(this,QApplication::applicationName(),"Registrazione salvata");
+    }
+    else
+    {
+        QMessageBox::information(this,QApplication::applicationName(),"Errore");
+    }
 }
 
 
@@ -203,22 +211,19 @@ void CNuovaRegistrazione::on_pushButton_3_clicked()
 void CNuovaRegistrazione::on_pushButton_5_clicked()
 {
     if(QMessageBox::warning(this,QApplication::applicationName(),"Confermare la creazione di un registrazione per conto e tipo selezionati?",QMessageBox::Ok|QMessageBox::Cancel)==QMessageBox::Ok)
-{
-
+    {
+    db.transaction();
     bool  b=createNewRegistrazione();
 
-   if(b)
-   {
-       CNuovaRiga *f=new CNuovaRiga();
-       f->init(db,nReg,0,ui->cbConto->currentText());
-       connect (f,SIGNAL(rowAdded()),this,SLOT(reload()));
-       f->show();
-   }
-}
+
+
+
+    qDebug()<<"createNewRegistrazione() "<<b;
 
 
     ui->pushButton->setEnabled(true);
     ui->pushButton_2->setEnabled(true);
+    }
 }
 
 bool CNuovaRegistrazione::createNewRegistrazione()
@@ -228,21 +233,24 @@ bool CNuovaRegistrazione::createNewRegistrazione()
    QSqlQuery q(db);
    QString sql;
 
+   int codana=ui->cbConto->model()->index(ui->cbConto->currentIndex(),0).data(0).toInt();
+   int cp =ui->cbContropartita->model()->index(ui->cbContropartita->currentIndex(),0).data(0).toInt();
+
    sql="INSERT INTO cimidb.registrazioni(datareg,codana,tipo_mov,codcp,flag) VALUES (:data,:codana,:tipo,:codcp,:flag)";
    q.prepare(sql);
-   q.bindValue(":datareg",ui->deDataReg->date().toString("yyyy-MM-dd"));
-   q.bindValue(":codana",ui->cbConto->model()->index(ui->cbConto->currentIndex(),0).data(0).toInt());
+   q.bindValue(":data",ui->deDataReg->date().toString("yyyy-MM-dd"));
+   q.bindValue(":codana",codana);
    q.bindValue(":tipo",ui->cbTipoRegistrazione->model()->index(ui->cbTipoRegistrazione->currentIndex(),0).data(0).toInt());
-   q.bindValue(":codcp",ui->cbContropartita->model()->index(ui->cbContropartita->currentIndex(),0).data(0).toInt());
+   q.bindValue(":codcp",cp);
    q.bindValue(":flag",0);
 
-   q.exec();
+   bool b=q.exec();
    q.first();
 
    nReg = q.lastInsertId().toInt();
-   qDebug()<<"NR"<<nReg<<q.lastError()<<q.lastQuery();
+   qDebug()<<"NR"<<nReg<<q.lastError()<<q.lastQuery()<<b<<ui->deDataReg->date().toString("yyyy-MM-dd");
 
-   bool b = false;
+
 
    return b;
 
@@ -251,7 +259,11 @@ bool CNuovaRegistrazione::createNewRegistrazione()
 
 void CNuovaRegistrazione::on_pushButton_6_clicked()
 {
-    db.rollback();
+
+   if( db.rollback())
+   {
+    QMessageBox::information(this,QApplication::applicationName(),"Registrazione annullata");
+   }
 }
 
 void CNuovaRegistrazione::on_cbTipoRegistrazione_currentIndexChanged(int index)

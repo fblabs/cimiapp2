@@ -37,6 +37,8 @@ private slots:
 
     void on_pushButton_8_clicked();
 
+
+
 private:
     Ui::CMainWindow *ui;
     QSqlDatabase db;
