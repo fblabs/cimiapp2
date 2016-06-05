@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     cnewmandato.cpp \
     hprint.cpp \
     cregistrazioni.cpp \
-    cnuovariga.cpp
+    cnuovariga.cpp \
+    cbuoni.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -43,7 +44,8 @@ HEADERS  += cmainwindow.h \
     cnewmandato.h \
     hprint.h \
     cregistrazioni.h \
-    cnuovariga.h
+    cnuovariga.h \
+    cbuoni.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
@@ -57,7 +59,8 @@ FORMS    += cmainwindow.ui \
     cnewmandato.ui \
     hprint.ui \
     cregistrazioni.ui \
-    cnuovariga.ui
+    cnuovariga.ui \
+    cbuoni.ui
 
 RESOURCES += graphics.qrc
 win32:RC_ICONS += cimiapp2.ico

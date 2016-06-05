@@ -37,16 +37,17 @@ public:
     QLabel *label_6;
     QLabel *label_4;
     QGridLayout *gridLayout_2;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton;
-    QPushButton *pushButton_6;
     QPushButton *pbConti;
+    QPushButton *pushButton;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_6;
     QPushButton *pushButton_2;
     QPushButton *pBOperazioni;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_8;
+    QPushButton *pushButton_4;
+    QPushButton *pbBuoni;
     QLabel *label_5;
 
     void setupUi(QMainWindow *CMainWindow)
@@ -193,82 +194,89 @@ public:
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        pushButton_4 = new QPushButton(centralWidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setMinimumSize(QSize(225, 0));
-        pushButton_4->setMaximumSize(QSize(225, 16777215));
+        pbConti = new QPushButton(centralWidget);
+        pbConti->setObjectName(QStringLiteral("pbConti"));
         QFont font2;
         font2.setBold(false);
         font2.setWeight(50);
-        pushButton_4->setFont(font2);
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/nuovareegistrazione.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon1);
-        pushButton_4->setIconSize(QSize(64, 64));
-        pushButton_4->setFlat(true);
-
-        gridLayout_2->addWidget(pushButton_4, 3, 2, 1, 1);
-
-        pushButton_5 = new QPushButton(centralWidget);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setFont(font2);
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/ManageUsers.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_5->setIcon(icon2);
-        pushButton_5->setIconSize(QSize(64, 64));
-        pushButton_5->setFlat(true);
-
-        gridLayout_2->addWidget(pushButton_5, 3, 1, 1, 1);
-
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setFont(font2);
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/Resources/mastri.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon3);
-        pushButton_3->setIconSize(QSize(64, 64));
-        pushButton_3->setFlat(true);
-
-        gridLayout_2->addWidget(pushButton_3, 2, 4, 1, 1);
-
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setFont(font2);
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon4);
-        pushButton->setIconSize(QSize(64, 64));
-        pushButton->setFlat(true);
-
-        gridLayout_2->addWidget(pushButton, 2, 5, 1, 1);
-
-        pushButton_6 = new QPushButton(centralWidget);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/Resources/aggiorna.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_6->setIcon(icon5);
-        pushButton_6->setIconSize(QSize(64, 64));
-        pushButton_6->setFlat(true);
-
-        gridLayout_2->addWidget(pushButton_6, 3, 0, 1, 1);
-
-        pbConti = new QPushButton(centralWidget);
-        pbConti->setObjectName(QStringLiteral("pbConti"));
         pbConti->setFont(font2);
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/Resources/user-group-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pbConti->setIcon(icon6);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/user-group-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbConti->setIcon(icon1);
         pbConti->setIconSize(QSize(64, 64));
         pbConti->setFlat(true);
 
         gridLayout_2->addWidget(pbConti, 2, 1, 1, 1);
 
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setFont(font2);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon2);
+        pushButton->setIconSize(QSize(64, 64));
+        pushButton->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton, 2, 5, 1, 1);
+
+        pushButton_5 = new QPushButton(centralWidget);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        pushButton_5->setFont(font2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/ManageUsers.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_5->setIcon(icon3);
+        pushButton_5->setIconSize(QSize(64, 64));
+        pushButton_5->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_5, 4, 1, 1, 1);
+
+        pushButton_7 = new QPushButton(centralWidget);
+        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Resources/mandati.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_7->setIcon(icon4);
+        pushButton_7->setIconSize(QSize(64, 64));
+        pushButton_7->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_7, 2, 3, 1, 1);
+
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setFont(font2);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Resources/mastri.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon5);
+        pushButton_3->setIconSize(QSize(64, 64));
+        pushButton_3->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_3, 2, 4, 1, 1);
+
+        pushButton_8 = new QPushButton(centralWidget);
+        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/Resources/nuovomandato.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_8->setIcon(icon6);
+        pushButton_8->setIconSize(QSize(64, 64));
+        pushButton_8->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_8, 0, 3, 1, 1);
+
+        pushButton_6 = new QPushButton(centralWidget);
+        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/Resources/aggiorna.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_6->setIcon(icon7);
+        pushButton_6->setIconSize(QSize(64, 64));
+        pushButton_6->setFlat(true);
+
+        gridLayout_2->addWidget(pushButton_6, 4, 0, 1, 1);
+
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setFont(font2);
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/Resources/Actions-configure-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon8);
         pushButton_2->setIconSize(QSize(64, 64));
         pushButton_2->setFlat(true);
 
@@ -279,33 +287,36 @@ public:
         pBOperazioni->setMinimumSize(QSize(225, 0));
         pBOperazioni->setMaximumSize(QSize(225, 16777215));
         pBOperazioni->setFont(font2);
-        QIcon icon8;
-        icon8.addFile(QStringLiteral(":/Resources/registrazioni.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pBOperazioni->setIcon(icon8);
+        QIcon icon9;
+        icon9.addFile(QStringLiteral(":/Resources/registrazioni.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pBOperazioni->setIcon(icon9);
         pBOperazioni->setIconSize(QSize(64, 64));
         pBOperazioni->setFlat(true);
 
         gridLayout_2->addWidget(pBOperazioni, 2, 2, 1, 1);
 
-        pushButton_7 = new QPushButton(centralWidget);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        QIcon icon9;
-        icon9.addFile(QStringLiteral(":/Resources/mandati.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_7->setIcon(icon9);
-        pushButton_7->setIconSize(QSize(64, 64));
-        pushButton_7->setFlat(true);
-
-        gridLayout_2->addWidget(pushButton_7, 2, 3, 1, 1);
-
-        pushButton_8 = new QPushButton(centralWidget);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+        pushButton_4 = new QPushButton(centralWidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setMinimumSize(QSize(225, 0));
+        pushButton_4->setMaximumSize(QSize(225, 16777215));
+        pushButton_4->setFont(font2);
         QIcon icon10;
-        icon10.addFile(QStringLiteral(":/Resources/nuovomandato.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_8->setIcon(icon10);
-        pushButton_8->setIconSize(QSize(64, 64));
-        pushButton_8->setFlat(true);
+        icon10.addFile(QStringLiteral(":/Resources/nuovareegistrazione.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_4->setIcon(icon10);
+        pushButton_4->setIconSize(QSize(64, 64));
+        pushButton_4->setFlat(true);
 
-        gridLayout_2->addWidget(pushButton_8, 0, 3, 1, 1);
+        gridLayout_2->addWidget(pushButton_4, 4, 2, 1, 1);
+
+        pbBuoni = new QPushButton(centralWidget);
+        pbBuoni->setObjectName(QStringLiteral("pbBuoni"));
+        QIcon icon11;
+        icon11.addFile(QStringLiteral(":/Resources/Notepad.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pbBuoni->setIcon(icon11);
+        pbBuoni->setIconSize(QSize(64, 64));
+        pbBuoni->setFlat(true);
+
+        gridLayout_2->addWidget(pbBuoni, 5, 2, 1, 1);
 
 
         verticalLayout_2->addLayout(gridLayout_2);
@@ -330,16 +341,17 @@ public:
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
         label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.5", 0));
         label_4->setText(QString());
-        pushButton_4->setText(QApplication::translate("CMainWindow", "Nuova registrazione", 0));
-        pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));
-        pushButton_3->setText(QApplication::translate("CMainWindow", "Mastri", 0));
-        pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
-        pushButton_6->setText(QApplication::translate("CMainWindow", "Aggiorna", 0));
         pbConti->setText(QApplication::translate("CMainWindow", "Anagrafica", 0));
+        pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
+        pushButton_5->setText(QApplication::translate("CMainWindow", "Tipi Anagrafici", 0));
+        pushButton_7->setText(QApplication::translate("CMainWindow", "Mandati", 0));
+        pushButton_3->setText(QApplication::translate("CMainWindow", "Mastri", 0));
+        pushButton_8->setText(QApplication::translate("CMainWindow", "Nuovo Mandato", 0));
+        pushButton_6->setText(QApplication::translate("CMainWindow", "Aggiorna", 0));
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni", 0));
-        pushButton_7->setText(QApplication::translate("CMainWindow", "Mandati", 0));
-        pushButton_8->setText(QApplication::translate("CMainWindow", "Nuovo Mandato", 0));
+        pushButton_4->setText(QApplication::translate("CMainWindow", "Nuova registrazione", 0));
+        pbBuoni->setText(QApplication::translate("CMainWindow", "Buoni                       ", 0));
         label_5->setText(QString());
     } // retranslateUi
 

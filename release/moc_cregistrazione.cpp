@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CRegistrazione_t {
-    QByteArrayData data[12];
-    char stringdata0[190];
+    QByteArrayData data[14];
+    char stringdata0[226];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,14 +40,17 @@ QT_MOC_LITERAL(7, 115, 12), // "recordTotals"
 QT_MOC_LITERAL(8, 128, 22), // "on_cbLiquidato_toggled"
 QT_MOC_LITERAL(9, 151, 7), // "checked"
 QT_MOC_LITERAL(10, 159, 6), // "reload"
-QT_MOC_LITERAL(11, 166, 23) // "on_pushButton_5_clicked"
+QT_MOC_LITERAL(11, 166, 23), // "on_pushButton_5_clicked"
+QT_MOC_LITERAL(12, 190, 11), // "stampaBuono"
+QT_MOC_LITERAL(13, 202, 23) // "on_pushButton_6_clicked"
 
     },
     "CRegistrazione\0done\0\0on_pushButton_2_clicked\0"
     "on_pushButton_3_clicked\0on_pushButton_clicked\0"
     "on_pushButton_4_clicked\0recordTotals\0"
     "on_cbLiquidato_toggled\0checked\0reload\0"
-    "on_pushButton_5_clicked"
+    "on_pushButton_5_clicked\0stampaBuono\0"
+    "on_pushButton_6_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,7 +60,7 @@ static const uint qt_meta_data_CRegistrazione[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,17 +68,19 @@ static const uint qt_meta_data_CRegistrazione[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   59,    2, 0x06 /* Public */,
+       1,    0,   69,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   60,    2, 0x08 /* Private */,
-       4,    0,   61,    2, 0x08 /* Private */,
-       5,    0,   62,    2, 0x08 /* Private */,
-       6,    0,   63,    2, 0x08 /* Private */,
-       7,    0,   64,    2, 0x08 /* Private */,
-       8,    1,   65,    2, 0x08 /* Private */,
-      10,    0,   68,    2, 0x08 /* Private */,
-      11,    0,   69,    2, 0x08 /* Private */,
+       3,    0,   70,    2, 0x08 /* Private */,
+       4,    0,   71,    2, 0x08 /* Private */,
+       5,    0,   72,    2, 0x08 /* Private */,
+       6,    0,   73,    2, 0x08 /* Private */,
+       7,    0,   74,    2, 0x08 /* Private */,
+       8,    1,   75,    2, 0x08 /* Private */,
+      10,    0,   78,    2, 0x08 /* Private */,
+      11,    0,   79,    2, 0x08 /* Private */,
+      12,    0,   80,    2, 0x08 /* Private */,
+      13,    0,   81,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -87,6 +92,8 @@ static const uint qt_meta_data_CRegistrazione[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,    9,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -108,6 +115,8 @@ void CRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 6: _t->on_cbLiquidato_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 7: _t->reload(); break;
         case 8: _t->on_pushButton_5_clicked(); break;
+        case 9: _t->stampaBuono(); break;
+        case 10: _t->on_pushButton_6_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -147,13 +156,13 @@ int CRegistrazione::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 11;
     }
     return _id;
 }

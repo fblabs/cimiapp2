@@ -536,20 +536,8 @@
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="3" column="2">
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="minimumSize">
-         <size>
-          <width>225</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>225</width>
-          <height>16777215</height>
-         </size>
-        </property>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pbConti">
         <property name="font">
          <font>
           <weight>50</weight>
@@ -557,63 +545,11 @@
          </font>
         </property>
         <property name="text">
-         <string>Nuova registrazione</string>
+         <string>Anagrafica</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/nuovareegistrazione.png</normaloff>:/Resources/nuovareegistrazione.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="pushButton_5">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Tipi Anagrafici</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/ManageUsers.png</normaloff>:/Resources/ManageUsers.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>64</width>
-          <height>64</height>
-         </size>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="4">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Mastri</string>
-        </property>
-        <property name="icon">
-         <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/mastri.png</normaloff>:/Resources/mastri.png</iconset>
+          <normaloff>:/Resources/user-group-icon.png</normaloff>:/Resources/user-group-icon.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -652,14 +588,20 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="pushButton_6">
+      <item row="4" column="1">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="text">
-         <string>Aggiorna</string>
+         <string>Tipi Anagrafici</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/aggiorna.png</normaloff>:/Resources/aggiorna.png</iconset>
+          <normaloff>:/Resources/ManageUsers.png</normaloff>:/Resources/ManageUsers.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -672,8 +614,28 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="pbConti">
+      <item row="2" column="3">
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="text">
+         <string>Mandati</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/mandati.png</normaloff>:/Resources/mandati.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QPushButton" name="pushButton_3">
         <property name="font">
          <font>
           <weight>50</weight>
@@ -681,11 +643,51 @@
          </font>
         </property>
         <property name="text">
-         <string>Anagrafica</string>
+         <string>Mastri</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/user-group-icon.png</normaloff>:/Resources/user-group-icon.png</iconset>
+          <normaloff>:/Resources/mastri.png</normaloff>:/Resources/mastri.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="text">
+         <string>Nuovo Mandato</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/nuovomandato.png</normaloff>:/Resources/nuovomandato.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="text">
+         <string>Aggiorna</string>
+        </property>
+        <property name="icon">
+         <iconset resource="graphics.qrc">
+          <normaloff>:/Resources/aggiorna.png</normaloff>:/Resources/aggiorna.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -762,14 +764,32 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="3">
-       <widget class="QPushButton" name="pushButton_7">
+      <item row="4" column="2">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="minimumSize">
+         <size>
+          <width>225</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>225</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="text">
-         <string>Mandati</string>
+         <string>Nuova registrazione</string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/mandati.png</normaloff>:/Resources/mandati.png</iconset>
+          <normaloff>:/Resources/nuovareegistrazione.png</normaloff>:/Resources/nuovareegistrazione.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -782,14 +802,14 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QPushButton" name="pushButton_8">
+      <item row="5" column="2">
+       <widget class="QPushButton" name="pbBuoni">
         <property name="text">
-         <string>Nuovo Mandato</string>
+         <string>Buoni                       </string>
         </property>
         <property name="icon">
          <iconset resource="graphics.qrc">
-          <normaloff>:/Resources/nuovomandato.png</normaloff>:/Resources/nuovomandato.png</iconset>
+          <normaloff>:/Resources/Notepad.PNG</normaloff>:/Resources/Notepad.PNG</iconset>
         </property>
         <property name="iconSize">
          <size>

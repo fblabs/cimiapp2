@@ -34,6 +34,9 @@ private slots:
     void on_cbLiquidato_toggled(bool checked);
     void reload();
     void on_pushButton_5_clicked();
+    void stampaBuono();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::CRegistrazione *ui;

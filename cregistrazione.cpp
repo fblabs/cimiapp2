@@ -11,6 +11,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlError>
+#include "hprint.h"
+#include <QTextTable>
 
 CRegistrazione::CRegistrazione(QWidget *parent) :
     QWidget(parent),
@@ -207,4 +209,57 @@ void CRegistrazione::on_pushButton_5_clicked()
     modRighe->select();
     emit done();
     reload();
+}
+
+void CRegistrazione::stampaBuono()
+{
+    HPrint *f=new HPrint();
+    f->show();
+
+    f->append(QDate::currentDate().toString("dd-MM-yyyy"),false);
+
+    f->append("BUONO N. "+QString::number(ID),false);
+
+
+
+    f->append("Data: " + ui->deData->date().toString("dd-MM-yyyy"),false);
+    f->append("Dipendente: " +ui->leConto->text(),false);
+    f->append("Tipo: " +ui->comboBox->currentText(),false);
+    f->append("..............................",false);
+    int rows=modRighe->rowCount();
+    int rt=rows+1;
+    QTextTable *tab=f->addTable(rt,5);
+
+    f->writeTableContent(tab,0,0,"DESCRIZIONE");
+    f->writeTableContent(tab,0,1,"RICHIESTA");
+    f->writeTableContent(tab,0,2,"ENTRATE");
+    f->writeTableContent(tab,0,3,"USCITE");
+    f->writeTableContent(tab,0,4,"NOTE");
+
+    for (int r=0;r<rows;r++)
+    {
+
+
+
+        f->writeTableContent(tab,r+1,0,modRighe->index(r,2).data(0).toString());
+        f->writeTableContent(tab,r+1,1,modRighe->index(r,3).data(0).toString());
+        f->writeTableContent(tab,r+1,2,modRighe->index(r,4).data(0).toString());
+        f->writeTableContent(tab,r+1,3,modRighe->index(r,5).data(0).toString());
+        f->writeTableContent(tab,r+1,4,modRighe->index(r,6).data(0).toString());
+
+    }
+
+    f->append("Totale Dare: "+ui->lbTotaleDare->text(),false);
+    f->append("Totale Avere: "+ui->lbTotaleAvere->text(),false);
+    f->append("---------------",false);
+
+    f->append("Importo: "+ui->lbTotaleRegistrazione->text(),false);
+
+    f->append("---------------",false);
+
+}
+
+void CRegistrazione::on_pushButton_6_clicked()
+{
+    stampaBuono();
 }
