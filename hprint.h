@@ -8,6 +8,7 @@
 #include <QTextCursor>
 #include <QTextEdit>
 #include <QPrinter>
+#include "cprint.h"
 
 namespace Ui {
 class HPrint;
@@ -20,7 +21,7 @@ class HPrint : public QWidget
 public:
     explicit HPrint(QWidget *parent = 0);
     ~HPrint();
-
+   QTextCursor cur;
    void setText(QString text);
    void append (QString text, bool bold);
    void setConnection(QString conn);
@@ -41,6 +42,7 @@ public:
    int getHeight();
    void setFontsize(int sz);
    int getFontsize();
+   void newPage();
 private slots:
    void on_pushButton_2_clicked();
    void on_pushButton_clicked();
@@ -61,10 +63,11 @@ private:
     QSqlDatabase db;
     QString sConn;
     QTextDocument *doc;
-    QTextCursor cur;
+
     QPrinter *printer;
     QImage *imgobj;
     QPixmap img;
+    CPrint cp;
 signals:
     int imgwChanged(int);
     int imghChanged(int);

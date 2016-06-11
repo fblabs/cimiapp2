@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cregistrazione.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cregistrazione.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.3.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,30 +20,29 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CRegistrazione_t {
     QByteArrayData data[14];
-    char stringdata0[226];
+    char stringdata[226];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CRegistrazione_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CRegistrazione_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CRegistrazione_t qt_meta_stringdata_CRegistrazione = {
     {
-QT_MOC_LITERAL(0, 0, 14), // "CRegistrazione"
-QT_MOC_LITERAL(1, 15, 4), // "done"
-QT_MOC_LITERAL(2, 20, 0), // ""
-QT_MOC_LITERAL(3, 21, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(4, 45, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(5, 69, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(6, 91, 23), // "on_pushButton_4_clicked"
-QT_MOC_LITERAL(7, 115, 12), // "recordTotals"
-QT_MOC_LITERAL(8, 128, 22), // "on_cbLiquidato_toggled"
-QT_MOC_LITERAL(9, 151, 7), // "checked"
-QT_MOC_LITERAL(10, 159, 6), // "reload"
-QT_MOC_LITERAL(11, 166, 23), // "on_pushButton_5_clicked"
-QT_MOC_LITERAL(12, 190, 11), // "stampaBuono"
-QT_MOC_LITERAL(13, 202, 23) // "on_pushButton_6_clicked"
-
+QT_MOC_LITERAL(0, 0, 14),
+QT_MOC_LITERAL(1, 15, 4),
+QT_MOC_LITERAL(2, 20, 0),
+QT_MOC_LITERAL(3, 21, 23),
+QT_MOC_LITERAL(4, 45, 23),
+QT_MOC_LITERAL(5, 69, 21),
+QT_MOC_LITERAL(6, 91, 23),
+QT_MOC_LITERAL(7, 115, 12),
+QT_MOC_LITERAL(8, 128, 22),
+QT_MOC_LITERAL(9, 151, 7),
+QT_MOC_LITERAL(10, 159, 6),
+QT_MOC_LITERAL(11, 166, 23),
+QT_MOC_LITERAL(12, 190, 11),
+QT_MOC_LITERAL(13, 202, 23)
     },
     "CRegistrazione\0done\0\0on_pushButton_2_clicked\0"
     "on_pushButton_3_clicked\0on_pushButton_clicked\0"
@@ -104,7 +103,6 @@ void CRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CRegistrazione *_t = static_cast<CRegistrazione *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->done(); break;
         case 1: _t->on_pushButton_2_clicked(); break;
@@ -133,7 +131,7 @@ void CRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 
 const QMetaObject CRegistrazione::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CRegistrazione.data,
-      qt_meta_data_CRegistrazione,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+      qt_meta_data_CRegistrazione,  qt_static_metacall, 0, 0}
 };
 
 
@@ -144,8 +142,8 @@ const QMetaObject *CRegistrazione::metaObject() const
 
 void *CRegistrazione::qt_metacast(const char *_clname)
 {
-    if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_CRegistrazione.stringdata0))
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_CRegistrazione.stringdata))
         return static_cast<void*>(const_cast< CRegistrazione*>(this));
     return QWidget::qt_metacast(_clname);
 }
@@ -170,6 +168,6 @@ int CRegistrazione::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void CRegistrazione::done()
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

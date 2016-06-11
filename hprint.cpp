@@ -10,7 +10,9 @@
 #include <QGraphicsScene>
 #include <QPrintPreviewDialog>
 #include <QPrinter>
-// #include <QDebug>
+#include <QTextBlockFormat>
+#include <QDebug>
+#include "cprint.h"
 
 HPrint::HPrint(QWidget *parent) :
     QWidget(parent),
@@ -25,7 +27,15 @@ HPrint::HPrint(QWidget *parent) :
     ui->textEdit->setFontPointSize(ui->spCharSize->value());
     ui->textEdit->setTextCursor( cursor);
     doc=ui->textEdit->document();
-    ui->textEdit->setDocument(doc);
+
+    QStringList headers;
+    headers.append("UNO");
+    headers.append("DUE");
+    headers.append("TREY");
+
+
+
+   // ui->textEdit->setDocument(doc);
 
 
 
@@ -344,4 +354,12 @@ void HPrint::setFontsize(int sz)
     ui->textEdit->setFontPointSize(sz);
     ui->textEdit->setTextCursor( cursor);
     ui->textEdit->setFont(font);
+}
+
+void HPrint::newPage()
+{
+    cur.insertText("MAKAZZO");
+    printer->newPage();
+
+
 }

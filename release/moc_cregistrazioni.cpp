@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cregistrazioni.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cregistrazioni.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.3.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,24 +20,23 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CRegistrazioni_t {
     QByteArrayData data[8];
-    char stringdata0[128];
+    char stringdata[128];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CRegistrazioni_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CRegistrazioni_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CRegistrazioni_t qt_meta_stringdata_CRegistrazioni = {
     {
-QT_MOC_LITERAL(0, 0, 14), // "CRegistrazioni"
-QT_MOC_LITERAL(1, 15, 13), // "setDateFilter"
-QT_MOC_LITERAL(2, 29, 0), // ""
-QT_MOC_LITERAL(3, 30, 20), // "on_deDal_dateChanged"
-QT_MOC_LITERAL(4, 51, 4), // "date"
-QT_MOC_LITERAL(5, 56, 19), // "on_deAl_dateChanged"
-QT_MOC_LITERAL(6, 76, 19), // "on_pbChiudi_clicked"
-QT_MOC_LITERAL(7, 96, 31) // "on_pbNuovaRegistrazione_clicked"
-
+QT_MOC_LITERAL(0, 0, 14),
+QT_MOC_LITERAL(1, 15, 13),
+QT_MOC_LITERAL(2, 29, 0),
+QT_MOC_LITERAL(3, 30, 20),
+QT_MOC_LITERAL(4, 51, 4),
+QT_MOC_LITERAL(5, 56, 19),
+QT_MOC_LITERAL(6, 76, 19),
+QT_MOC_LITERAL(7, 96, 31)
     },
     "CRegistrazioni\0setDateFilter\0\0"
     "on_deDal_dateChanged\0date\0on_deAl_dateChanged\0"
@@ -79,7 +78,6 @@ void CRegistrazioni::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CRegistrazioni *_t = static_cast<CRegistrazioni *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->setDateFilter(); break;
         case 1: _t->on_deDal_dateChanged((*reinterpret_cast< const QDate(*)>(_a[1]))); break;
@@ -93,7 +91,7 @@ void CRegistrazioni::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 
 const QMetaObject CRegistrazioni::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CRegistrazioni.data,
-      qt_meta_data_CRegistrazioni,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+      qt_meta_data_CRegistrazioni,  qt_static_metacall, 0, 0}
 };
 
 
@@ -104,8 +102,8 @@ const QMetaObject *CRegistrazioni::metaObject() const
 
 void *CRegistrazioni::qt_metacast(const char *_clname)
 {
-    if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_CRegistrazioni.stringdata0))
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_CRegistrazioni.stringdata))
         return static_cast<void*>(const_cast< CRegistrazioni*>(this));
     return QWidget::qt_metacast(_clname);
 }

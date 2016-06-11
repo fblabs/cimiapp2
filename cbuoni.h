@@ -4,7 +4,9 @@
 #include <QWidget>
 #include <QSqlDatabase>
 #include <QSqlRelationalTableModel>
+#include <QSqlRelation>
 #include <QSqlTableModel>
+#include "hprint.h"
 
 #include <QSqlError>
 #include <QDebug>
@@ -18,8 +20,11 @@ class CBuoni : public QWidget
     Q_OBJECT
 
 public:
-    explicit CBuoni(QWidget *parent = 0,QSqlDatabase pdb=QSqlDatabase());
+    explicit CBuoni(QWidget *parent = 0, QSqlDatabase pdb=QSqlDatabase());
     ~CBuoni();
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::CBuoni *ui;
@@ -27,6 +32,14 @@ private:
     QSqlRelationalTableModel *modregs;
     QSqlRelationalTableModel *modrighe;
     QSqlDatabase db;
+    void generateReport();
+    void stampaBuono(int row, HPrint *f);
+    QVector<QSqlRelationalTableModel*> *models;
+
+
+
+
+
 };
 
 #endif // CBUONI_H

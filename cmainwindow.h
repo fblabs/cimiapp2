@@ -39,6 +39,8 @@ private slots:
 
 
 
+    void on_pbBuoni_clicked();
+
 private:
     Ui::CMainWindow *ui;
     QSqlDatabase db;

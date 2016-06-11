@@ -14,9 +14,12 @@
 #include "csettings.h"
 #include "cmandati.h"
 #include "cnewmandato.h"
+#include "cbuoni.h"
 
 #include <QDir>
 #include <QDebug>
+
+#include "cprint.h"
 
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -124,3 +127,10 @@ void CMainWindow::on_pushButton_8_clicked()
     f->show();
 }
 
+
+void CMainWindow::on_pbBuoni_clicked()
+{
+    CBuoni *b=new CBuoni(0,db);
+    b->show();
+
+}

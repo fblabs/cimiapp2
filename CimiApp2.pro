@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     hprint.cpp \
     cregistrazioni.cpp \
     cnuovariga.cpp \
-    cbuoni.cpp
+    cbuoni.cpp \
+    cprint.cpp \
+    cprintingjob.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -45,7 +47,9 @@ HEADERS  += cmainwindow.h \
     hprint.h \
     cregistrazioni.h \
     cnuovariga.h \
-    cbuoni.h
+    cbuoni.h \
+    cprint.h \
+    cprintingjob.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
@@ -60,10 +64,14 @@ FORMS    += cmainwindow.ui \
     hprint.ui \
     cregistrazioni.ui \
     cnuovariga.ui \
-    cbuoni.ui
+    cbuoni.ui \
+    cprintingjob.ui
 
-RESOURCES += graphics.qrc
-win32:RC_ICONS += cimiapp2.ico
+RESOURCES += \
+    graphics.qrc
+
+
+DISTFILES += win32:RC_ICONS += cimiapp2.ico
 
 
 

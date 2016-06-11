@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cmandati.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cmandati.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.3.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,31 +20,30 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CMandati_t {
     QByteArrayData data[15];
-    char stringdata0[235];
+    char stringdata[235];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CMandati_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CMandati_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CMandati_t qt_meta_stringdata_CMandati = {
     {
-QT_MOC_LITERAL(0, 0, 8), // "CMandati"
-QT_MOC_LITERAL(1, 9, 22), // "on_sbYear_valueChanged"
-QT_MOC_LITERAL(2, 32, 0), // ""
-QT_MOC_LITERAL(3, 33, 4), // "arg1"
-QT_MOC_LITERAL(4, 38, 11), // "loadMandato"
-QT_MOC_LITERAL(5, 50, 17), // "editRegistrazione"
-QT_MOC_LITERAL(6, 68, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(7, 90, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(8, 114, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(9, 138, 10), // "getImporto"
-QT_MOC_LITERAL(10, 149, 13), // "stampaMandato"
-QT_MOC_LITERAL(11, 163, 23), // "on_pushButton_4_clicked"
-QT_MOC_LITERAL(12, 187, 19), // "on_pbDelete_clicked"
-QT_MOC_LITERAL(13, 207, 13), // "deleteMandato"
-QT_MOC_LITERAL(14, 221, 13) // "reloadMandati"
-
+QT_MOC_LITERAL(0, 0, 8),
+QT_MOC_LITERAL(1, 9, 22),
+QT_MOC_LITERAL(2, 32, 0),
+QT_MOC_LITERAL(3, 33, 4),
+QT_MOC_LITERAL(4, 38, 11),
+QT_MOC_LITERAL(5, 50, 17),
+QT_MOC_LITERAL(6, 68, 21),
+QT_MOC_LITERAL(7, 90, 23),
+QT_MOC_LITERAL(8, 114, 23),
+QT_MOC_LITERAL(9, 138, 10),
+QT_MOC_LITERAL(10, 149, 13),
+QT_MOC_LITERAL(11, 163, 23),
+QT_MOC_LITERAL(12, 187, 19),
+QT_MOC_LITERAL(13, 207, 13),
+QT_MOC_LITERAL(14, 221, 13)
     },
     "CMandati\0on_sbYear_valueChanged\0\0arg1\0"
     "loadMandato\0editRegistrazione\0"
@@ -104,7 +103,6 @@ void CMandati::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CMandati *_t = static_cast<CMandati *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_sbYear_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->loadMandato(); break;
@@ -125,7 +123,7 @@ void CMandati::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 
 const QMetaObject CMandati::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CMandati.data,
-      qt_meta_data_CMandati,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+      qt_meta_data_CMandati,  qt_static_metacall, 0, 0}
 };
 
 
@@ -136,8 +134,8 @@ const QMetaObject *CMandati::metaObject() const
 
 void *CMandati::qt_metacast(const char *_clname)
 {
-    if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_CMandati.stringdata0))
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_CMandati.stringdata))
         return static_cast<void*>(const_cast< CMandati*>(this));
     return QWidget::qt_metacast(_clname);
 }

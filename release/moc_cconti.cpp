@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cconti.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cconti.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.3.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,24 +20,23 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CConti_t {
     QByteArrayData data[8];
-    char stringdata0[117];
+    char stringdata[117];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CConti_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CConti_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CConti_t qt_meta_stringdata_CConti = {
     {
-QT_MOC_LITERAL(0, 0, 6), // "CConti"
-QT_MOC_LITERAL(1, 7, 18), // "on_pbClose_clicked"
-QT_MOC_LITERAL(2, 26, 0), // ""
-QT_MOC_LITERAL(3, 27, 23), // "on_lineEdit_textChanged"
-QT_MOC_LITERAL(4, 51, 4), // "arg1"
-QT_MOC_LITERAL(5, 56, 17), // "on_pbSave_clicked"
-QT_MOC_LITERAL(6, 74, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(7, 96, 20) // "on_pbAnnulla_clicked"
-
+QT_MOC_LITERAL(0, 0, 6),
+QT_MOC_LITERAL(1, 7, 18),
+QT_MOC_LITERAL(2, 26, 0),
+QT_MOC_LITERAL(3, 27, 23),
+QT_MOC_LITERAL(4, 51, 4),
+QT_MOC_LITERAL(5, 56, 17),
+QT_MOC_LITERAL(6, 74, 21),
+QT_MOC_LITERAL(7, 96, 20)
     },
     "CConti\0on_pbClose_clicked\0\0"
     "on_lineEdit_textChanged\0arg1\0"
@@ -80,7 +79,6 @@ void CConti::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CConti *_t = static_cast<CConti *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_pbClose_clicked(); break;
         case 1: _t->on_lineEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
@@ -94,7 +92,7 @@ void CConti::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
 
 const QMetaObject CConti::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CConti.data,
-      qt_meta_data_CConti,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+      qt_meta_data_CConti,  qt_static_metacall, 0, 0}
 };
 
 
@@ -105,8 +103,8 @@ const QMetaObject *CConti::metaObject() const
 
 void *CConti::qt_metacast(const char *_clname)
 {
-    if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_CConti.stringdata0))
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_CConti.stringdata))
         return static_cast<void*>(const_cast< CConti*>(this));
     return QWidget::qt_metacast(_clname);
 }
