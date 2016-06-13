@@ -32,7 +32,7 @@ CBuoni::CBuoni(QWidget *parent, QSqlDatabase pdb) :
     modregs->select();
     modrighe->select();
 
-    qDebug()<<"INIT: "<<modregs->index(0,0).data(0).toString()<<modregs->rowCount();
+    //qDebug()<<"INIT: "<<modregs->index(0,0).data(0).toString()<<modregs->rowCount();
 
     models=new QVector<QSqlRelationalTableModel*>();
     models->append(modregs);
@@ -40,7 +40,7 @@ CBuoni::CBuoni(QWidget *parent, QSqlDatabase pdb) :
 
 
 
-  qDebug()<<"init: "<<modregs->rowCount()<<models->at(0)->rowCount()<<models->at(0)->lastError().text();
+  //qDebug()<<"init: "<<modregs->rowCount()<<models->at(0)->rowCount()<<models->at(0)->lastError().text();
 
 
 
@@ -55,7 +55,8 @@ void CBuoni::generateReport()
 {
 
 
-qDebug()<<"generatereport->CBuoni"<<models->at(0)->rowCount()<<models->at(1)->rowCount();
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
 
 
     models->at(0)->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
@@ -70,32 +71,71 @@ qDebug()<<"generatereport->CBuoni"<<models->at(0)->rowCount()<<models->at(1)->ro
 
 
     models->at(0)->setFilter("datareg between '" +dal.toString("yyyy-MM-dd")+"' and '" + al.toString("yyyy-MM-dd")+"'");
-
+     f->cursorToStart();
     int rws=models->at(0)->rowCount();
     for (int row=0;row<rws;row++)
     {
-    QString ID=models->at(0)->index(row,0).data(0).toString();
-    models->at(0)->setFilter("registrazioni.ID="+ID);
-    models->at(0)->setSort(1,Qt::AscendingOrder);
-    models->at(1)->setFilter("righe_reg.ID="+ID);
-    //qDebug()<<"Generatereportfor: "<<row<<ID<<models->at(0)->rowCount()<<models->at(0)->lastError().text()<<models->at(0)->query().lastQuery();
-    f->addSqlTable(0,false);
-    f->addSqlTable(1,true);
-    models->at(0)->setFilter("");
 
-    }
+        models->at(0)->setSort(0,Qt::AscendingOrder);
+        QString ID=models->at(0)->index(row,0).data(0).toString();
+        QString del=models->at(0)->index(row,1).data(0).toDate().toString("dd-MM-yyyy");
+        QString dip = models->at(0)->index(row,2).data(0).toString();
+
+        models->at(1)->setFilter("righe_reg.ID="+ID);
 
 
+        f->cursorToEnd();
+        f->addText("BUONO N."+ID+" del "+del);
+        f->cursorToEnd();
+        f->addText("Dipendente: "+dip);
+        f->cursorToEnd();
+        f->addSqlTable(1,true);
+        f->cursorToEnd();
+        f->addText("importo: "+QString::number(calcImporti(row),'f',2)+"\n");
+        f->cursorToEnd();
+        f->insertPageBreak();
+        f->cursorToEnd();
 
 
 
+
+
+   }
+
+
+
+
+
+
+
+    QApplication::restoreOverrideCursor();
     f->show();
 }
 
 
 
 
+double CBuoni::calcImporti(int row)
+{
+    double i=0.0;
+    double e=0.0;
+    double u=0.0;
+    int rows=models->at(1)->rowCount();
 
+
+          for(int rw=0;rw<rows;rw++)
+          {
+          e  += models->at(1)->index(rw,4).data(0).toDouble();
+          u  += models->at(1)->index(rw,5).data(0).toDouble();
+          }
+
+
+    i=e-u;
+
+
+   return i;
+
+}
 
 
 

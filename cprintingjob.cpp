@@ -7,6 +7,7 @@
 #include <QPrintPreviewDialog>
 #include <QDebug>
 #include <QPrinter>
+#include <QPainter>
 
 CPrintingJob::CPrintingJob(QWidget *parent, QVector<QSqlRelationalTableModel *> *mod) :
     QWidget(parent),
@@ -16,24 +17,13 @@ CPrintingJob::CPrintingJob(QWidget *parent, QVector<QSqlRelationalTableModel *> 
 
     tables=mod;
 
-
-
-    buildDocument();
-    cur=ui->textEdit->textCursor();
-
-
-
-
-}
-
-void CPrintingJob::buildDocument()
-{
-
     doc=ui->textEdit->document();
-
-
+    ui->textEdit->setTextCursor(QTextCursor(doc));
+    cur=QTextCursor(ui->textEdit->textCursor());
 
 }
+
+
 
 CPrintingJob::~CPrintingJob()
 {
@@ -44,27 +34,23 @@ CPrintingJob::~CPrintingJob()
 
 QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
 {
+
+    cur=ui->textEdit->textCursor();
+
     QTextTableFormat tableFormat;
     tableFormat.setBorder(1);
     tableFormat.setBorderStyle(QTextTableFormat::BorderStyle_Solid);
-
-
-
    // QPen p(Qt::black,1,Qt::SolidLine)
     QBrush black(Qt::SolidPattern);
 
     tableFormat.setBorderBrush(black);
-
     tableFormat.setCellSpacing(2);
 
-  //  tables->at(modat)->select();
+
 
 
     int rows=tables->at(modat)->rowCount();
     int cols=tables->at(modat)->columnCount();
-
- //   qDebug()<<"addSqlTable: "<<rows<<cols<<tables->at(modat)->index(0,1).data(0).toString()<<tables->at(modat)->filter();
-
 
 
 
@@ -78,11 +64,14 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
 
 
 
-    QTextTable *table=cur.insertTable(rows+1,cols,tableFormat);
+
+    QTextTable *tab=cur.insertTable(rows+1,cols,tableFormat);
+    cur.insertBlock();
+    qDebug()<<tab->rows();
 //headers
     for (int col=0;col<cols;col++)
     {
-        QTextTableCell cell=table->cellAt(0,col);
+        QTextTableCell cell=tab->cellAt(0,col);
         QTextCursor cellcur=cell.firstCursorPosition();
         cellcur.insertText(headers[col]);
 
@@ -95,10 +84,11 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
     {
         for(int col=0;col<cols;col++)
         {
-            QTextTableCell cell=table->cellAt(row+1,col);
+            QTextTableCell cell=tab->cellAt(row+1,col);
             QTextCursor cellcur=cell.firstCursorPosition();
             const QString text=tables->at(modat)->index(row,col).data(0).toString();
             cellcur.insertText(text);
+            cellcur.movePosition(QTextCursor::EndOfBlock);
         }
 
 
@@ -108,20 +98,61 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
     cur.movePosition(QTextCursor::End);
     ui->textEdit->setTextCursor(cur);
 
-    if(newpage)
-    {
 
-        QTextBlockFormat fmt;
-        fmt.setForeground(Qt::red);
-        fmt.setPageBreakPolicy(QTextBlockFormat::PageBreak_AlwaysAfter);
-        cur.insertBlock(fmt);
-        cur.insertText("--------------------------------");
-
-
-    }
 
 
     return 0;
+}
+
+void CPrintingJob::insertPageBreak()
+{
+    cur=ui->textEdit->textCursor();
+
+
+
+    QTextBlockFormat fmt;
+    fmt.setBackground(Qt::red);
+    fmt.setPageBreakPolicy(QTextBlockFormat::PageBreak_AlwaysAfter);
+    fmt.setNonBreakableLines(false);
+   // cur.beginEditBlock();
+
+    cur.insertBlock(fmt);
+
+
+    cur.movePosition(QTextCursor::End);
+    ui->textEdit->setTextCursor(cur);
+
+
+
+
+
+}
+
+void CPrintingJob::printDocument()
+{
+  doc->print(&printer);
+  ui->textEdit->document()->print(&printer);
+
+}
+
+void CPrintingJob::addText(QString text)
+{
+
+
+    QTextBlockFormat fmt;
+    fmt.setBackground(Qt::white);
+
+    cur.movePosition(QTextCursor::EndOfBlock);
+    cur.insertBlock(fmt);
+
+    cur.insertText(text);
+
+
+    cur.movePosition(QTextCursor::EndOfBlock);
+    ui->textEdit->setTextCursor(cur);
+
+
+
 }
 
 
@@ -133,21 +164,14 @@ void CPrintingJob::on_pushButton_3_clicked()
 void CPrintingJob::on_pushButton_clicked()
 {
 
-    printer.setPageSize(QPrinter::A4);
-
-    QPrintDialog   dialog(&printer);
-   // dlg->show();
-    if (dialog.exec()==QDialog::Accepted)
-    {
-        ui->textEdit->print(&printer);
-
-    }
-
+    printDocument();
 }
 
 void CPrintingJob::printPreview(QPrinter *printer)
 {
-    ui->textEdit->print(printer);
+
+    doc=ui->textEdit->document();
+    doc->print(printer);
 }
 
 
@@ -162,3 +186,27 @@ void CPrintingJob::on_pushButton_2_clicked()
     connect(dlg,SIGNAL(paintRequested(QPrinter*)),this,SLOT(printPreview(QPrinter*)));
     dlg->exec();
 }
+
+void CPrintingJob::cursorToStart()
+{
+    cur=ui->textEdit->textCursor();
+
+
+    bool b=cur.movePosition(QTextCursor::End);
+    ui->textEdit->setTextCursor(cur);
+    qDebug()<<cur.atEnd();
+}
+
+void CPrintingJob::cursorToEnd()
+{
+
+    cur=ui->textEdit->textCursor();
+
+    bool b=cur.movePosition(QTextCursor::End);
+    ui->textEdit->setTextCursor(cur);
+    qDebug()<<cur.atEnd();
+
+    qDebug()<<ui->textEdit->document()->pageCount();
+
+}
+

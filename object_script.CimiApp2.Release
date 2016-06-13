@@ -16,6 +16,9 @@ INPUT(
 ./release/cregistrazioni.o
 ./release/cnuovariga.o
 ./release/cbuoni.o
+./release/cprint.o
+./release/cprintingjob.o
+./release/fprint.o
 ./release/qrc_graphics.o
 ./release/moc_cmainwindow.o
 ./release/moc_coperations.o
@@ -33,4 +36,7 @@ INPUT(
 ./release/moc_cregistrazioni.o
 ./release/moc_cnuovariga.o
 ./release/moc_cbuoni.o
+./release/moc_cprint.o
+./release/moc_cprintingjob.o
+./release/moc_fprint.o
 );

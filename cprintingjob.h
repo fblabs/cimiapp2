@@ -22,6 +22,10 @@ public:
     ~CPrintingJob();
 //    QTextTable* addTable(int rows, int cols, QStringList headers);
     QTextTable* addSqlTable(int modat, bool newpage);
+    void addText(QString text);
+    void insertPageBreak();
+    void cursorToStart();
+    void cursorToEnd();
 
 
 
@@ -31,8 +35,12 @@ private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
-    void printPreview(QPrinter *printer);
-    void buildDocument();
+
+    void printPreview(QPrinter *fprinter);
+
+  //  void buildDocument();
+
+    void printDocument();
 
 private:
     Ui::CPrintingJob *ui;

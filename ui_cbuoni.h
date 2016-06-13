@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cbuoni.ui'
 **
-** Created by: Qt User Interface Compiler version 5.3.1
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -42,6 +42,9 @@ public:
         if (CBuoni->objectName().isEmpty())
             CBuoni->setObjectName(QStringLiteral("CBuoni"));
         CBuoni->resize(445, 269);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/Resources/Notepad.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        CBuoni->setWindowIcon(icon);
         verticalLayout_2 = new QVBoxLayout(CBuoni);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout = new QVBoxLayout();
@@ -83,9 +86,9 @@ public:
 
         pushButton = new QPushButton(CBuoni);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Sheet-Of-Paper.PNG"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Sheet-Of-Paper.PNG"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon1);
         pushButton->setIconSize(QSize(32, 32));
 
         verticalLayout->addWidget(pushButton);
@@ -101,7 +104,7 @@ public:
 
     void retranslateUi(QWidget *CBuoni)
     {
-        CBuoni->setWindowTitle(QApplication::translate("CBuoni", "Form", 0));
+        CBuoni->setWindowTitle(QApplication::translate("CBuoni", "Stampa Buoni", 0));
         label->setText(QApplication::translate("CBuoni", "Dal:", 0));
         label_2->setText(QApplication::translate("CBuoni", "Al:", 0));
         pushButton->setText(QApplication::translate("CBuoni", "Genera Report", 0));

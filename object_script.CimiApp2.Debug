@@ -16,6 +16,9 @@ INPUT(
 ./debug/cregistrazioni.o
 ./debug/cnuovariga.o
 ./debug/cbuoni.o
+./debug/cprint.o
+./debug/cprintingjob.o
+./debug/fprint.o
 ./debug/qrc_graphics.o
 ./debug/moc_cmainwindow.o
 ./debug/moc_coperations.o
@@ -33,4 +36,7 @@ INPUT(
 ./debug/moc_cregistrazioni.o
 ./debug/moc_cnuovariga.o
 ./debug/moc_cbuoni.o
+./debug/moc_cprint.o
+./debug/moc_cprintingjob.o
+./debug/moc_fprint.o
 );

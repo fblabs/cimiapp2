@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cnuovariga.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cnuovariga.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.3.1. It"
+#error "This file was generated using the moc from 5.5.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,25 +20,26 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CNuovaRiga_t {
     QByteArrayData data[10];
-    char stringdata[127];
+    char stringdata0[127];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CNuovaRiga_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CNuovaRiga_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CNuovaRiga_t qt_meta_stringdata_CNuovaRiga = {
     {
-QT_MOC_LITERAL(0, 0, 10),
-QT_MOC_LITERAL(1, 11, 8),
-QT_MOC_LITERAL(2, 20, 0),
-QT_MOC_LITERAL(3, 21, 10),
-QT_MOC_LITERAL(4, 32, 14),
-QT_MOC_LITERAL(5, 47, 7),
-QT_MOC_LITERAL(6, 55, 17),
-QT_MOC_LITERAL(7, 73, 7),
-QT_MOC_LITERAL(8, 81, 23),
-QT_MOC_LITERAL(9, 105, 21)
+QT_MOC_LITERAL(0, 0, 10), // "CNuovaRiga"
+QT_MOC_LITERAL(1, 11, 8), // "rowAdded"
+QT_MOC_LITERAL(2, 20, 0), // ""
+QT_MOC_LITERAL(3, 21, 10), // "rowDeleted"
+QT_MOC_LITERAL(4, 32, 14), // "on_rbE_toggled"
+QT_MOC_LITERAL(5, 47, 7), // "checked"
+QT_MOC_LITERAL(6, 55, 17), // "on_pbCalc_clicked"
+QT_MOC_LITERAL(7, 73, 7), // "setupUI"
+QT_MOC_LITERAL(8, 81, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(9, 105, 21) // "on_pushButton_clicked"
+
     },
     "CNuovaRiga\0rowAdded\0\0rowDeleted\0"
     "on_rbE_toggled\0checked\0on_pbCalc_clicked\0"
@@ -89,6 +90,7 @@ void CNuovaRiga::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CNuovaRiga *_t = static_cast<CNuovaRiga *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->rowAdded(); break;
         case 1: _t->rowDeleted(); break;
@@ -119,7 +121,7 @@ void CNuovaRiga::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 
 const QMetaObject CNuovaRiga::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CNuovaRiga.data,
-      qt_meta_data_CNuovaRiga,  qt_static_metacall, 0, 0}
+      qt_meta_data_CNuovaRiga,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -130,8 +132,8 @@ const QMetaObject *CNuovaRiga::metaObject() const
 
 void *CNuovaRiga::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CNuovaRiga.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_CNuovaRiga.stringdata0))
         return static_cast<void*>(const_cast< CNuovaRiga*>(this));
     return QWidget::qt_metacast(_clname);
 }
@@ -156,12 +158,12 @@ int CNuovaRiga::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void CNuovaRiga::rowAdded()
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 
 // SIGNAL 1
 void CNuovaRiga::rowDeleted()
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, 0);
+    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     cnuovariga.cpp \
     cbuoni.cpp \
     cprint.cpp \
-    cprintingjob.cpp
+    cprintingjob.cpp \
+    fprint.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -49,7 +50,8 @@ HEADERS  += cmainwindow.h \
     cnuovariga.h \
     cbuoni.h \
     cprint.h \
-    cprintingjob.h
+    cprintingjob.h \
+    fprint.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \
@@ -65,7 +67,8 @@ FORMS    += cmainwindow.ui \
     cregistrazioni.ui \
     cnuovariga.ui \
     cbuoni.ui \
-    cprintingjob.ui
+    cprintingjob.ui \
+    fprint.ui
 
 RESOURCES += \
     graphics.qrc

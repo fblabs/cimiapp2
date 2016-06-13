@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cmainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cmainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.3.1. It"
+#error "This file was generated using the moc from 5.5.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,28 +20,29 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CMainWindow_t {
     QByteArrayData data[13];
-    char stringdata[265];
+    char stringdata0[265];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CMainWindow_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CMainWindow_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CMainWindow_t qt_meta_stringdata_CMainWindow = {
     {
-QT_MOC_LITERAL(0, 0, 11),
-QT_MOC_LITERAL(1, 12, 23),
-QT_MOC_LITERAL(2, 36, 0),
-QT_MOC_LITERAL(3, 37, 21),
-QT_MOC_LITERAL(4, 59, 23),
-QT_MOC_LITERAL(5, 83, 18),
-QT_MOC_LITERAL(6, 102, 23),
-QT_MOC_LITERAL(7, 126, 23),
-QT_MOC_LITERAL(8, 150, 23),
-QT_MOC_LITERAL(9, 174, 23),
-QT_MOC_LITERAL(10, 198, 23),
-QT_MOC_LITERAL(11, 222, 23),
-QT_MOC_LITERAL(12, 246, 18)
+QT_MOC_LITERAL(0, 0, 11), // "CMainWindow"
+QT_MOC_LITERAL(1, 12, 23), // "on_pBOperazioni_clicked"
+QT_MOC_LITERAL(2, 36, 0), // ""
+QT_MOC_LITERAL(3, 37, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(4, 59, 23), // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(5, 83, 18), // "on_pbConti_clicked"
+QT_MOC_LITERAL(6, 102, 23), // "on_pushButton_5_clicked"
+QT_MOC_LITERAL(7, 126, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(8, 150, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(9, 174, 23), // "on_pushButton_6_clicked"
+QT_MOC_LITERAL(10, 198, 23), // "on_pushButton_7_clicked"
+QT_MOC_LITERAL(11, 222, 23), // "on_pushButton_8_clicked"
+QT_MOC_LITERAL(12, 246, 18) // "on_pbBuoni_clicked"
+
     },
     "CMainWindow\0on_pBOperazioni_clicked\0"
     "\0on_pushButton_clicked\0on_pushButton_4_clicked\0"
@@ -98,6 +99,7 @@ void CMainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CMainWindow *_t = static_cast<CMainWindow *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_pBOperazioni_clicked(); break;
         case 1: _t->on_pushButton_clicked(); break;
@@ -118,7 +120,7 @@ void CMainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 
 const QMetaObject CMainWindow::staticMetaObject = {
     { &QMainWindow::staticMetaObject, qt_meta_stringdata_CMainWindow.data,
-      qt_meta_data_CMainWindow,  qt_static_metacall, 0, 0}
+      qt_meta_data_CMainWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -129,8 +131,8 @@ const QMetaObject *CMainWindow::metaObject() const
 
 void *CMainWindow::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CMainWindow.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_CMainWindow.stringdata0))
         return static_cast<void*>(const_cast< CMainWindow*>(this));
     return QMainWindow::qt_metacast(_clname);
 }

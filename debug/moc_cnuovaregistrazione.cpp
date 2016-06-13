@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cnuovaregistrazione.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.3.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cnuovaregistrazione.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.3.1. It"
+#error "This file was generated using the moc from 5.5.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,28 +20,29 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CNuovaRegistrazione_t {
     QByteArrayData data[13];
-    char stringdata[283];
+    char stringdata0[283];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_CNuovaRegistrazione_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_CNuovaRegistrazione_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CNuovaRegistrazione_t qt_meta_stringdata_CNuovaRegistrazione = {
     {
-QT_MOC_LITERAL(0, 0, 19),
-QT_MOC_LITERAL(1, 20, 11),
-QT_MOC_LITERAL(2, 32, 0),
-QT_MOC_LITERAL(3, 33, 38),
-QT_MOC_LITERAL(4, 72, 5),
-QT_MOC_LITERAL(5, 78, 36),
-QT_MOC_LITERAL(6, 115, 23),
-QT_MOC_LITERAL(7, 139, 21),
-QT_MOC_LITERAL(8, 161, 23),
-QT_MOC_LITERAL(9, 185, 23),
-QT_MOC_LITERAL(10, 209, 6),
-QT_MOC_LITERAL(11, 216, 23),
-QT_MOC_LITERAL(12, 240, 42)
+QT_MOC_LITERAL(0, 0, 19), // "CNuovaRegistrazione"
+QT_MOC_LITERAL(1, 20, 11), // "recordAdded"
+QT_MOC_LITERAL(2, 32, 0), // ""
+QT_MOC_LITERAL(3, 33, 38), // "on_cbCpSottogruppo_currentInd..."
+QT_MOC_LITERAL(4, 72, 5), // "index"
+QT_MOC_LITERAL(5, 78, 36), // "on_cbSottogruppo_currentIndex..."
+QT_MOC_LITERAL(6, 115, 23), // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(7, 139, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(8, 161, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(9, 185, 23), // "on_pushButton_5_clicked"
+QT_MOC_LITERAL(10, 209, 6), // "reload"
+QT_MOC_LITERAL(11, 216, 23), // "on_pushButton_6_clicked"
+QT_MOC_LITERAL(12, 240, 42) // "on_cbTipoRegistrazione_curren..."
+
     },
     "CNuovaRegistrazione\0recordAdded\0\0"
     "on_cbCpSottogruppo_currentIndexChanged\0"
@@ -101,6 +102,7 @@ void CNuovaRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CNuovaRegistrazione *_t = static_cast<CNuovaRegistrazione *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->recordAdded(); break;
         case 1: _t->on_cbCpSottogruppo_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -128,7 +130,7 @@ void CNuovaRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
 
 const QMetaObject CNuovaRegistrazione::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_CNuovaRegistrazione.data,
-      qt_meta_data_CNuovaRegistrazione,  qt_static_metacall, 0, 0}
+      qt_meta_data_CNuovaRegistrazione,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -139,8 +141,8 @@ const QMetaObject *CNuovaRegistrazione::metaObject() const
 
 void *CNuovaRegistrazione::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CNuovaRegistrazione.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_CNuovaRegistrazione.stringdata0))
         return static_cast<void*>(const_cast< CNuovaRegistrazione*>(this));
     return QWidget::qt_metacast(_clname);
 }
@@ -165,6 +167,6 @@ int CNuovaRegistrazione::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void CNuovaRegistrazione::recordAdded()
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

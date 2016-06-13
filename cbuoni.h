@@ -35,6 +35,7 @@ private:
     void generateReport();
     void stampaBuono(int row, HPrint *f);
     QVector<QSqlRelationalTableModel*> *models;
+    double calcImporti(int row);
 
 
 
