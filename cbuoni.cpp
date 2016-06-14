@@ -68,6 +68,9 @@ void CBuoni::generateReport()
 
     QDate dal=ui->deDal->date();
     QDate al= ui->deAL->date();
+    int printpages=ui->cbPrintNumber->currentIndex();
+    qDebug()<<"printpages: "<<printpages;
+
 
 
     models->at(0)->setFilter("datareg between '" +dal.toString("yyyy-MM-dd")+"' and '" + al.toString("yyyy-MM-dd")+"'");
@@ -85,7 +88,9 @@ void CBuoni::generateReport()
 
 
         f->cursorToEnd();
-        f->addText("BUONO N."+ID+" del "+del);
+        QTextBlockFormat frm;
+        frm.setBackground(Qt::white);
+        f->addText("BUONO N."+ID+" del "+del,frm);
         f->cursorToEnd();
         f->addText("Dipendente: "+dip);
         f->cursorToEnd();
@@ -93,11 +98,48 @@ void CBuoni::generateReport()
         f->cursorToEnd();
         f->addText("importo: "+QString::number(calcImporti(row),'f',2)+"\n");
         f->cursorToEnd();
-        f->insertPageBreak();
-        f->cursorToEnd();
+
+        int formsforpage;
+        int page;
+
+        switch(printpages)
+        {
+        case 0:
+            //stampa continua
+        break;
+
+        case 1:
+            //uno per pagina
+            f->insertPageBreak();
+            f->cursorToEnd();
+
+        break;
+
+        case 2:
+            //due per pagina
+            formsforpage=2;
 
 
 
+        break;
+
+        case 3:
+          //  quattro per pagina
+            formsforpage=4;
+
+        break;
+
+
+        }
+
+        page=row+1;
+
+
+        if (page % formsforpage==0)
+        {
+            f->insertPageBreak();
+            f->cursorToEnd();
+        }
 
 
    }

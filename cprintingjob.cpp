@@ -39,12 +39,12 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
 
     QTextTableFormat tableFormat;
     tableFormat.setBorder(1);
+    tableFormat.setBorderBrush(QBrush());
     tableFormat.setBorderStyle(QTextTableFormat::BorderStyle_Solid);
    // QPen p(Qt::black,1,Qt::SolidLine)
     QBrush black(Qt::SolidPattern);
-
     tableFormat.setBorderBrush(black);
-    tableFormat.setCellSpacing(2);
+    tableFormat.setCellSpacing(0);
 
 
 
@@ -67,7 +67,7 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
 
     QTextTable *tab=cur.insertTable(rows+1,cols,tableFormat);
     cur.insertBlock();
-    qDebug()<<tab->rows();
+
 //headers
     for (int col=0;col<cols;col++)
     {
@@ -111,7 +111,7 @@ void CPrintingJob::insertPageBreak()
 
 
     QTextBlockFormat fmt;
-    fmt.setBackground(Qt::red);
+
     fmt.setPageBreakPolicy(QTextBlockFormat::PageBreak_AlwaysAfter);
     fmt.setNonBreakableLines(false);
    // cur.beginEditBlock();
@@ -121,11 +121,6 @@ void CPrintingJob::insertPageBreak()
 
     cur.movePosition(QTextCursor::End);
     ui->textEdit->setTextCursor(cur);
-
-
-
-
-
 }
 
 void CPrintingJob::printDocument()
@@ -135,12 +130,12 @@ void CPrintingJob::printDocument()
 
 }
 
-void CPrintingJob::addText(QString text)
+void CPrintingJob::addText(QString text, QTextBlockFormat fmt)
 {
 
 
-    QTextBlockFormat fmt;
-    fmt.setBackground(Qt::white);
+   // QTextBlockFormat fmt=frm;
+   // fmt.setBackground(Qt::white);
 
     cur.movePosition(QTextCursor::EndOfBlock);
     cur.insertBlock(fmt);
@@ -194,7 +189,7 @@ void CPrintingJob::cursorToStart()
 
     bool b=cur.movePosition(QTextCursor::End);
     ui->textEdit->setTextCursor(cur);
-    qDebug()<<cur.atEnd();
+
 }
 
 void CPrintingJob::cursorToEnd()
@@ -204,9 +199,7 @@ void CPrintingJob::cursorToEnd()
 
     bool b=cur.movePosition(QTextCursor::End);
     ui->textEdit->setTextCursor(cur);
-    qDebug()<<cur.atEnd();
 
-    qDebug()<<ui->textEdit->document()->pageCount();
 
 }
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1106</width>
-    <height>671</height>
+    <height>703</height>
    </rect>
   </property>
   <property name="palette">
@@ -426,7 +426,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>CimiApp2 1.0.5</string>
+   <string>CimiApp2 1.0.6</string>
   </property>
   <property name="windowIcon">
    <iconset resource="graphics.qrc">
@@ -516,7 +516,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Vers: 1.0.5</string>
+           <string>Vers: 1.0.6</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

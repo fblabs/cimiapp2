@@ -13,8 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
-#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -26,63 +27,54 @@ QT_BEGIN_NAMESPACE
 class Ui_CBuoni
 {
 public:
-    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
-    QFormLayout *formLayout_3;
-    QFormLayout *formLayout;
+    QComboBox *cbPrintNumber;
+    QGridLayout *gridLayout;
     QLabel *label;
     QDateEdit *deDal;
-    QFormLayout *formLayout_2;
-    QLabel *label_2;
     QDateEdit *deAL;
+    QLabel *label_2;
     QPushButton *pushButton;
 
     void setupUi(QWidget *CBuoni)
     {
         if (CBuoni->objectName().isEmpty())
             CBuoni->setObjectName(QStringLiteral("CBuoni"));
-        CBuoni->resize(445, 269);
+        CBuoni->resize(445, 138);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Resources/Notepad.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         CBuoni->setWindowIcon(icon);
-        verticalLayout_2 = new QVBoxLayout(CBuoni);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout = new QVBoxLayout();
+        verticalLayout = new QVBoxLayout(CBuoni);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        formLayout_3 = new QFormLayout();
-        formLayout_3->setObjectName(QStringLiteral("formLayout_3"));
-        formLayout = new QFormLayout();
-        formLayout->setObjectName(QStringLiteral("formLayout"));
+        cbPrintNumber = new QComboBox(CBuoni);
+        cbPrintNumber->setObjectName(QStringLiteral("cbPrintNumber"));
+
+        verticalLayout->addWidget(cbPrintNumber);
+
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         label = new QLabel(CBuoni);
         label->setObjectName(QStringLiteral("label"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
+        gridLayout->addWidget(label, 0, 0, 1, 1);
 
         deDal = new QDateEdit(CBuoni);
         deDal->setObjectName(QStringLiteral("deDal"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, deDal);
-
-
-        formLayout_3->setLayout(0, QFormLayout::LabelRole, formLayout);
-
-        formLayout_2 = new QFormLayout();
-        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
-        label_2 = new QLabel(CBuoni);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        formLayout_2->setWidget(0, QFormLayout::LabelRole, label_2);
+        gridLayout->addWidget(deDal, 0, 1, 1, 1);
 
         deAL = new QDateEdit(CBuoni);
         deAL->setObjectName(QStringLiteral("deAL"));
 
-        formLayout_2->setWidget(0, QFormLayout::FieldRole, deAL);
+        gridLayout->addWidget(deAL, 0, 3, 1, 1);
+
+        label_2 = new QLabel(CBuoni);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 0, 2, 1, 1);
 
 
-        formLayout_3->setLayout(0, QFormLayout::FieldRole, formLayout_2);
-
-
-        verticalLayout->addLayout(formLayout_3);
+        verticalLayout->addLayout(gridLayout);
 
         pushButton = new QPushButton(CBuoni);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -94,9 +86,6 @@ public:
         verticalLayout->addWidget(pushButton);
 
 
-        verticalLayout_2->addLayout(verticalLayout);
-
-
         retranslateUi(CBuoni);
 
         QMetaObject::connectSlotsByName(CBuoni);
@@ -105,6 +94,13 @@ public:
     void retranslateUi(QWidget *CBuoni)
     {
         CBuoni->setWindowTitle(QApplication::translate("CBuoni", "Stampa Buoni", 0));
+        cbPrintNumber->clear();
+        cbPrintNumber->insertItems(0, QStringList()
+         << QApplication::translate("CBuoni", "Stampa Continua", 0)
+         << QApplication::translate("CBuoni", "Uno per pagina", 0)
+         << QApplication::translate("CBuoni", "Due par pagina", 0)
+         << QApplication::translate("CBuoni", "Quattro per pagina", 0)
+        );
         label->setText(QApplication::translate("CBuoni", "Dal:", 0));
         label_2->setText(QApplication::translate("CBuoni", "Al:", 0));
         pushButton->setText(QApplication::translate("CBuoni", "Genera Report", 0));

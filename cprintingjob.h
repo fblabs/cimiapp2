@@ -22,7 +22,7 @@ public:
     ~CPrintingJob();
 //    QTextTable* addTable(int rows, int cols, QStringList headers);
     QTextTable* addSqlTable(int modat, bool newpage);
-    void addText(QString text);
+    void addText(QString text, QTextBlockFormat fmt=QTextBlockFormat());
     void insertPageBreak();
     void cursorToStart();
     void cursorToEnd();

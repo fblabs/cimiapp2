@@ -54,7 +54,7 @@ public:
     {
         if (CMainWindow->objectName().isEmpty())
             CMainWindow->setObjectName(QStringLiteral("CMainWindow"));
-        CMainWindow->resize(1106, 671);
+        CMainWindow->resize(1106, 703);
         QPalette palette;
         QBrush brush(QColor(0, 0, 0, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -336,10 +336,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.5", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.6", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.5", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.6", 0));
         label_4->setText(QString());
         pbConti->setText(QApplication::translate("CMainWindow", "Anagrafica", 0));
         pushButton->setText(QApplication::translate("CMainWindow", "Chiudi", 0));
