@@ -43,7 +43,7 @@ public:
         CTipiAnagrafici->setWindowModality(Qt::ApplicationModal);
         CTipiAnagrafici->resize(751, 371);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/Resources/Users.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/Resources/hamlet.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         CTipiAnagrafici->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(CTipiAnagrafici);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -74,18 +74,16 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         pushButton_3 = new QPushButton(CTipiAnagrafici);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/ManageUsers.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon1);
+        pushButton_3->setIcon(icon);
         pushButton_3->setIconSize(QSize(32, 32));
 
         horizontalLayout->addWidget(pushButton_3);
 
         pushButton_2 = new QPushButton(CTipiAnagrafici);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon2);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout->addWidget(pushButton_2);

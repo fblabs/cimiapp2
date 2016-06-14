@@ -29,6 +29,12 @@ private slots:
 
     void on_tvMastro_doubleClicked(const QModelIndex &index);
 
+    void getTotali();
+
+    void on_pushButton_3_clicked();
+
+
+
 private:
     Ui::CMastri *ui;
     QSqlDatabase db;
