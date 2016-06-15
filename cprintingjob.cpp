@@ -9,13 +9,17 @@
 #include <QPrinter>
 #include <QPainter>
 
-CPrintingJob::CPrintingJob(QWidget *parent, QVector<QSqlRelationalTableModel *> *mod) :
+
+
+
+CPrintingJob::CPrintingJob(QWidget *parent, QVector<QAbstractTableModel *> *mod) :
     QWidget(parent),
     ui(new Ui::CPrintingJob)
 {
     ui->setupUi(this);
 
     tables=mod;
+
 
     doc=ui->textEdit->document();
     ui->textEdit->setTextCursor(QTextCursor(doc));
@@ -38,15 +42,16 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
     cur=ui->textEdit->textCursor();
 
     QTextTableFormat tableFormat;
+
     tableFormat.setBorder(1);
     tableFormat.setBorderBrush(QBrush());
     tableFormat.setBorderStyle(QTextTableFormat::BorderStyle_Solid);
+    tableFormat.setWidth(printer.width()- 10);
+    tableFormat.setCellPadding(2);
    // QPen p(Qt::black,1,Qt::SolidLine)
     QBrush black(Qt::SolidPattern);
     tableFormat.setBorderBrush(black);
     tableFormat.setCellSpacing(0);
-
-
 
 
     int rows=tables->at(modat)->rowCount();

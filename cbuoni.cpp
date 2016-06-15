@@ -34,7 +34,7 @@ CBuoni::CBuoni(QWidget *parent, QSqlDatabase pdb) :
 
     //qDebug()<<"INIT: "<<modregs->index(0,0).data(0).toString()<<modregs->rowCount();
 
-    models=new QVector<QSqlRelationalTableModel*>();
+    models=new QVector<QAbstractTableModel*>();
     models->append(modregs);
     models->append(modrighe);
 
@@ -59,11 +59,15 @@ void CBuoni::generateReport()
 
 
 
-    models->at(0)->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
-    models->at(0)->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
-    models->at(1)->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
+    modregs->setRelation(3,QSqlRelation("tipi_mov","ID","descrizione"));
+    modregs->setRelation(4,QSqlRelation("anagrafica","ID","descrizione"));
+    modrighe->setRelation(2,QSqlRelation("tipi_ope","ID","descrizione"));
 
-     CPrintingJob *f=new CPrintingJob(0,models);
+    models->append(modregs);
+    models->append(modrighe);
+
+
+    CPrintingJob *f=new CPrintingJob(0,models);
 
 
     QDate dal=ui->deDal->date();
@@ -73,18 +77,18 @@ void CBuoni::generateReport()
 
 
 
-    models->at(0)->setFilter("datareg between '" +dal.toString("yyyy-MM-dd")+"' and '" + al.toString("yyyy-MM-dd")+"'");
+    modregs->setFilter("datareg between '" +dal.toString("yyyy-MM-dd")+"' and '" + al.toString("yyyy-MM-dd")+"'");
      f->cursorToStart();
-    int rws=models->at(0)->rowCount();
+    int rws=modregs->rowCount();
     for (int row=0;row<rws;row++)
     {
 
-        models->at(0)->setSort(0,Qt::AscendingOrder);
-        QString ID=models->at(0)->index(row,0).data(0).toString();
-        QString del=models->at(0)->index(row,1).data(0).toDate().toString("dd-MM-yyyy");
-        QString dip = models->at(0)->index(row,2).data(0).toString();
+        modregs->setSort(0,Qt::AscendingOrder);
+        QString ID=modregs->index(row,0).data(0).toString();
+        QString del=modregs->index(row,1).data(0).toDate().toString("dd-MM-yyyy");
+        QString dip =modregs->index(row,2).data(0).toString();
 
-        models->at(1)->setFilter("righe_reg.ID="+ID);
+        modrighe->setFilter("righe_reg.ID="+ID);
 
 
         f->cursorToEnd();

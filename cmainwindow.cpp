@@ -51,6 +51,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
     }
 
+    ui->pushButton_9->setVisible(false);
+
 
 
 }

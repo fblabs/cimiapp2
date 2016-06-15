@@ -127,7 +127,7 @@ void CRegistrazione::recordTotals()
 
     ui->lbTotaleAvere->setText(QString::number(avere,'f',2));
     ui->lbTotaleDare->setText(QString::number(dare,'f',2));
-    ui->lbTotaleRegistrazione->setText(QString::number(qAbs(totale),'f',2));
+    ui->lbTotaleRegistrazione->setText(QString::number(totale,'f',2));
 
 
 }

@@ -18,7 +18,7 @@ class CPrintingJob : public QWidget
     Q_OBJECT
 
 public:
-    explicit CPrintingJob(QWidget *parent = 0,QVector<QSqlRelationalTableModel*>*mod=0);
+    explicit CPrintingJob(QWidget *parent = 0, QVector<QAbstractTableModel *> *mod=0);
     ~CPrintingJob();
 //    QTextTable* addTable(int rows, int cols, QStringList headers);
     QTextTable* addSqlTable(int modat, bool newpage);
@@ -46,7 +46,9 @@ private:
     Ui::CPrintingJob *ui;
     QTextCursor cur;
     QTextDocument *doc;
-    QVector<QSqlRelationalTableModel *> *tables;
+    QVector<QAbstractTableModel*> *tables;
+
+
     QPrinter printer;
 };
 

@@ -46,6 +46,7 @@ public:
     QLineEdit *leDare;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
     QPushButton *pushButton;
 
     void setupUi(QWidget *CMastri)
@@ -139,17 +140,27 @@ public:
         pushButton_2 = new QPushButton(CMastri);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Resources/InvoiceSearch.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/Resources/dettagli.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_2->setIcon(icon1);
         pushButton_2->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton_2);
 
+        pushButton_3 = new QPushButton(CMastri);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setEnabled(false);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Printer-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon2);
+        pushButton_3->setIconSize(QSize(32, 32));
+
+        horizontalLayout_2->addWidget(pushButton_3);
+
         pushButton = new QPushButton(CMastri);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon3);
         pushButton->setIconSize(QSize(32, 32));
 
         horizontalLayout_2->addWidget(pushButton);
@@ -171,6 +182,7 @@ public:
         label_2->setText(QApplication::translate("CMastri", "Totale Avere:", 0));
         label_3->setText(QApplication::translate("CMastri", "Totale Dare:", 0));
         pushButton_2->setText(QApplication::translate("CMastri", "Dettagli", 0));
+        pushButton_3->setText(QApplication::translate("CMastri", "Stampa", 0));
         pushButton->setText(QApplication::translate("CMastri", "Chiudi", 0));
     } // retranslateUi
 

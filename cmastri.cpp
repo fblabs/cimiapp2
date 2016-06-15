@@ -108,6 +108,7 @@ void CMastri::getMastro()
    // ui->tvMastro->setColumnHidden(1,true);
 
     ui->tvMastro->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->pushButton_3->setEnabled(true);
 
 
 }
@@ -154,7 +155,19 @@ void CMastri::on_tvMastro_doubleClicked(const QModelIndex &index)
 
 void CMastri::on_pushButton_3_clicked()
 {
-    getMastro();
+    print();
+}
+
+void CMastri::print()
+{
+   QVector<QAbstractTableModel*> *models=new QVector<QAbstractTableModel*> ;
+   models->append(mod);
+   CPrintingJob *f=new CPrintingJob(0,models);
+   f->addText("Dipendente: "+ui->cbConti->currentText()+ " - Anno "+ui->spinBox->text()+"\n\n\n");
+   f->addSqlTable(0,true);
+   f->addText("\nTotale Dare: "+ui->leDare->text());
+   f->addText("Totale Avere: "+ui->leAvere->text());
+   f->show();
 }
 
 

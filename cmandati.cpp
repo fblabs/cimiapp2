@@ -10,6 +10,7 @@
 #include "cregistrazione.h"
 #include "cnewmandato.h"
 #include "hprint.h"
+#include "cprintingjob.h"
 
 #include <QDebug>
 
@@ -56,7 +57,7 @@ void CMandati::on_sbYear_valueChanged(int arg1)
 
 void CMandati::loadMandato()
 {
-
+    dmod=0;
     setCursor(Qt::WaitCursor);
     disconnect(ui->tvDetails,SIGNAL(doubleClicked(QModelIndex)),this,SLOT(editRegistrazione()));
     QSqlQuery q(db);
@@ -68,11 +69,11 @@ void CMandati::loadMandato()
 
     q.exec();
 
-    QSqlQueryModel *qm=new QSqlQueryModel();
-    qm->setQuery(q);
+    dmod=new QSqlQueryModel();
+    dmod->setQuery(q);
 
 
-    ui->tvDetails->setModel(qm);
+    ui->tvDetails->setModel(dmod);
 
     ui->tvDetails->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tvDetails->setColumnHidden(0,true);
@@ -143,7 +144,7 @@ void CMandati::reloadMandati()
 
 void CMandati::stampaMandato()
 {
-    HPrint *f=new HPrint();
+ /*   HPrint *f=new HPrint();
     f->show();
 
     f->append("MANDATO N° "+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),1).data(0).toString()+" - Anno: "+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),2).data(0).toString()+"("+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),3).data(0).toString()+")",false);
@@ -157,7 +158,27 @@ void CMandati::stampaMandato()
         f->writeTableContent(t,row,2,QString::number(ui->tvDetails->model()->index(row,3).data(0).toDouble(),'f',2));
     }
 
-    f->append("IMPORTO: " + ui->leImporto->text(),false);
+    f->append("IMPORTO: " + ui->leImporto->text(),false);*/
+
+
+
+
+
+    QVector<QAbstractTableModel*> *models=new QVector<QAbstractTableModel*> ;
+    models->append(dmod);
+
+    CPrintingJob *f=new CPrintingJob(0,models);
+
+    f->addText("MANDATO N° "+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),1).data(0).toString()+" - Anno: "+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),2).data(0).toString()+"("+ui->tvMaster->model()->index(ui->tvMaster->selectionModel()->currentIndex().row(),3).data(0).toString()+")\n\n");
+
+    f->addSqlTable(0,false);
+
+    f->addText("\nIMPORTO: " + ui->leImporto->text());
+
+    f->setWindowModality(Qt::ApplicationModal);
+    f->show();
+
+
 
 }
 

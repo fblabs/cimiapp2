@@ -236,6 +236,7 @@ debug/qrc_graphics.cpp: graphics.qrc \
 		Resources/Actions-configure-icon.png \
 		Resources/palet-03-icon.png \
 		Resources/3D_Icons_Icon_256.png \
+		Resources/dettagli.png \
 		Resources/Box.PNG \
 		Resources/Cart.PNG \
 		Resources/Arrow-Up.PNG \
@@ -1195,6 +1196,22 @@ debug/moc_cmastri.cpp: ../../../Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
+		cprintingjob.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextCursor \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextDocument \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
+		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
+		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/QPrinter \
+		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qprinter.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpagelayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
+		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qtprintsupportglobal.h \
 		cmastri.h
 	'C:\Qt\5.5\mingw492_32\bin\moc.exe' $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -I'C:/Qt projects/cimiapp2/CimiApp2' -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtPrintSupport -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtSql -IC:/Qt/5.5/mingw492_32/include/QtCore cmastri.h -o debug/moc_cmastri.cpp
 
@@ -2834,31 +2851,32 @@ debug/cmainwindow.o: cmainwindow.cpp cmainwindow.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qsettings.h \
 		cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
-		csettings.h \
-		cmandati.h \
-		hprint.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/QTextDocument \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/QTextTable \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtexttable.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextobject.h \
+		cprintingjob.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextCursor \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		../../../Qt/5.5/mingw492_32/include/QtGui/QTextCursor \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTextEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextDocument \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
 		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/QPrinter \
 		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qprinter.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qpagedpaintdevice.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qpagelayout.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
 		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qtprintsupportglobal.h \
+		csettings.h \
+		cmandati.h \
+		hprint.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextTable \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtexttable.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextobject.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTextEdit \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
 		cprint.h \
 		cnewmandato.h \
 		cbuoni.h \
@@ -3999,6 +4017,22 @@ debug/cmastri.o: cmastri.cpp cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQueryModel \
+		cprintingjob.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextCursor \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpen.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/QTextDocument \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
+		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
+		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
+		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/QPrinter \
+		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qprinter.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpagedpaintdevice.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpagelayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
+		../../../Qt/5.5/mingw492_32/include/QtPrintSupport/qtprintsupportglobal.h \
 		ui_cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/QVariant \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QAction \
@@ -4035,6 +4069,7 @@ debug/cmastri.o: cmastri.cpp cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QGridLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
@@ -4043,17 +4078,22 @@ debug/cmastri.o: cmastri.cpp cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLineEdit \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlineedit.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QSpinBox \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qspinbox.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QTableView \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtableview.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QVBoxLayout \
 		cregistrazione.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlError \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlerror.h \
-		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlRelationalTableModel \
-		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlrelationaltablemodel.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/QDate \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/QDebug \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/cmastri.o cmastri.cpp
@@ -5402,31 +5442,31 @@ debug/cbuoni.o: cbuoni.cpp cbuoni.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QComboBox \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qcombobox.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
 		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QFormLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qformlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLayout \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QDateEdit \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qdatetimeedit.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qdatetime.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QGridLayout \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QPushButton \

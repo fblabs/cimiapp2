@@ -46,6 +46,7 @@ private:
     Ui::CMandati *ui;
     QSqlDatabase db;
     QSqlRelationalTableModel *mod;
+    QSqlQueryModel *dmod;
 };
 
 #endif // CMANDATI_H

@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlTableModel>
 #include <QSqlQueryModel>
+#include "cprintingjob.h"
 
 
 
@@ -33,6 +34,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void print();
+
 
 
 private:
@@ -40,6 +43,7 @@ private:
     QSqlDatabase db;
     QSqlQueryModel *mod;
     QSqlTableModel *contimod;
+
 };
 
 #endif // CMASTRI_H

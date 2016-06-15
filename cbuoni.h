@@ -34,7 +34,7 @@ private:
     QSqlDatabase db;
     void generateReport();
     void stampaBuono(int row, HPrint *f);
-    QVector<QSqlRelationalTableModel*> *models;
+    QVector<QAbstractTableModel*> *models;
     double calcImporti(int row);
 
 
