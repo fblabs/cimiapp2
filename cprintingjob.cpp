@@ -84,14 +84,24 @@ QTextTable* CPrintingJob::addSqlTable(int modat,bool newpage=false)
 //cells
     int row;
 
-//   qDebug()<<"rowsCells"<<rows;
+    //   qDebug()<<"rowsCells"<<rows;
+ QString text="";
     for(row=0;row<rows;row++)
     {
         for(int col=0;col<cols;col++)
         {
             QTextTableCell cell=tab->cellAt(row+1,col);
             QTextCursor cellcur=cell.firstCursorPosition();
-            const QString text=tables->at(modat)->index(row,col).data(0).toString();
+            if(col<5)
+            {
+                text=tables->at(modat)->index(row,col).data(0).toString();
+            }
+            else
+            {
+                double t=0.0;
+                t=tables->at(modat)->index(row,col).data(0).toDouble();
+                text=QString::number(t,'f',2);
+            }
             cellcur.insertText(text);
             cellcur.movePosition(QTextCursor::EndOfBlock);
         }

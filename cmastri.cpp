@@ -9,7 +9,7 @@
 #include <QSqlQueryModel>
 #include <QSqlTableModel>
 #include <QSqlQuery>
-
+#include "citemstyleddelegate.h"
 
 
 CMastri::CMastri(QWidget *parent,QSqlDatabase pdb) :
@@ -46,7 +46,8 @@ CMastri::CMastri(QWidget *parent,QSqlDatabase pdb) :
     ui->cbConti->setModel(contimod);
     ui->cbConti->setModelColumn(2);
     connect(ui->spinBox,SIGNAL(valueChanged(int)),this,SLOT(getMastro()));
-
+    CItemStyleddelegate *delegate=new CItemStyleddelegate();
+    ui->tvMastro->setItemDelegate(delegate);
 
    }
 
@@ -100,7 +101,11 @@ void CMastri::getMastro()
 
     mod->setQuery(q);
 
+
+
     ui->tvMastro->setModel(mod);
+    CItemStyleddelegate *delg=new CItemStyleddelegate();
+    ui->tvMastro->setItemDelegate(delg);
 
     ui->tvMastro->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 

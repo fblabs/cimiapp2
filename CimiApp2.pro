@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     cbuoni.cpp \
     cprint.cpp \
     cprintingjob.cpp \
-    fprint.cpp
+    fprint.cpp \
+    citemstyleddelegate.cpp
 
 HEADERS  += cmainwindow.h \
     coperations.h \
@@ -51,7 +52,8 @@ HEADERS  += cmainwindow.h \
     cbuoni.h \
     cprint.h \
     cprintingjob.h \
-    fprint.h
+    fprint.h \
+    citemstyleddelegate.h
 
 FORMS    += cmainwindow.ui \
     coperations.ui \

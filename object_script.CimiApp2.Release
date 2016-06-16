@@ -19,6 +19,7 @@ INPUT(
 ./release/cprint.o
 ./release/cprintingjob.o
 ./release/fprint.o
+./release/citemstyleddelegate.o
 ./release/qrc_graphics.o
 ./release/moc_cmainwindow.o
 ./release/moc_coperations.o
