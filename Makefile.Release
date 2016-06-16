@@ -197,7 +197,7 @@ $(DESTDIR_TARGET): ui_cmainwindow.h ui_coperations.h ui_cregistrazione.h ui_cnuo
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.CimiApp2.Release  $(LIBS)
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-g++ CONFIG+=debug -o Makefile.Release CimiApp2.pro
+	@$(QMAKE) -spec win32-g++ -o Makefile.Release CimiApp2.pro
 
 qmake_all: FORCE
 
@@ -4101,7 +4101,9 @@ release/cmastri.o: cmastri.cpp cmastri.h \
 		../../../Qt/5.5/mingw492_32/include/QtSql/QSqlQuery \
 		../../../Qt/5.5/mingw492_32/include/QtSql/qsqlquery.h \
 		citemstyleddelegate.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/QObject
+		../../../Qt/5.5/mingw492_32/include/QtCore/QObject \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QStyledItemDelegate \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleditemdelegate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/cmastri.o cmastri.cpp
 
 release/csettings.o: csettings.cpp csettings.h \
@@ -6006,7 +6008,72 @@ release/citemstyleddelegate.o: citemstyleddelegate.cpp citemstyleddelegate.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
-		../../../Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h
+		../../../Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QStyledItemDelegate \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleditemdelegate.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qmap.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qpair.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qhash.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qvector.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qset.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qrect.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qsize.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qregion.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qline.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qimage.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qfont.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qevent.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qurl.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qfile.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		../../../Qt/5.5/mingw492_32/include/QtGui/qicon.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
+		../../../Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/citemstyleddelegate.o citemstyleddelegate.cpp
 
 release/qrc_graphics.o: release/qrc_graphics.cpp 
