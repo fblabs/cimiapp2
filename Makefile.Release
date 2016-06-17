@@ -17,13 +17,13 @@ CXXFLAGS      = -pipe -fno-keep-inline-dllexport -O2 -frtti -Wall -Wextra -fexce
 INCPATH       = -I. -I../../../Qt/5.5/mingw492_32/include -I../../../Qt/5.5/mingw492_32/include/QtPrintSupport -I../../../Qt/5.5/mingw492_32/include/QtWidgets -I../../../Qt/5.5/mingw492_32/include/QtGui -I../../../Qt/5.5/mingw492_32/include/QtANGLE -I../../../Qt/5.5/mingw492_32/include/QtSql -I../../../Qt/5.5/mingw492_32/include/QtCore -Irelease -I. -I../../../Qt/5.5/mingw492_32/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LC:/Qt/5.5/mingw492_32/lib -lqtmain -lshell32 -lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5Sql -lQt5Core 
+LIBS        =        -lmingw32 -LC:/Qt/5.5/mingw492_32/lib -lqtmain -lshell32 -lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5Sql -lQt5Core release/cimiapp2_res.o 
 QMAKE         = C:/Qt/5.5/mingw492_32/bin/qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = 
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = release/cimiapp2_res.o
 COPY          = cp -f
 SED           = sed
 COPY_FILE     = cp -f
@@ -125,9 +125,7 @@ OBJECTS       = release/main.o \
 		release/moc_cprintingjob.o \
 		release/moc_fprint.o
 
-DIST          = win32:RC_ICONS \
-		+= \
-		cimiapp2.ico cmainwindow.h \
+DIST          =  cmainwindow.h \
 		coperations.h \
 		cregistrazione.h \
 		cnuovaregistrazione.h \
@@ -193,8 +191,11 @@ DESTDIR_TARGET = release/CimiApp2.exe
 first: all
 all: Makefile.Release  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): ui_cmainwindow.h ui_coperations.h ui_cregistrazione.h ui_cnuovaregistrazione.h ui_cconti.h ui_ctipianagrafici.h ui_cmastri.h ui_csettings.h ui_cmandati.h ui_cnewmandato.h ui_hprint.h ui_cregistrazioni.h ui_cnuovariga.h ui_cbuoni.h ui_cprintingjob.h ui_fprint.h $(OBJECTS) 
+$(DESTDIR_TARGET): ui_cmainwindow.h ui_coperations.h ui_cregistrazione.h ui_cnuovaregistrazione.h ui_cconti.h ui_ctipianagrafici.h ui_cmastri.h ui_csettings.h ui_cmandati.h ui_cnewmandato.h ui_hprint.h ui_cregistrazioni.h ui_cnuovariga.h ui_cbuoni.h ui_cprintingjob.h ui_fprint.h $(OBJECTS) release/cimiapp2_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.CimiApp2.Release  $(LIBS)
+
+release/cimiapp2_res.o: cimiapp2.rc
+	windres -i cimiapp2.rc -o release/cimiapp2_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ -o Makefile.Release CimiApp2.pro
@@ -206,6 +207,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) release/main.o release/cmainwindow.o release/coperations.o release/cregistrazione.o release/cnuovaregistrazione.o release/cconti.o release/ctipianagrafici.o release/csqltipianagraficimodel.o release/cmastri.o release/csettings.o release/csqlrelationaltablemodel.o release/cmandati.o release/cnewmandato.o release/hprint.o release/cregistrazioni.o release/cnuovariga.o release/cbuoni.o release/cprint.o release/cprintingjob.o release/fprint.o release/citemstyleddelegate.o release/qrc_graphics.o release/moc_cmainwindow.o release/moc_coperations.o release/moc_cregistrazione.o release/moc_cnuovaregistrazione.o release/moc_cconti.o release/moc_ctipianagrafici.o release/moc_csqltipianagraficimodel.o release/moc_cmastri.o release/moc_csettings.o release/moc_csqlrelationaltablemodel.o release/moc_cmandati.o release/moc_cnewmandato.o release/moc_hprint.o release/moc_cregistrazioni.o release/moc_cnuovariga.o release/moc_cbuoni.o release/moc_cprint.o release/moc_cprintingjob.o release/moc_fprint.o
+	-$(DEL_FILE) release/cimiapp2_res.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -5472,6 +5474,7 @@ release/cbuoni.o: cbuoni.cpp cbuoni.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \

@@ -17,13 +17,13 @@ CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -frtti -Wall -Wextra -fexcep
 INCPATH       = -I. -I../../../Qt/5.5/mingw492_32/include -I../../../Qt/5.5/mingw492_32/include/QtPrintSupport -I../../../Qt/5.5/mingw492_32/include/QtWidgets -I../../../Qt/5.5/mingw492_32/include/QtGui -I../../../Qt/5.5/mingw492_32/include/QtANGLE -I../../../Qt/5.5/mingw492_32/include/QtSql -I../../../Qt/5.5/mingw492_32/include/QtCore -Idebug -I. -I../../../Qt/5.5/mingw492_32/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LC:/Qt/5.5/mingw492_32/lib -lqtmaind -lshell32 -lQt5PrintSupportd -lQt5Widgetsd -lQt5Guid -lQt5Sqld -lQt5Cored 
+LIBS        =        -lmingw32 -LC:/Qt/5.5/mingw492_32/lib -lqtmaind -lshell32 -lQt5PrintSupportd -lQt5Widgetsd -lQt5Guid -lQt5Sqld -lQt5Cored debug/cimiapp2_res.o 
 QMAKE         = C:/Qt/5.5/mingw492_32/bin/qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = 
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = debug/cimiapp2_res.o
 COPY          = cp -f
 SED           = sed
 COPY_FILE     = cp -f
@@ -125,9 +125,7 @@ OBJECTS       = debug/main.o \
 		debug/moc_cprintingjob.o \
 		debug/moc_fprint.o
 
-DIST          = win32:RC_ICONS \
-		+= \
-		cimiapp2.ico cmainwindow.h \
+DIST          =  cmainwindow.h \
 		coperations.h \
 		cregistrazione.h \
 		cnuovaregistrazione.h \
@@ -193,8 +191,11 @@ DESTDIR_TARGET = debug/CimiApp2.exe
 first: all
 all: Makefile.Debug  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): ui_cmainwindow.h ui_coperations.h ui_cregistrazione.h ui_cnuovaregistrazione.h ui_cconti.h ui_ctipianagrafici.h ui_cmastri.h ui_csettings.h ui_cmandati.h ui_cnewmandato.h ui_hprint.h ui_cregistrazioni.h ui_cnuovariga.h ui_cbuoni.h ui_cprintingjob.h ui_fprint.h $(OBJECTS) 
+$(DESTDIR_TARGET): ui_cmainwindow.h ui_coperations.h ui_cregistrazione.h ui_cnuovaregistrazione.h ui_cconti.h ui_ctipianagrafici.h ui_cmastri.h ui_csettings.h ui_cmandati.h ui_cnewmandato.h ui_hprint.h ui_cregistrazioni.h ui_cnuovariga.h ui_cbuoni.h ui_cprintingjob.h ui_fprint.h $(OBJECTS) debug/cimiapp2_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.CimiApp2.Debug  $(LIBS)
+
+debug/cimiapp2_res.o: cimiapp2.rc
+	windres -i cimiapp2.rc -o debug/cimiapp2_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -spec win32-g++ -o Makefile.Debug CimiApp2.pro
@@ -206,6 +207,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug/main.o debug/cmainwindow.o debug/coperations.o debug/cregistrazione.o debug/cnuovaregistrazione.o debug/cconti.o debug/ctipianagrafici.o debug/csqltipianagraficimodel.o debug/cmastri.o debug/csettings.o debug/csqlrelationaltablemodel.o debug/cmandati.o debug/cnewmandato.o debug/hprint.o debug/cregistrazioni.o debug/cnuovariga.o debug/cbuoni.o debug/cprint.o debug/cprintingjob.o debug/fprint.o debug/citemstyleddelegate.o debug/qrc_graphics.o debug/moc_cmainwindow.o debug/moc_coperations.o debug/moc_cregistrazione.o debug/moc_cnuovaregistrazione.o debug/moc_cconti.o debug/moc_ctipianagrafici.o debug/moc_csqltipianagraficimodel.o debug/moc_cmastri.o debug/moc_csettings.o debug/moc_csqlrelationaltablemodel.o debug/moc_cmandati.o debug/moc_cnewmandato.o debug/moc_hprint.o debug/moc_cregistrazioni.o debug/moc_cnuovariga.o debug/moc_cbuoni.o debug/moc_cprint.o debug/moc_cprintingjob.o debug/moc_fprint.o
+	-$(DEL_FILE) debug/cimiapp2_res.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -5472,6 +5474,7 @@ debug/cbuoni.o: cbuoni.cpp cbuoni.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayout.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
+		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
 		../../../Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \

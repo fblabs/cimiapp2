@@ -75,8 +75,9 @@ FORMS    += cmainwindow.ui \
 RESOURCES += \
     graphics.qrc
 
+RC_FILE = cimiapp2.rc
 
-DISTFILES += win32:RC_ICONS += cimiapp2.ico
+
 
 
 
