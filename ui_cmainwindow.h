@@ -147,6 +147,7 @@ public:
         label_2->setMaximumSize(QSize(312, 312));
         label_2->setPixmap(QPixmap(QString::fromUtf8(":/Resources/Stardock DesktopX.png")));
         label_2->setScaledContents(true);
+        label_2->setMargin(20);
 
         horizontalLayout->addWidget(label_2);
 
@@ -174,10 +175,11 @@ public:
         QFont font1;
         font1.setFamily(QStringLiteral("Arial"));
         font1.setPointSize(10);
-        font1.setBold(true);
-        font1.setWeight(75);
+        font1.setBold(false);
+        font1.setWeight(50);
         label_6->setFont(font1);
         label_6->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        label_6->setOpenExternalLinks(true);
 
         verticalLayout->addWidget(label_6);
 
@@ -347,10 +349,10 @@ public:
 
     void retranslateUi(QMainWindow *CMainWindow)
     {
-        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.6", 0));
+        CMainWindow->setWindowTitle(QApplication::translate("CMainWindow", "CimiApp2 1.0.7", 0));
         label_3->setText(QString());
         label->setText(QApplication::translate("CMainWindow", "CimiApp 2", 0));
-        label_6->setText(QApplication::translate("CMainWindow", "Vers: 1.0.6", 0));
+        label_6->setText(QApplication::translate("CMainWindow", "<html><head/><body><p>Vers: 1.0.7 </p><p><br/><span style=\" font-style:italic;\">developed with:</span> Qt 5.5.1 libs</p><p><span style=\" font-style:italic;\">built with:</span> mingw 4.9.2 </p><p><br/></p><p>[C][P] fblabs 2016</p><p><a href=\"www.github.com/fblabs/cimiapp2\"><span style=\" text-decoration: underline; color:#0000ff;\">Sources</span></a></p><p><br/></p><p><br/></p><p><br/></p><p><br/></p></body></html>", 0));
         label_4->setText(QString());
         pBOperazioni->setText(QApplication::translate("CMainWindow", "Registrazioni           ", 0));
         pushButton_2->setText(QApplication::translate("CMainWindow", "Impostazioni", 0));

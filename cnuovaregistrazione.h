@@ -36,7 +36,9 @@ private slots:
 
     void on_pushButton_6_clicked();
 
-    void on_cbTipoRegistrazione_currentIndexChanged(int index);
+ //   void on_cbTipoRegistrazione_currentIndexChanged(int index);
+
+    void on_cbxRimborso_toggled(bool checked);
 
 private:
     Ui::CNuovaRegistrazione *ui;

@@ -16,6 +16,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -34,7 +35,9 @@ public:
     QDateEdit *deDal;
     QDateEdit *deAL;
     QLabel *label_2;
+    QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
+    QPushButton *pushButton_2;
 
     void setupUi(QWidget *CBuoni)
     {
@@ -76,6 +79,8 @@ public:
 
         verticalLayout->addLayout(gridLayout);
 
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         pushButton = new QPushButton(CBuoni);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         QIcon icon1;
@@ -83,7 +88,19 @@ public:
         pushButton->setIcon(icon1);
         pushButton->setIconSize(QSize(32, 32));
 
-        verticalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(pushButton);
+
+        pushButton_2 = new QPushButton(CBuoni);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/Resources/Actions-window-close-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon2);
+        pushButton_2->setIconSize(QSize(32, 32));
+
+        horizontalLayout->addWidget(pushButton_2);
+
+
+        verticalLayout->addLayout(horizontalLayout);
 
 
         retranslateUi(CBuoni);
@@ -104,6 +121,7 @@ public:
         label->setText(QApplication::translate("CBuoni", "Dal:", 0));
         label_2->setText(QApplication::translate("CBuoni", "Al:", 0));
         pushButton->setText(QApplication::translate("CBuoni", "Genera Report", 0));
+        pushButton_2->setText(QApplication::translate("CBuoni", "Chiudi", 0));
     } // retranslateUi
 
 };

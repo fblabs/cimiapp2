@@ -361,7 +361,7 @@ public:
 
         pbAnnulla = new QPushButton(CConti);
         pbAnnulla->setObjectName(QStringLiteral("pbAnnulla"));
-        pbAnnulla->setEnabled(false);
+        pbAnnulla->setEnabled(true);
         QIcon icon2;
         icon2.addFile(QStringLiteral(":/Resources/Banned-Sign.PNG"), QSize(), QIcon::Normal, QIcon::Off);
         pbAnnulla->setIcon(icon2);
@@ -371,7 +371,7 @@ public:
 
         pbSave = new QPushButton(CConti);
         pbSave->setObjectName(QStringLiteral("pbSave"));
-        pbSave->setEnabled(false);
+        pbSave->setEnabled(true);
         QIcon icon3;
         icon3.addFile(QStringLiteral(":/Resources/save-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         pbSave->setIcon(icon3);

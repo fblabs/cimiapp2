@@ -35,7 +35,7 @@ CMastri::CMastri(QWidget *parent,QSqlDatabase pdb) :
     contimod=new QSqlTableModel(0,db);
 
     contimod->setTable("anagrafica");
-    contimod->setFilter("tipo='C'");
+//    contimod->setFilter("tipo='C'");
     contimod->setSort(2,Qt::AscendingOrder);
 
 
@@ -74,8 +74,8 @@ void CMastri::getTotali()
 
     for (int r=0;r<ui->tvMastro->model()->rowCount();r++)
     {
-        totaleDare += ui->tvMastro->model()->index(r,6).data(0).toDouble();
-        totaleAvere += ui->tvMastro->model()->index(r,5).data(0).toDouble();
+        totaleDare += ui->tvMastro->model()->index(r,7).data(0).toDouble();
+        totaleAvere += ui->tvMastro->model()->index(r,6).data(0).toDouble();
     }
 
     ui->leDare->setText(QString::number(totaleDare,'f',2));
@@ -86,7 +86,7 @@ void CMastri::getTotali()
 
 void CMastri::getMastro()
 {
-        QString sql="SELECT registrazioni.ID as ID,registrazioni.datareg as 'Data',(SELECT anagrafica.descrizione from anagrafica where ID=:pid) as Conto,anagrafica.descrizione as Contropartita,(select descrizione from tipi_mov where tipi_mov.ID=tipo_mov) as Tipo ,(SELECT SUM(righe_reg.entrate) from righe_reg where righe_reg.ID=registrazioni.ID) as Entrate,(SELECT SUM(righe_reg.uscite) from righe_reg where righe_reg.ID=registrazioni.ID) as Uscite from registrazioni,anagrafica where anagrafica.ID=registrazioni.codcp and registrazioni.codana=:pid and year(registrazioni.datareg)=:anno order by registrazioni.datareg desc";
+        QString sql="SELECT registrazioni.ID as ID,registrazioni.datareg as 'Data',registrazioni.flag as 'Liquidato',(SELECT anagrafica.descrizione from anagrafica where ID=:pid) as Conto,anagrafica.descrizione as Contropartita,(select descrizione from tipi_mov where tipi_mov.ID=tipo_mov) as Tipo ,(SELECT SUM(righe_reg.entrate) from righe_reg where righe_reg.ID=registrazioni.ID) as Entrate,(SELECT SUM(righe_reg.uscite) from righe_reg where righe_reg.ID=registrazioni.ID) as Uscite from registrazioni,anagrafica where anagrafica.ID=registrazioni.codcp and registrazioni.codana=:pid and year(registrazioni.datareg)=:anno order by registrazioni.datareg desc";
    //     QString sql="SELECT registrazioni.ID as ID,anagrafica.descrizione as Contropartita,(select descrizione from tipi_mov where tipi_mov.ID=tipo_mov) as Tipo ,(SELECT SUM(righe_reg.entrate) from righe_reg where righe_reg.ID=registrazioni.ID) as Entrate,(SELECT SUM(righe_reg.uscite) from righe_reg where righe_reg.ID=registrazioni.ID) as Uscite from registrazioni,anagrafica where anagrafica.ID=registrazioni.codcp and registrazioni.codana=:pid";
 
     int pid=contimod->index(ui->cbConti->currentIndex(),0).data(0).toInt();

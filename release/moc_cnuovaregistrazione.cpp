@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CNuovaRegistrazione_t {
-    QByteArrayData data[13];
-    char stringdata0[283];
+    QByteArrayData data[14];
+    char stringdata0[271];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,7 +41,8 @@ QT_MOC_LITERAL(8, 161, 23), // "on_pushButton_3_clicked"
 QT_MOC_LITERAL(9, 185, 23), // "on_pushButton_5_clicked"
 QT_MOC_LITERAL(10, 209, 6), // "reload"
 QT_MOC_LITERAL(11, 216, 23), // "on_pushButton_6_clicked"
-QT_MOC_LITERAL(12, 240, 42) // "on_cbTipoRegistrazione_curren..."
+QT_MOC_LITERAL(12, 240, 22), // "on_cbxRimborso_toggled"
+QT_MOC_LITERAL(13, 263, 7) // "checked"
 
     },
     "CNuovaRegistrazione\0recordAdded\0\0"
@@ -50,7 +51,7 @@ QT_MOC_LITERAL(12, 240, 42) // "on_cbTipoRegistrazione_curren..."
     "on_pushButton_4_clicked\0on_pushButton_clicked\0"
     "on_pushButton_3_clicked\0on_pushButton_5_clicked\0"
     "reload\0on_pushButton_6_clicked\0"
-    "on_cbTipoRegistrazione_currentIndexChanged"
+    "on_cbxRimborso_toggled\0checked"
 };
 #undef QT_MOC_LITERAL
 
@@ -93,7 +94,7 @@ static const uint qt_meta_data_CNuovaRegistrazione[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    4,
+    QMetaType::Void, QMetaType::Bool,   13,
 
        0        // eod
 };
@@ -113,7 +114,7 @@ void CNuovaRegistrazione::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 6: _t->on_pushButton_5_clicked(); break;
         case 7: _t->reload(); break;
         case 8: _t->on_pushButton_6_clicked(); break;
-        case 9: _t->on_cbTipoRegistrazione_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->on_cbxRimborso_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

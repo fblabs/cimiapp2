@@ -104,6 +104,8 @@ public:
 
         cbTipoRegistrazione = new QComboBox(CNuovaRegistrazione);
         cbTipoRegistrazione->setObjectName(QStringLiteral("cbTipoRegistrazione"));
+        cbTipoRegistrazione->setEditable(true);
+        cbTipoRegistrazione->setInsertPolicy(QComboBox::NoInsert);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, cbTipoRegistrazione);
 

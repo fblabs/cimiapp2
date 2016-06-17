@@ -304,7 +304,7 @@
      <item>
       <widget class="QPushButton" name="pbAnnulla">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="text">
         <string>Annulla</string>
@@ -324,7 +324,7 @@
      <item>
       <widget class="QPushButton" name="pbSave">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="text">
         <string>Salva</string>

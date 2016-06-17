@@ -47,6 +47,7 @@ void CNuovaRegistrazione::init(QSqlDatabase pdb)
     tipimod->setTable("tipi_mov");
     tipimod->setSort(1,Qt::AscendingOrder);
     tipimod->select();
+    tipimod->setFilter("ID=20");
 
     ui->cbTipoRegistrazione->setModel(tipimod);
     ui->cbTipoRegistrazione->setModelColumn(1);
@@ -266,7 +267,21 @@ void CNuovaRegistrazione::on_pushButton_6_clicked()
    }
 }
 
-void CNuovaRegistrazione::on_cbTipoRegistrazione_currentIndexChanged(int index)
+
+
+void CNuovaRegistrazione::on_cbxRimborso_toggled(bool checked)
 {
-    ui->cbxRimborso->setChecked(false);
+    QSqlTableModel *mod =  static_cast<QSqlTableModel*>(ui->cbTipoRegistrazione->model());
+
+    if(checked)
+    {
+          mod->setFilter("ID=20");
+    }
+    else
+    {
+         mod->setFilter("");
+    }
+
+    ui->cbTipoRegistrazione->setCurrentIndex(0);
 }
+

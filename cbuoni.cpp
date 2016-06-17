@@ -189,3 +189,8 @@ void CBuoni::on_pushButton_clicked()
 {
     generateReport();
 }
+
+void CBuoni::on_pushButton_2_clicked()
+{
+    close();
+}

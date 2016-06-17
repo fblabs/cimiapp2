@@ -426,7 +426,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>CimiApp2 1.0.6</string>
+   <string>CimiApp2 1.0.7</string>
   </property>
   <property name="windowIcon">
    <iconset resource="graphics.qrc">
@@ -475,6 +475,9 @@
         <property name="scaledContents">
          <bool>true</bool>
         </property>
+        <property name="margin">
+         <number>20</number>
+        </property>
        </widget>
       </item>
       <item>
@@ -511,15 +514,18 @@
            <font>
             <family>Arial</family>
             <pointsize>10</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
+            <weight>50</weight>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
-           <string>Vers: 1.0.6</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Vers: 1.0.7 &lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;developed with:&lt;/span&gt; Qt 5.5.1 libs&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;built with:&lt;/span&gt; mingw 4.9.2 &lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;[C][P] fblabs 2016&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;www.github.com/fblabs/cimiapp2&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Sources&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="openExternalLinks">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
